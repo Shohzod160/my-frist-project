@@ -80,49 +80,51 @@ nav {
 </header>
 <main>
 <div class="section">
-    <h2>DNS (Domain Name System) Protocol</h2>
+    <h2>Network Topology and Its Structure</h2>
     <ul>
-        <li>DNS (Domain Name System) Protocol is a fundamental protocol of the internet that translates human-friendly domain names (e.g., www.google.com) into IP addresses (e.g., 142.250.190.78), which computers use to locate and communicate with each other.</li>
-        <li>How DNS Works:
+        <li>Network topology refers to the arrangement of devices and connections in a computer network. There are several types of network topologies, each with its own structure and characteristics:</li>
+        <li><strong>1. Bus Topology</strong>
             <ul>
-                <li><strong>User Request:</strong> When a user enters a URL in a browser, the request is sent to a DNS resolver.</li>
-                <li><strong>Recursive Query:</strong> The resolver queries different DNS servers to find the IP address of the domain.</li>
-                <li><strong>Response from DNS Servers:</strong> The resolver gets the IP address and returns it to the user’s device.</li>
-                <li><strong>Connection to Website:</strong> The device uses the IP address to connect to the target server and load the website.</li>
+                <li><strong>Structure:</strong> All devices are connected to a single central cable (the "bus"). Data is transmitted in both directions.</li>
+                <li><strong>Advantages:</strong> Simple and cost-effective for small networks.</li>
+                <li><strong>Disadvantages:</strong> A single cable failure can bring down the entire network; performance degrades with more devices.</li>
             </ul>
         </li>
-        <li>Types of DNS Servers:
+        <li><strong>2. Star Topology</strong>
             <ul>
-                <li><strong>Recursive Resolver:</strong> Receives queries from users and finds the IP address by contacting other DNS servers.</li>
-                <li><strong>Root DNS Server:</strong> The first step in resolving domain names, directing queries to the correct TLD (Top-Level Domain) servers (e.g., .com, .org).</li>
-                <li><strong>TLD Server:</strong> Manages specific domain extensions and points to the appropriate Authoritative DNS Server.</li>
-                <li><strong>Authoritative DNS Server:</strong> Stores the actual IP address for the requested domain and returns it to the resolver.</li>
+                <li><strong>Structure:</strong> All devices connect to a central hub or switch. The hub manages communication between nodes.</li>
+                <li><strong>Advantages:</strong> Easy to manage and expand; a failure in one device doesn’t affect the network.</li>
+                <li><strong>Disadvantages:</strong> If the central hub fails, the entire network goes down; more cabling is required.</li>
             </ul>
         </li>
-        <li>DNS Query Types:
+        <li><strong>3. Ring Topology</strong>
             <ul>
-                <li><strong>Recursive Query:</strong> The resolver does all the work and returns the final IP address.</li>
-                <li><strong>Iterative Query:</strong> The resolver queries multiple servers step by step until it finds the IP.</li>
-                <li><strong>Reverse DNS Lookup:</strong> Translates an IP address back into a domain name.</li>
+                <li><strong>Structure:</strong> Devices are connected in a closed loop; data travels in one or both directions.</li>
+                <li><strong>Advantages:</strong> Efficient for handling data traffic; predictable performance.</li>
+                <li><strong>Disadvantages:</strong> A single node failure can disrupt the entire network (unless a dual-ring structure is used).</li>
             </ul>
         </li>
-        <li>DNS Protocol and Ports:
+        <li><strong>4. Mesh Topology</strong>
             <ul>
-                <li>Uses UDP (User Datagram Protocol) on Port 53 (for fast, lightweight communication).</li>
-                <li>Uses TCP (Transmission Control Protocol) on Port 53 for large responses (e.g., DNS zone transfers).</li>
-                <li>DNS over HTTPS (DoH) and DNS over TLS (DoT) improve security by encrypting DNS queries.</li>
+                <li><strong>Structure:</strong> Every device connects to every other device, forming a fully or partially connected network.</li>
+                <li><strong>Advantages:</strong> Highly reliable; if one connection fails, data can take an alternative route.</li>
+                <li><strong>Disadvantages:</strong> Expensive and complex due to a large number of connections.</li>
             </ul>
         </li>
-        <li>Common DNS Records:
+        <li><strong>5. Tree (Hierarchical) Topology</strong>
             <ul>
-                <li><strong>A Record:</strong> Maps a domain to an IPv4 address.</li>
-                <li><strong>AAAA Record:</strong> Maps a domain to an IPv6 address.</li>
-                <li><strong>CNAME Record:</strong> Aliases one domain name to another.</li>
-                <li><strong>MX Record:</strong> Specifies mail servers for a domain.</li>
-                <li><strong>TXT Record:</strong> Stores arbitrary text, often for verification.</li>
+                <li><strong>Structure:</strong> A combination of star and bus topologies, forming a hierarchy with multiple levels.</li>
+                <li><strong>Advantages:</strong> Scalable and easy to manage in large networks.</li>
+                <li><strong>Disadvantages:</strong> Failure at higher levels can affect multiple nodes.</li>
             </ul>
         </li>
-        <li>DNS is essential for internet functionality, ensuring human-friendly web navigation.</li>
+        <li><strong>6. Hybrid Topology</strong>
+            <ul>
+                <li><strong>Structure:</strong> A mix of two or more topologies, designed for specific needs.</li>
+                <li><strong>Advantages:</strong> Flexible and optimized for different use cases.</li>
+                <li><strong>Disadvantages:</strong> Complex design and higher cost.</li>
+            </ul>
+        </li>
     </ul>
 </div>
 <div class="section">
