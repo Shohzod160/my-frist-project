@@ -1,1440 +1,635 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Introduction to Web Development</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Databases (3-7) RU Test</title>
     <style>
-        body{
-            margin: 0;
-            padding: 0;
-            
-        }
-        main {
+        body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            margin: 20px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 20px ;
+            background-color: #f9f9f9;
+        }
+        a:hover{
+            color: #0066cc;
         }
         h1, h2, h3 {
-            color: #2c3e50;
+            color: #333;
         }
-        h2 {
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 5px;
+        h1 {
+            text-align: center;
         }
-        ul, ol {
-            margin-left: 20px;
+        .email {
+            font-style: italic;
+            color: #555;
         }
-        .section {
-            margin-bottom: 30px;
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
         }
         code {
-            background-color: #f1f1f1;
-            padding: 2px 5px;
-            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
         }
-        header {
-            position: sticky;
-            top: 0;
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
         }
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    padding-bottom: 5px;
-    background-color: #f1f1f1;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.back{
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-decoration: none;
-    color: #2c3e50;
-    margin-left: 50px;
-    font-size: 25px;
-    transition: b;
-    font-weight: bold;
-}
-
-.menu{
-    display: flex;
-    font-size: 20px;
-}
-
-.menu a{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-decoration: none;
-    color: #2c3e50;
-    margin-left: 40px;
-    margin-right: 30px;
-    font-weight: bold;
-}
+        li {
+            margin-bottom: 10px;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .question-number {
+            font-weight: bold;
+            color: #0066cc;
+        }
     </style>
 </head>
 <body>
-<header>
-    <nav>
-        <a href="index.html" class="back">Back</a>
-        <div class="menu">
-            <a href="#css">CSS Questions</a>
-            <a href="#js question">JavaScript Questions</a>
-            <a href="#php">PHP Questions</a>
-            <a href="#js">JavaScript Practical Tasks</a>
-        </div>
-    </nav>
-</header>
-<main>
-    <h1>Introduction to Web Development</h1>
+    
+    <h2><a href="index.html" style="text-decoration: none;">Back to Profile</a></h2>
 
-    <div class="section">
-        <h2>1. Introduction to Web Development and Basic Concepts</h2>
-        <p><strong>Web development:</strong> The process of creating websites and web applications.</p>
-        <p><strong>Basic concepts:</strong></p>
+    <div class="question">
+        <p class="question-number">1.</p>
+        <p><strong>Рассмотрим запрос:</strong></p>
+        <pre><code>SELECT c.category_name, p.product_name 
+FROM categories AS c 
+LEFT JOIN products AS p 
+ON c.category_id = p.category_id 
+WHERE p.price > 50.00;</code></pre>
+        <p>Что произойдет, если категория (например, 'Books') содержит только продукты по цене $50.00 или меньше? <em>(1 балл)</em></p>
         <ul>
-            <li><strong>HTML (HyperText Markup Language):</strong> Structures content.</li>
-            <li><strong>CSS (Cascading Style Sheets):</strong> Styles content.</li>
-            <li><strong>JavaScript:</strong> Adds interactivity.</li>
-            <li><strong>Web browser:</strong> Software to view web pages.</li>
-            <li><strong>Web server:</strong> Stores and delivers web pages.</li>
-            <li><strong>URL (Uniform Resource Locator):</strong> Web address.</li>
+            <li>Название категории появится со значением NULL для p.product_name.</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">Категория вообще не появится в результатах.</li>
+            <li>Будет вызвана ошибка, поскольку ни один продукт не соответствует условию WHERE для этой категории.</li>
+            <li>Название категории появится, и все ее продукты будут перечислены, игнорируя условие WHERE для этой категории.</li>
         </ul>
     </div>
 
-    <div class="section">
-        <h2>2. Stages of WWW Development. Client-Server Technologies</h2>
-        <p><strong>Stages:</strong></p>
+    <div class="question">
+        <p class="question-number">2.</p>
+        <p><strong>Чтобы найти все уникальные комбинации (genre, book_title) из обеих таблиц, используя оператор UNION, что должно быть выбрано в первом операторе SELECT:</strong></p>
+        <pre><code>SELECT _____ FROM genre_books_set1 
+UNION ...;</code></pre>
+        <p><em>(1 балл)</em></p>
         <ul>
-            <li>Early text-based browsers</li>
-            <li>Graphical browsers</li>
-            <li>Dynamic web pages</li>
-            <li>Web applications</li>
-            <li>The modern web with rich media and interactivity</li>
-        </ul>
-        <p><strong>Client-server:</strong></p>
-        <ul>
-            <li><strong>Client (browser):</strong> Requests resources.</li>
-            <li><strong>Server:</strong> Provides resources (HTML, CSS, JavaScript, images).</li>
-            <li><strong>Communication:</strong> Via HTTP/HTTPS.</li>
+            <li>genre</li>
+            <li>book_title</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">genre, book_title</li>
+            <li>book_id, genre</li>
         </ul>
     </div>
 
-    <div class="section">
-        <h2>3. Components of a Web Application. Frontend and Backend Technologies</h2>
-        <p><strong>Components:</strong> User interface, application logic, and data storage.</p>
-        <p><strong>Frontend:</strong></p>
+    <div class="question">
+        <p class="question-number">3.</p>
+        <p><strong>В запросе для поиска названий продуктов и их цен для продуктов из категории 'Electronics':</strong></p>
+        <pre><code>SELECT p.product_name, p.price 
+FROM products AS p 
+INNER JOIN categories AS c 
+ON p.category_id = c.category_id 
+WHERE c.category_name = 'Electronics';</code></pre>
+        <p>Какое условие отвечает за фильтрацию результатов, чтобы включить только продукты из категории 'Electronics'? <em>(1 балл)</em></p>
         <ul>
-            <li>What the user sees and interacts with.</li>
-            <li><strong>Technologies:</strong> HTML, CSS, JavaScript, frameworks like React, Angular, Vue.js.</li>
-        </ul>
-        <p><strong>Backend:</strong></p>
-        <ul>
-            <li>Server-side logic and data management.</li>
-            <li><strong>Technologies:</strong> Python (Django, Flask), Node.js (Express), Ruby on Rails, PHP, databases (MySQL, PostgreSQL, MongoDB).</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>4. What is Hosting?</h2>
-        <p>Hosting is the service of providing storage space and access for websites or web applications on a server connected to the internet. This makes websites accessible to users worldwide.</p>
-    </div>
-
-    <div class="section">
-        <h2>5. General Structure and Basic Tags, Attributes of an HTML Document</h2>
-        <p><strong>Structure:</strong></p>
-        <ul>
-            <li><code>&lt;!DOCTYPE html&gt;</code>: Document type declaration.</li>
-            <li><code>&lt;html&gt;</code>: Root element.</li>
-            <li><code>&lt;head&gt;</code>: Contains metadata (title, links to CSS, etc.).</li>
-            <li><code>&lt;body&gt;</code>: Contains the visible content.</li>
-        </ul>
-        <p><strong>Basic tags:</strong></p>
-        <ul>
-            <li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>: Headings.</li>
-            <li><code>&lt;p&gt;</code>: Paragraph.</li>
-            <li><code>&lt;div&gt;</code>: Division.</li>
-            <li><code>&lt;span&gt;</code>: Inline container.</li>
-        </ul>
-        <p><strong>Attributes:</strong></p>
-        <ul>
-            <li><code>href</code>: Links.</li>
-            <li><code>src</code>: Images.</li>
-            <li><code>class</code>: CSS styling.</li>
-            <li><code>id</code>: Unique identifier.</li>
-            <li><code>style</code>: Inline styling.</li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2>6. Working with Images</h2>
-        <ul>
-            <li><code>&lt;img&gt;</code>: Embeds images (<code>src</code>, <code>alt</code>, <code>width</code>, <code>height</code> attributes).</li>
-            <li><code>&lt;map&gt;</code>: Defines an image map (clickable areas).</li>
-            <li><code>&lt;area&gt;</code>: Defines clickable areas within an image map (<code>shape</code>, <code>coords</code>, <code>href</code> attributes).</li>
-            <li><code>&lt;picture&gt;</code>: Provides responsive images based on screen size or other criteria (<code>&lt;source&gt;</code> and <code>&lt;img&gt;</code> tags).</li>
+            <li>SELECT p.product_name, p.price</li>
+            <li>INNER JOIN categories AS c</li>
+            <li>ON p.category_id = c.category_id</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">WHERE c.category_name = 'Electronics'</li>
         </ul>
     </div>
 
-    <div class="section">
-        <h2>7. Working with Tables</h2>
+    <div class="question">
+        <p class="question-number">4.</p>
+        <p><strong>FULL OUTER JOIN используется для объединения категорий и продуктов:</strong></p>
+        <pre><code>SELECT c.category_name, p.product_name 
+FROM categories AS c 
+FULL OUTER JOIN products AS p 
+ON c.category_id = p.category_id;</code></pre>
+        <p>Какая часть этого запроса гарантирует, что если у категории нет продуктов, она все равно появится в результате, и если у продукта нет категории, он также появится? <em>(1 балл)</em></p>
         <ul>
-            <li><code>&lt;table&gt;</code>: Defines a table.</li>
-            <li><code>&lt;tr&gt;</code>: Table row.</li>
-            <li><code>&lt;th&gt;</code>: Table header cell.</li>
-            <li><code>&lt;td&gt;</code>: Table data cell.</li>
-            <li><code>&lt;caption&gt;</code>: Table caption.</li>
-            <li>Attributes: <code>colspan</code>, <code>rowspan</code>.</li>
+            <li>SELECT c.category_name, p.product_name</li>
+            <li>FROM categories AS c</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">FULL OUTER JOIN products AS p</li>
+            <li>ON c.category_id = p.category_id</li>
         </ul>
     </div>
 
-    <div class="section">
-        <h2>8. Working with Links</h2>
+    <div class="question">
+        <p class="question-number">5.</p>
+        <p><strong>Чтобы вывести список всех уникальных жанров, присутствующих либо в genre_books_set1, либо в genre_books_set2, используя операцию UNION, какой столбец должен быть выбран из genre_books_set1 в её операторе SELECT в следующем запросе:</strong></p>
+        <pre><code>SELECT __ FROM genre_books_set1 
+UNION 
+SELECT genre FROM genre_books_set2;</code></pre>
+        <p><em>(1 балл)</em></p>
         <ul>
-            <li><code>&lt;a&gt;</code>: Defines a hyperlink (<code>href</code> attribute).</li>
-            <li><code>target</code> attribute: Specifies where to open the linked document (<code>_blank</code>, <code>_self</code>, <code>_parent</code>, <code>_top</code>).</li>
-            <li>Relative and absolute URLs.</li>
+            <li>book_id</li>
+            <li>book_title</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">genre</li>
+            <li>* (все столбцы)</li>
         </ul>
     </div>
 
-    <div class="section">
-        <h2>9. Working with Lists</h2>
+    <div class="question">
+        <p class="question-number">6.</p>
+        <p><strong>Чтобы вывести список жанров, присутствующих в genre_books_set1, но не в genre_books_set2, структура запроса следующая:</strong></p>
+        <pre><code>SELECT genre FROM table_A 
+EXCEPT 
+SELECT genre FROM table_B;</code></pre>
+        <p>Какое имя таблицы должно заменить table_A? <em>(1 балл)</em></p>
         <ul>
-            <li><code>&lt;ul&gt;</code>: Unordered list.</li>
-            <li><code>&lt;ol&gt;</code>: Ordered list.</li>
-            <li><code>&lt;li&gt;</code>: List item.</li>
-            <li><code>&lt;dl&gt;</code>: Description list.</li>
-            <li><code>&lt;dt&gt;</code>: Description term.</li>
-            <li><code>&lt;dd&gt;</code>: Description data.</li>
+            <li>genre_books_set2</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">genre_books_set1</li>
+            <li>genre_books_set1 UNION genre_books_set2</li>
+            <li>Не имеет значения, какая таблица является table_A.</li>
         </ul>
     </div>
 
-    <div class="section">
-        <h2>10. Working with Forms</h2>
+    <div class="question">
+        <p class="question-number">7.</p>
+        <p><strong>Чтобы отфильтровать группы жанров так, чтобы включить только те, которые содержат букву 'e', какое выражение и условие используются после GROUP BY genre?</strong> <em>(1 балл)</em></p>
         <ul>
-            <li><code>&lt;form&gt;</code>: Defines a form (<code>action</code>, <code>method</code> attributes).</li>
-            <li><code>&lt;input&gt;</code>: Form input field (<code>type</code>, <code>name</code>, <code>value</code> attributes).</li>
-            <li><code>&lt;textarea&gt;</code>: Multiline text input.</li>
-            <li><code>&lt;select&gt;</code>: Drop-down list.</li>
-            <li><code>&lt;option&gt;</code>: Option in a drop-down list.</li>
-            <li><code>&lt;button&gt;</code>: Form button.</li>
-            <li><code>&lt;label&gt;</code>: Label for form elements.</li>
+            <li>WHERE genre LIKE '%e%'</li>
+            <li>HAVING genre = 'e'</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">HAVING genre LIKE '%e%'</li>
+            <li>FILTER genre LIKE '%e%'</li>
         </ul>
     </div>
 
-    <div class="section">
-        <h2>11. New HTML5 Standards</h2>
+    <div class="question">
+        <p class="question-number">8.</p>
+        <p><strong>Для таблицы books столбец title должен быть текстовым, не может быть null и иметь максимальную длину 100 символов. Какой фрагмент SQL-определения является правильным?</strong> <em>(1 балл)</em></p>
         <ul>
-            <li>New tags: <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;video&gt;</code>, <code>&lt;audio&gt;</code>, <code>&lt;canvas&gt;</code>, <code>&lt;svg&gt;</code>.</li>
-            <li>Attributes: <code>data-*</code> (custom data attributes), <code>placeholder</code> (input field hint).</li>
-            <li>Functions: Semantic markup, multimedia support, canvas drawing, SVG graphics, local storage.</li>
+            <li>title TEXT(100) NOT NULL</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">title VARCHAR(100) NOT NULL</li>
+            <li>title STRING(100) REQUIRED</li>
+            <li>title CHAR(100) MANDATORY</li>
         </ul>
     </div>
 
-    <div class="section">
-        <h2>12. Working with Audio, Video, and Graphics in HTML5</h2>
+    <div class="question">
+        <p class="question-number">9.</p>
+        <p><strong>Какое выражение используется для фильтрации строк перед группировкой так, чтобы рассматривались только заказы, где book_title содержит "of"?</strong> <em>(1 балл)</em></p>
         <ul>
-            <li><code>&lt;audio&gt;</code>: Embeds audio (<code>src</code>, <code>controls</code>, <code>autoplay</code> attributes).</li>
-            <li><code>&lt;video&gt;</code>: Embeds video (<code>src</code>, <code>controls</code>, <code>autoplay</code>, <code>width</code>, <code>height</code> attributes).</li>
-            <li><code>&lt;canvas&gt;</code>: Draws graphics using JavaScript.</li>
-            <li><code>&lt;svg&gt;</code>: Embeds scalable vector graphics.</li>
+            <li>HAVING book_title LIKE '%of%'</li>
+            <li>ORDER BY book_title LIKE '%of%'</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">WHERE book_title LIKE '%of%'</li>
+            <li>GROUP BY book_title LIKE '%of%'</li>
         </ul>
     </div>
 
-    <div class="section">
-        <h2>13. Visual Effects in HTML5</h2>
-        <ul>
-            <li>CSS3: Transitions, animations, transformations, gradients, shadows, rounded corners.</li>
-            <li>Canvas &amp; SVG: Complex animations and interactive graphics.</li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2>11. New HTML5 Standards</h2>
-        <ul>
-            <li>New tags: <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;video&gt;</code>, <code>&lt;audio&gt;</code>, <code>&lt;canvas&gt;</code>, <code>&lt;svg&gt;</code>.</li>
-            <li>Attributes: <code>data-*</code> (custom data attributes), <code>placeholder</code> (input field hint).</li>
-            <li>Functions: Semantic markup, multimedia support, canvas drawing, SVG graphics, local storage.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>12. Working with Audio, Video, and Graphics in HTML5</h2>
-        <ul>
-            <li><code>&lt;audio&gt;</code>: Embeds audio (<code>src</code>, <code>controls</code>, <code>autoplay</code> attributes).</li>
-            <li><code>&lt;video&gt;</code>: Embeds video (<code>src</code>, <code>controls</code>, <code>autoplay</code>, <code>width</code>, <code>height</code> attributes).</li>
-            <li><code>&lt;canvas&gt;</code>: Draws graphics using JavaScript.</li>
-            <li><code>&lt;svg&gt;</code>: Embeds scalable vector graphics.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>13. Visual Effects in HTML5</h2>
-        <ul>
-            <li>CSS3: Transitions, animations, transformations, gradients, shadows, rounded corners.</li>
-            <li>Canvas &amp; SVG: Complex animations and interactive graphics.</li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2 id="css">14. Introduction to CSS</h2>
-        <ul>
-            <li>CSS (Cascading Style Sheets): Controls the presentation and layout of HTML documents.</li>
-            <li>Linking methods:
-                <ul>
-                    <li>Inline CSS: Directly within HTML tags using the <code>style</code> attribute.</li>
-                    <li>Internal CSS: Within the <code>&lt;style&gt;</code> tag in the <code>&lt;head&gt;</code> section of an HTML document.</li>
-                    <li>External CSS: In a separate <code>.css</code> file, linked using the <code>&lt;link&gt;</code> tag in the <code>&lt;head&gt;</code> section.</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>15. CSS Syntax. Types of Selectors (Simple, Combined)</h2>
-        <ul>
-            <li>Syntax: <code>selector { property: value; }</code></li>
-            <li>Simple selectors:
-                <ul>
-                    <li>Element selectors (e.g., <code>p</code>, <code>h1</code>).</li>
-                    <li>ID selectors (e.g., <code>#myId</code>).</li>
-                    <li>Class selectors (e.g., <code>.myClass</code>).</li>
-                    <li>Universal selector (<code>*</code>).</li>
-                </ul>
-            </li>
-            <li>Combined selectors:
-                <ul>
-                    <li>Descendant selectors (e.g., <code>div p</code>).</li>
-                    <li>Child selectors (e.g., <code>div > p</code>).</li>
-                    <li>Adjacent sibling selectors (e.g., <code>h1 + p</code>).</li>
-                    <li>General sibling selectors (e.g., <code>h1 ~ p</code>).</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>16. Types of Selectors (Pseudo-elements, Pseudo-classes, Attribute Selectors)</h2>
-        <ul>
-            <li>Pseudo-classes: Select elements based on their state (e.g., <code>:hover</code>, <code>:active</code>, <code>:focus</code>, <code>:first-child</code>).</li>
-            <li>Pseudo-elements: Style specific parts of an element (e.g., <code>::before</code>, <code>::after</code>, <code>::first-line</code>, <code>::first-letter</code>).</li>
-            <li>Attribute selectors: Select elements based on their attributes (e.g., <code>[type="text"]</code>, <code>[href^="https"]</code>).</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>17. Measurement Units</h2>
-        <ul>
-            <li>Absolute units:
-                <ul>
-                    <li><code>px</code> (pixels)</li>
-                    <li><code>pt</code> (points)</li>
-                    <li><code>cm</code> (centimeters)</li>
-                    <li><code>in</code> (inches)</li>
-                </ul>
-            </li>
-            <li>Relative units:
-                <ul>
-                    <li><code>em</code> (relative to the font size of the parent)</li>
-                    <li><code>rem</code> (relative to the root element's font size)</li>
-                    <li><code>%</code> (percentage)</li>
-                    <li><code>vw</code> (viewport width)</li>
-                    <li><code>vh</code> (viewport height)</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>18. CSS Properties. CSS Page Formatting</h2>
-        <ul>
-            <li>Properties: <code>width</code>, <code>height</code>, <code>background-color</code>, <code>font-size</code>, <code>color</code>, <code>margin</code>, <code>padding</code>, <code>border</code>.</li>
-            <li>Page formatting: Using properties to control layout, spacing, and appearance of elements on a web page.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>19. CSS Color Properties</h2>
-        <ul>
-            <li><code>color</code>: Sets text color.</li>
-            <li><code>background-color</code>: Sets background color.</li>
-            <li>Color values:
-                <ul>
-                    <li>Hexadecimal (<code>#rrggbb</code>)</li>
-                    <li>RGB (<code>rgb(r, g, b)</code>)</li>
-                    <li>RGBA (<code>rgba(r, g, b, a)</code>)</li>
-                    <li>HSL (<code>hsl(hue, saturation, lightness)</code>)</li>
-                    <li>HSLA (<code>hsla(hue, saturation, lightness, alpha)</code>)</li>
-                    <li>Color names</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2>20. CSS Border Properties</h2>
-        <ul>
-            <li><code>border-width</code>: Sets border thickness.</li>
-            <li><code>border-style</code>: Sets border style (e.g., solid, dashed, dotted).</li>
-            <li><code>border-color</code>: Sets border color.</li>
-            <li><code>border</code>: Shorthand property.</li>
-            <li>Individual border properties: <code>border-top</code>, <code>border-right</code>, <code>border-bottom</code>, <code>border-left</code>.</li>
-            <li>Border radius: <code>border-radius</code>.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>21. CSS Background Properties</h2>
-        <ul>
-            <li><code>background-color</code>: Sets background color.</li>
-            <li><code>background-image</code>: Sets background image.</li>
-            <li><code>background-repeat</code>: Controls image repetition.</li>
-            <li><code>background-position</code>: Sets image position.</li>
-            <li><code>background-size</code>: Sets image size.</li>
-            <li><code>background</code>: Shorthand property.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>22. CSS Font Properties</h2>
-        <ul>
-            <li><code>font-family</code>: Sets font family.</li>
-            <li><code>font-size</code>: Sets font size.</li>
-            <li><code>font-weight</code>: Sets font weight (e.g., bold, normal).</li>
-            <li><code>font-style</code>: Sets font style (e.g., italic).</li>
-            <li><code>text-decoration</code>: Adds text decorations (e.g., underline).</li>
-            <li><code>line-height</code>: Sets line height.</li>
-            <li><code>text-align</code>: Sets text alignment.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>23. Margin Properties</h2>
-        <ul>
-            <li><code>margin-top</code>, <code>margin-right</code>, <code>margin-bottom</code>, <code>margin-left</code>: Sets margins on individual sides.</li>
-            <li><code>margin</code>: Shorthand property.</li>
-            <li>Margins create space outside an element's border.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>24. Padding Properties</h2>
-        <ul>
-            <li><code>padding-top</code>, <code>padding-right</code>, <code>padding-bottom</code>, <code>padding-left</code>: Sets padding on individual sides.</li>
-            <li><code>padding</code>: Shorthand property.</li>
-            <li>Padding creates space inside an element's border.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>25. Box Model Concept. Box Model Rules</h2>
-        <ul>
-            <li>Box model: Every HTML element is treated as a rectangular box.</li>
-            <li>Components:
-                <ul>
-                    <li>Content</li>
-                    <li>Padding</li>
-                    <li>Border</li>
-                    <li>Margin</li>
-                </ul>
-            </li>
-            <li>Rules:
-                <ul>
-                    <li>Total element width = content width + padding + border + margin.</li>
-                    <li>Total element height = content height + padding + border + margin.</li>
-                </ul>
-            </li>
-            <li><code>box-sizing</code> property can alter the default box model behavior.</li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2>26. CSS3 Basics. CSS Text Effects</h2>
-        <ul>
-            <li>CSS3 Basics:
-                <ul>
-                    <li>Transitions</li>
-                    <li>Animations</li>
-                    <li>Transformations</li>
-                    <li>Gradients</li>
-                    <li>Shadows</li>
-                    <li>Rounded corners</li>
-                </ul>
-            </li>
-            <li>Text Effects:
-                <ul>
-                    <li><code>text-shadow</code></li>
-                    <li><code>text-stroke</code></li>
-                    <li><code>text-overflow</code></li>
-                    <li><code>word-wrap</code></li>
-                    <li><code>text-transform</code></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>27. 2D and 3D Transformations in CSS</h2>
-        <ul>
-            <li>2D Transformations:
-                <ul>
-                    <li><code>translate()</code></li>
-                    <li><code>rotate()</code></li>
-                    <li><code>scale()</code></li>
-                    <li><code>skew()</code></li>
-                    <li><code>matrix()</code></li>
-                </ul>
-            </li>
-            <li>3D Transformations:
-                <ul>
-                    <li><code>translate3d()</code></li>
-                    <li><code>rotate3d()</code></li>
-                    <li><code>scale3d()</code></li>
-                    <li><code>perspective()</code></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>28. CSS Animations</h2>
-        <ul>
-            <li><code>@keyframes</code>: Defines animation sequences.</li>
-            <li><code>animation-name</code>: Specifies the animation to use.</li>
-            <li><code>animation-duration</code>: Sets the animation duration.</li>
-            <li><code>animation-timing-function</code>: Sets the animation speed curve.</li>
-            <li><code>animation-delay</code>: Sets the animation delay.</li>
-            <li><code>animation-iteration-count</code>: Sets the number of animation iterations.</li>
-            <li><code>animation-direction</code>: Sets the animation direction.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>29. CSS Preprocessors (Less and Sass)</h2>
-        <ul>
-            <li>CSS Preprocessors: Extend CSS with features like variables, nesting, mixins, and functions.</li>
-            <li>Less and Sass: Popular preprocessors.</li>
-            <li>Key features:
-                <ul>
-                    <li>Variables: Store reusable values.</li>
-                    <li>Nesting: Write nested CSS rules.</li>
-                    <li>Mixins: Define reusable blocks of CSS.</li>
-                    <li>Functions: Perform calculations and manipulations.</li>
-                </ul>
-            </li>
-            <li>Note: These need to be compiled to normal CSS to work in the browser.</li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2 id="js question">30. Working with Functions in JavaScript</h2>
-        <ul>
-            <li>Functions are blocks of reusable code.</li>
-            <li>Defined using the <code>function</code> keyword, arrow functions, or function expressions.</li>
-            <li>Can accept parameters and return values.</li>
-            <li>Functions are first-class objects in JavaScript.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>31. Objects in JavaScript</h2>
-        <ul>
-            <li>Objects are collections of key-value pairs.</li>
-            <li>Created using object literals (<code>{}</code>) or constructor functions.</li>
-            <li>Properties can be accessed using dot notation or bracket notation.</li>
-            <li>Objects are dynamic and can be modified at runtime.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>32. Handling Events Using JavaScript Functions</h2>
-        <ul>
-            <li>Events are actions or occurrences in the browser (e.g., clicks, mouseovers).</li>
-            <li>Event handlers are functions that respond to events.</li>
-            <li>Events can be added using inline attributes or event listener methods (<code>addEventListener</code>).</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>33. Regular Expressions in JavaScript</h2>
-        <ul>
-            <li>Regular expressions are patterns used to match character combinations in strings.</li>
-            <li>Created using the <code>RegExp</code> object or literal notation (<code>/.../</code>).</li>
-            <li>Methods:
-                <ul>
-                    <li><code>test()</code></li>
-                    <li><code>exec()</code></li>
-                    <li><code>match()</code></li>
-                    <li><code>replace()</code></li>
-                    <li><code>search()</code></li>
-                    <li><code>split()</code></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>34. Understanding the Document Object Model (DOM)</h2>
-        <ul>
-            <li>The DOM is a programming interface for HTML and XML documents.</li>
-            <li>Represents the document as a tree structure of objects.</li>
-            <li>Allows JavaScript to access and manipulate the content, structure, and style of web pages.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>35. Working with HTML Objects in the Document Object Model (DOM)</h2>
-        <ul>
-            <li>Methods:
-                <ul>
-                    <li><code>getElementById()</code></li>
-                    <li><code>getElementsByClassName()</code></li>
-                    <li><code>getElementsByTagName()</code></li>
-                    <li><code>querySelector()</code></li>
-                    <li><code>querySelectorAll()</code></li>
-                </ul>
-            </li>
-            <li>Properties:
-                <ul>
-                    <li><code>innerHTML</code></li>
-                    <li><code>textContent</code></li>
-                    <li><code>attributes</code></li>
-                </ul>
-            </li>
-            <li>Creating elements:
-                <ul>
-                    <li><code>createElement()</code></li>
-                    <li><code>appendChild()</code></li>
-                    <li><code>removeChild()</code></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2>36. Working with CSS Properties in the Document Object Model (DOM)</h2>
-        <ul>
-            <li>Accessing CSS properties: <code>element.style.propertyName</code>.</li>
-            <li>Modifying CSS properties: <code>element.style.propertyName = newValue</code>.</li>
-            <li>Accessing computed styles: <code>window.getComputedStyle(element)</code>.</li>
-            <li>Changing classes:
-                <ul>
-                    <li><code>element.classList.add()</code></li>
-                    <li><code>element.classList.remove()</code></li>
-                    <li><code>element.classList.toggle()</code></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>37. JavaScript Browser Object Model (BOM)</h2>
-        <ul>
-            <li>The BOM represents the browser window and its objects.</li>
-            <li>Objects:
-                <ul>
-                    <li><code>window</code></li>
-                    <li><code>navigator</code></li>
-                    <li><code>location</code></li>
-                    <li><code>history</code></li>
-                    <li><code>screen</code></li>
-                </ul>
-            </li>
-            <li>Provides access to browser-specific features.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>38. JavaScript Date Object Methods and Properties</h2>
-        <ul>
-            <li>Date object: Represents dates and times.</li>
-            <li>Methods:
-                <ul>
-                    <li><code>getDate()</code></li>
-                    <li><code>getMonth()</code></li>
-                    <li><code>getFullYear()</code></li>
-                    <li><code>getHours()</code></li>
-                    <li><code>getMinutes()</code></li>
-                    <li><code>getSeconds()</code></li>
-                    <li><code>getTime()</code></li>
-                </ul>
-            </li>
-            <li>Properties: None directly accessible, but methods return values.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>39. Working with Animations in the Document Object Model (DOM)</h2>
-        <ul>
-            <li>Using <code>setTimeout()</code> and <code>setInterval()</code> for basic animations.</li>
-            <li>Using CSS transitions and animations with JavaScript for more complex animations.</li>
-            <li>Using the <code>requestAnimationFrame()</code> method for smoother animations.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>40. Introduction to jQuery. Basic Concepts</h2>
-        <ul>
-            <li>jQuery is a fast, small, and feature-rich JavaScript library.</li>
-            <li>Simplifies HTML DOM manipulation, event handling, animation, and AJAX.</li>
-            <li>Basic concepts:
-                <ul>
-                    <li>Selectors</li>
-                    <li>Chaining</li>
-                    <li>Event handling</li>
-                    <li>Effects</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2>41. jQuery Syntax</h2>
-        <ul>
-            <li><code>$(selector).action()</code></li>
-            <li><code>$</code> is the jQuery function.</li>
-            <li><code>selector</code> selects HTML elements.</li>
-            <li><code>action()</code> performs an action on the selected elements.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>42. Methods of Using jQuery. jQuery Selectors</h2>
-        <ul>
-            <li>Methods:
-                <ul>
-                    <li><code>addClass()</code></li>
-                    <li><code>removeClass()</code></li>
-                    <li><code>toggleClass()</code></li>
-                    <li><code>append()</code></li>
-                    <li><code>prepend()</code></li>
-                    <li><code>html()</code></li>
-                    <li><code>css()</code></li>
-                    <li><code>animate()</code></li>
-                    <li><code>on()</code></li>
-                </ul>
-            </li>
-            <li>Selectors:
-                <ul>
-                    <li>Element selectors</li>
-                    <li>ID selectors</li>
-                    <li>Class selectors</li>
-                    <li>Attribute selectors</li>
-                    <li>Pseudo-selectors</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>43. What Are Falsy Values in JS?</h2>
-        <ul>
-            <li>Falsy values are values that evaluate to <code>false</code> in a boolean context.</li>
-            <li><code>''</code> (empty string)</li>
-            <li><code>0</code></li>
-            <li><code>null</code></li>
-            <li><code>undefined</code></li>
-            <li><code>NaN</code> (Not-a-Number)</li>
-            <li><code>false</code></li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>44. Difference Between == and === Operators</h2>
-        <ul>
-            <li><code>==</code> (equality operator): Performs type coercion before comparison.</li>
-            <li><code>===</code> (strict equality operator): Compares values without type coercion.</li>
-            <li><code>===</code> is generally preferred to avoid unexpected behavior.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>45. Why Is the !! Operator Used?</h2>
-        <ul>
-            <li>The <code>!!</code> operator is used to coerce a value to a boolean.</li>
-            <li>It effectively converts any value to its corresponding boolean equivalent.</li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2>46. What Is the Difference Between call and apply Methods?</h2>
-        <ul>
-            <li><code>call()</code> and <code>apply()</code> are used to invoke a function with a specified <code>this</code> value.</li>
-            <li><code>call()</code> accepts arguments as comma-separated values.</li>
-            <li><code>apply()</code> accepts arguments as an array.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>47. What Is an Event Target (event.target)?</h2>
-        <ul>
-            <li><code>event.target</code> refers to the DOM element that triggered the event.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>48. How to Check if a Value Is Falsy in JS?</h2>
-        <ul>
-            <li>Using the <code>!</code> operator: <code>!value</code>.</li>
-            <li>Using <code>if (!value) { ... }</code> in conditional statements.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>49. What Is the Importance of this?</h2>
-        <ul>
-            <li>The <code>this</code> keyword refers to the context in which a function is executed.</li>
-            <li>Its value depends on how the function is called.</li>
-            <li>In methods, <code>this</code> refers to the object calling the method.</li>
-            <li>In regular functions, <code>this</code> refers to the global object (or <code>undefined</code> in strict mode).</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>50. What Is the Difference Between var, let, and const Keywords?</h2>
-        <ul>
-            <li><code>var</code>: Function-scoped or globally scoped, can be redeclared and reassigned.</li>
-            <li><code>let</code>: Block-scoped, can be reassigned but not redeclared.</li>
-            <li><code>const</code>: Block-scoped, cannot be redeclared or reassigned.</li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2>51. What Are Default Parameters?</h2>
-        <ul>
-            <li>Default parameters allow you to specify default values for function parameters.</li>
-            <li>If a parameter is not provided when the function is called, the default value is used.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>52. What Is NaN? How to Check if a Value Is NaN?</h2>
-        <ul>
-            <li><code>NaN</code> (Not-a-Number) is a special numeric value that represents an undefined or unrepresentable value.</li>
-            <li>Use <code>isNaN()</code> or <code>Number.isNaN()</code> to check if a value is <code>NaN</code>. <code>Number.isNaN()</code> is more reliable.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>53. What Is an Object Prototype?</h2>
-        <ul>
-            <li>A prototype is an object from which other objects inherit properties and methods.</li>
-            <li>Every object in JavaScript has a prototype.</li>
-            <li>Prototype-based inheritance is a core concept in JavaScript.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>54. Why Are Functions in JS Called First-Class Objects?</h2>
-        <ul>
-            <li>Functions can be assigned to variables, passed as arguments to other functions, and returned as values from other functions.</li>
-            <li>They can have properties and methods, just like other objects.</li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2>55. Bootstrap Framework Technology</h2>
-        <ul>
-            <li>Bootstrap is a popular front-end framework for developing responsive, mobile-first websites and web applications.</li>
-            <li>Provides a collection of CSS and JavaScript components that streamline web development.</li>
-            <li>Key features:
-                <ul>
-                    <li>Grid system</li>
-                    <li>Pre-styled components</li>
-                    <li>Responsive design</li>
-                    <li>JavaScript plugins</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>56. Connecting Bootstrap Library and Configuring Basic Templates</h2>
-        <ul>
-            <li>Connecting:
-                <ul>
-                    <li>Include Bootstrap's CSS and JavaScript files in the <code>&lt;head&gt;</code> and before the closing <code>&lt;/body&gt;</code> tag of your HTML document.</li>
-                    <li>Can be done via CDN (Content Delivery Network) links or by downloading the files and hosting them locally.</li>
-                </ul>
-            </li>
-            <li>Basic template:
-                <ul>
-                    <li>Includes the doctype, <code>html</code>, <code>head</code>, <code>body</code> tags.</li>
-                    <li>Meta viewport tag for responsiveness.</li>
-                    <li>Bootstrap CSS and JavaScript links.</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>57. Working with Existing Bootstrap Classes</h2>
-        <ul>
-            <li>Bootstrap provides a wide range of pre-defined CSS classes for styling elements.</li>
-            <li>Examples:
-                <ul>
-                    <li><code>container</code>, <code>row</code>, <code>col-*</code> (grid system).</li>
-                    <li><code>btn</code>, <code>btn-primary</code>, <code>btn-secondary</code> (buttons).</li>
-                    <li><code>form-control</code>, <code>form-group</code> (forms).</li>
-                    <li><code>alert</code>, <code>alert-success</code>, <code>alert-danger</code> (alerts).</li>
-                    <li><code>card</code>, <code>card-body</code>, <code>card-title</code> (cards).</li>
-                </ul>
-            </li>
-            <li>These classes are applied to HTML elements using the <code>class</code> attribute.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>58. Working with Bootstrap Classes (for Lists and Tables)</h2>
-        <ul>
-            <li>Lists:
-                <ul>
-                    <li><code>list-group</code>: Applies basic list styling.</li>
-                    <li><code>list-group-item</code>: Styles individual list items.</li>
-                    <li><code>list-group-item-action</code>: Makes list items interactive.</li>
-                    <li><code>list-unstyled</code>: Removes default list styling.</li>
-                </ul>
-            </li>
-            <li>Tables:
-                <ul>
-                    <li><code>table</code>: Applies basic table styling.</li>
-                    <li><code>table-striped</code>: Adds alternating row colors.</li>
-                    <li><code>table-bordered</code>: Adds borders to all table cells.</li>
-                    <li><code>table-hover</code>: Adds hover effects to table rows.</li>
-                    <li><code>table-responsive</code>: Makes tables responsive on smaller screens.</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>59. Working with Bootstrap Classes (for Buttons and Forms)</h2>
-        <ul>
-            <li>Buttons:
-                <ul>
-                    <li><code>btn</code>: Base button styling.</li>
-                    <li><code>btn-primary</code>, <code>btn-secondary</code>, <code>btn-success</code>, <code>btn-danger</code>, <code>btn-warning</code>, <code>btn-info</code>, <code>btn-light</code>, <code>btn-dark</code>, <code>btn-link</code>: Button color variations.</li>
-                    <li><code>btn-outline-*</code>: Outline button styles.</li>
-                    <li><code>btn-lg</code>, <code>btn-sm</code>: Button sizes.</li>
-                    <li><code>btn-block</code>: Block-level buttons.</li>
-                </ul>
-            </li>
-            <li>Forms:
-                <ul>
-                    <li><code>form-group</code>: Groups form elements.</li>
-                    <li><code>form-control</code>: Styles form input fields.</li>
-                    <li><code>form-label</code>: Styles form labels.</li>
-                    <li><code>form-check</code>: Styles checkboxes and radio buttons.</li>
-                    <li><code>form-select</code>: Styles select elements.</li>
-                    <li><code>form-range</code>: Styles range input elements.</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2 id="php">60. Introduction to PHP. Basics and Syntax of PHP</h2>
-        <ul>
-            <li>PHP (Hypertext Preprocessor) is a server-side scripting language used for web development.</li>
-            <li>It's embedded within HTML.</li>
-            <li>Syntax: PHP code is enclosed within <code>&lt;?php ... ?&gt;</code> tags.</li>
-            <li>It is a loosely typed language.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>61. PHP Syntax and Versions</h2>
-        <ul>
-            <li>PHP syntax is similar to C, Java, and Perl.</li>
-            <li>Versions:
-                <ul>
-                    <li>PHP 7 and 8 are widely used.</li>
-                    <li>Offer performance improvements and new features.</li>
-                </ul>
-            </li>
-            <li>Version differences involve syntax changes, performance enhancements, and added/removed functions.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>62. Variables, Constants, and Data Types in PHP</h2>
-        <ul>
-            <li>Variables:
-                <ul>
-                    <li>Start with <code>$</code>.</li>
-                    <li>Dynamically typed.</li>
-                </ul>
-            </li>
-            <li>Constants:
-                <ul>
-                    <li>Defined using <code>define()</code>.</li>
-                    <li>Cannot be changed.</li>
-                </ul>
-            </li>
-            <li>Data types:
-                <ul>
-                    <li>String</li>
-                    <li>Integer</li>
-                    <li>Float</li>
-                    <li>Boolean</li>
-                    <li>Array</li>
-                    <li>Object</li>
-                    <li>NULL</li>
-                    <li>Resource</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>63. Operators in PHP</h2>
-        <ul>
-            <li>Arithmetic operators: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>.</li>
-            <li>Assignment operators: <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>.</li>
-            <li>Comparison operators: <code>==</code>, <code>===</code>, <code>!=</code>, <code>!==</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>.</li>
-            <li>Logical operators: <code>&&</code>, <code>||</code>, <code>!</code>.</li>
-            <li>String operators: <code>.</code>, <code>.=</code>.</li>
-            <li>Increment/decrement operators: <code>++</code>, <code>--</code>.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>64. Working with Functions in PHP</h2>
-        <ul>
-            <li>Defined using <code>function functionName() { ... }</code>.</li>
-            <li>Can accept arguments and return values.</li>
-            <li>Supports variable arguments and default parameters.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>65. Working with Objects in PHP</h2>
-        <ul>
-            <li>Objects are instances of classes.</li>
-            <li>Classes define properties and methods.</li>
-            <li>Objects are created using the <code>new</code> keyword.</li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2>66. Working with Arrays in PHP</h2>
-        <ul>
-            <li>Arrays can store multiple values.</li>
-            <li>Types of arrays:
-                <ul>
-                    <li>Indexed arrays</li>
-                    <li>Associative arrays</li>
-                    <li>Multidimensional arrays</li>
-                </ul>
-            </li>
-            <li>Functions:
-                <ul>
-                    <li><code>array()</code></li>
-                    <li><code>count()</code></li>
-                    <li><code>foreach</code></li>
-                    <li><code>array_push()</code></li>
-                    <li><code>array_pop()</code></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>67. Working with Strings in PHP</h2>
-        <ul>
-            <li>Strings are sequences of characters.</li>
-            <li>Functions:
-                <ul>
-                    <li><code>strlen()</code></li>
-                    <li><code>strpos()</code></li>
-                    <li><code>substr()</code></li>
-                    <li><code>str_replace()</code></li>
-                    <li><code>explode()</code></li>
-                    <li><code>implode()</code></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>68. Working with Files in PHP</h2>
-        <ul>
-            <li>Functions:
-                <ul>
-                    <li><code>fopen()</code></li>
-                    <li><code>fclose()</code></li>
-                    <li><code>fread()</code></li>
-                    <li><code>fwrite()</code></li>
-                    <li><code>fgets()</code></li>
-                    <li><code>file_get_contents()</code></li>
-                    <li><code>file_put_contents()</code></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>69. Working with Forms in PHP</h2>
-        <ul>
-            <li>Forms send data to PHP scripts using the <code>POST</code> or <code>GET</code> methods.</li>
-            <li>PHP processes form data using <code>$_POST</code> and <code>$_GET</code> superglobals.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>70. Date and Time Functions in PHP</h2>
-        <ul>
-            <li>Functions:
-                <ul>
-                    <li><code>date()</code></li>
-                    <li><code>time()</code></li>
-                    <li><code>strtotime()</code></li>
-                    <li><code>date_create()</code></li>
-                    <li><code>date_format()</code></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2>71. Difference Between Include and Require in PHP</h2>
-        <ul>
-            <li><code>include</code>: Produces a warning if the file is not found.</li>
-            <li><code>require</code>: Produces a fatal error if the file is not found.</li>
-            <li><code>require_once</code> and <code>include_once</code>: Prevent multiple inclusions.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>72. Error Handling in PHP</h2>
-        <ul>
-            <li><code>try...catch</code> blocks for exceptions.</li>
-            <li><code>error_reporting()</code> and <code>ini_set()</code> for error configuration.</li>
-            <li>Custom error handlers using <code>set_error_handler()</code>.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>73. Global Variables in PHP</h2>
-        <ul>
-            <li>Declared outside functions.</li>
-            <li>Accessed within functions using the <code>global</code> keyword or the <code>$_GLOBALS</code> array.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>74. POST and GET Methods in PHP</h2>
-        <ul>
-            <li><code>GET</code>: Sends data in the URL, visible to users.</li>
-            <li><code>POST</code>: Sends data in the HTTP request body, hidden from users.</li>
-            <li><code>$_GET</code> and <code>$_POST</code> superglobals access the data.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>75. Working with Cookies in PHP</h2>
-        <ul>
-            <li>Cookies are small files stored on the user's computer.</li>
-            <li>Functions:
-                <ul>
-                    <li><code>setcookie()</code></li>
-                    <li><code>$_COOKIE</code></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2>76. Working with Sessions in PHP</h2>
-        <ul>
-            <li>Sessions store user data on the server.</li>
-            <li>Functions:
-                <ul>
-                    <li><code>session_start()</code></li>
-                    <li><code>$_SESSION</code></li>
-                    <li><code>session_destroy()</code></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>77. PHP Callback Functions</h2>
-        <ul>
-            <li>Functions that are passed as arguments to other functions.</li>
-            <li>Used with functions like <code>array_map()</code>, <code>array_filter()</code>, and <code>usort()</code>.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>78. Scope of Variables</h2>
-        <ul>
-            <li>Local scope: Variables declared within functions.</li>
-            <li>Global scope: Variables declared outside functions.</li>
-            <li>Static scope: Variables retain their value between function calls.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>79. Working with Files</h2>
-        <ul>
-            <li>See question 68.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>80. Object-Oriented Programming (OOP) in PHP</h2>
-        <ul>
-            <li>Supports:
-                <ul>
-                    <li>Classes</li>
-                    <li>Objects</li>
-                    <li>Inheritance</li>
-                    <li>Polymorphism</li>
-                    <li>Encapsulation</li>
-                </ul>
-            </li>
-            <li>Keywords:
-                <ul>
-                    <li><code>class</code></li>
-                    <li><code>public</code></li>
-                    <li><code>private</code></li>
-                    <li><code>protected</code></li>
-                    <li><code>extends</code></li>
-                    <li><code>implements</code></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2>81. MVC Technology</h2>
-        <ul>
-            <li>MVC (Model-View-Controller) is a software design pattern that separates application logic into three interconnected components:</li>
-            <li><strong>Model:</strong> Manages the application's data and business logic.</li>
-            <li><strong>View:</strong> Handles the presentation of data to the user.</li>
-            <li><strong>Controller:</strong> Acts as an intermediary, handling user input and updating the model and view.</li>
-            <li>This separation improves code organization, maintainability, and reusability.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>82. Classes and Objects in PHP</h2>
-        <ul>
-            <li>PHP supports object-oriented programming (OOP).</li>
-            <li>Classes are blueprints for creating objects, defining properties (data) and methods (functions).</li>
-            <li>Objects are instances of classes, representing specific entities with their own data and behavior.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>83. Creating and Using Objects in PHP</h2>
-        <ul>
-            <li>Classes are defined using the <code>class</code> keyword.</li>
-            <li>Objects are created using the <code>new</code> keyword.</li>
-            <li>Object properties and methods are accessed using the <code>-&gt;</code> operator.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>84. Connecting to MySQL in PHP (3 Methods)</h2>
-        <ul>
-            <li>PHP can connect to MySQL databases using:</li>
-            <li><strong>mysqli:</strong> Improved MySQL extension, offering enhanced features and security.</li>
-            <li><strong>PDO (PHP Data Objects):</strong> A database abstraction layer, providing a consistent interface for various database systems.</li>
-            <li><strong>mysql:</strong> The older MySQL extension, which should not be used in new projects due to security vulnerabilities.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>85. CRUD Operations in PHP</h2>
-        <ul>
-            <li>CRUD stands for Create, Read, Update, and Delete, which are the fundamental operations performed on data in a database.</li>
-            <li>PHP interacts with databases to perform these operations using SQL queries.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>86. Creating and Managing MySQL Tables</h2>
-        <ul>
-            <li>MySQL tables are created and managed using SQL statements:</li>
-            <li><strong>CREATE TABLE:</strong> Creates new tables.</li>
-            <li><strong>ALTER TABLE:</strong> Modifies existing tables.</li>
-            <li><strong>DROP TABLE:</strong> Deletes tables.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>87. Creating Databases and Tables in MySQL Using PDO</h2>
-        <ul>
-            <li>PDO (PHP Data Objects) provides a database-agnostic way to interact with databases.</li>
-            <li>PDO's <code>exec()</code> or <code>query()</code> methods execute SQL statements to create databases and tables.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>88. Using Select, Where, Order By, Group By in PHP</h2>
-        <ul>
-            <li>These are SQL clauses used to retrieve and manipulate data from MySQL databases:</li>
-            <li><strong>SELECT:</strong> Retrieves data.</li>
-            <li><strong>WHERE:</strong> Filters data.</li>
-            <li><strong>ORDER BY:</strong> Sorts data.</li>
-            <li><strong>GROUP BY:</strong> Aggregates data.</li>
-            <li>PHP is used to send these SQL queries to the database and process the results.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>89. Working with AJAX in PHP</h2>
-        <ul>
-            <li>AJAX (Asynchronous JavaScript and XML) allows web pages to update content without full page reloads.</li>
-            <li>PHP scripts handle AJAX requests from the client-side, processing data and returning responses (often in JSON format).</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>90. Mathematical Functions in PHP</h2>
-        <ul>
-            <li>PHP provides a variety of mathematical functions for calculations:</li>
-            <li><code>abs()</code>: Absolute value.</li>
-            <li><code>round()</code>: Rounds a number.</li>
-            <li><code>ceil()</code>: Rounds up to the nearest integer.</li>
-            <li><code>floor()</code>: Rounds down to the nearest integer.</li>
-            <li><code>rand()</code>: Generates a random number.</li>
-            <li><code>sqrt()</code>: Square root.</li>
-            <li><code>pow()</code>: Exponentiation.</li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2>91. Filters in PHP</h2>
-        <ul>
-            <li>PHP filters are used for validating and sanitizing user input. This is crucial for security, preventing issues like cross-site scripting (XSS) and SQL injection.</li>
-            <li><code>filter_var()</code>: Filters a single variable with a specified filter.</li>
-            <li><code>filter_input()</code>: Gets external variables (like from <code>$_GET</code>, <code>$_POST</code>, <code>$_COOKIE</code>) and filters them.</li>
-            <li>PHP provides various predefined filters for different data types and validation/sanitization needs, such as:
-                <ul>
-                    <li><code>FILTER_VALIDATE_EMAIL</code></li>
-                    <li><code>FILTER_SANITIZE_STRING</code></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>92. Callback Functions in PHP</h2>
-        <ul>
-            <li>A callback function is a function that is passed as an argument to another function.</li>
-            <li>This allows for more flexible and dynamic code.</li>
-            <li>Commonly used with functions like:
-                <ul>
-                    <li><code>array_map()</code>: Applies a callback function to each element of an array.</li>
-                    <li><code>array_filter()</code>: Filters elements of an array using a callback function.</li>
-                    <li><code>usort()</code>: Sorts an array using a user-defined comparison function.</li>
-                </ul>
-            </li>
-            <li>Callback functions can be named functions or anonymous functions (closures).</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>93. JSON in PHP</h2>
-        <ul>
-            <li>JSON (JavaScript Object Notation) is a lightweight data-interchange format. It's widely used for transmitting data between a server and a web application.</li>
-            <li>PHP provides functions for working with JSON:
-                <ul>
-                    <li><code>json_encode()</code>: Converts a PHP variable (array, object) into a JSON string.</li>
-                    <li><code>json_decode()</code>: Converts a JSON string into a PHP variable (array, object).</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2>94. Using CMS Technology to Create Websites</h2>
-        <ul>
-            <li>CMS platforms provide a user-friendly interface for creating and managing website content without requiring extensive coding knowledge.</li>
-            <li>They typically include features for:
-                <ul>
-                    <li>Creating and editing pages and posts.</li>
-                    <li>Managing media files (images, videos).</li>
-                    <li>Installing and customizing themes and templates.</li>
-                    <li>Adding and managing plugins/extensions for additional functionality.</li>
-                    <li>User management.</li>
-                </ul>
-            </li>
-            <li>Examples: WordPress, Joomla, Drupal.</li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>95. Advantages and Disadvantages of Using CMS</h2>
-        <ul>
-            <li><strong>Advantages:</strong>
-                <ul>
-                    <li>Ease of use: Reduces the need for technical skills.</li>
-                    <li>Faster development: Pre-built templates and plugins accelerate website creation.</li>
-                    <li>Content management: Simplifies content updates and organization.</li>
-                    <li>Scalability: Many CMS platforms can handle growing websites.</li>
-                    <li>Community support: Large communities provide support and resources.</li>
-                </ul>
-            </li>
-            <li><strong>Disadvantages:</strong>
-                <ul>
-                    <li>Customization limitations: May be restricted by the CMS's features.</li>
-                    <li>Performance issues: Can be slower than custom-built websites.</li>
-                    <li>Security vulnerabilities: Popular CMS platforms are targets for hackers.</li>
-                    <li>Plugin/theme compatibility: Conflicts can arise.</li>
-                    <li>Learning curve: While easier than coding, some CMS platforms can still be complex.</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>96. CMS Features</h2>
-        <ul>
-            <li><strong>Core features:</strong>
-                <ul>
-                    <li>Content creation and editing (WYSIWYG editors).</li>
-                    <li>User management and access control.</li>
-                    <li>Media library.</li>
-                    <li>Template/theme management.</li>
-                    <li>Plugin/extension management.</li>
-                    <li>SEO tools.</li>
-                </ul>
-            </li>
-            <li><strong>Advanced features:</strong>
-                <ul>
-                    <li>E-commerce integration.</li>
-                    <li>Multilingual support.</li>
-                    <li>Workflow management.</li>
-                    <li>Analytics and reporting.</li>
-                    <li>API integration.</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="section">
-        <h2>97. Modern Types of CMS</h2>
-        <ul>
-            <li><strong>Traditional CMS (Coupled CMS):</strong>
-                <ul>
-                    <li>Tight coupling between the front-end (presentation) and back-end (content management).</li>
-                    <li>Examples: WordPress, Drupal, Joomla.</li>
-                </ul>
-            </li>
-            <li><strong>Headless CMS (Decoupled CMS):</strong>
-                <ul>
-                    <li>Separates the content repository (back-end) from the presentation layer (front-end).</li>
-                    <li>Content is delivered via APIs, allowing for flexible front-end development.</li>
-                    <li>Examples: Contentful, Strapi, Sanity.</li>
-                </ul>
-            </li>
-            <li><strong>Hybrid CMS:</strong>
-                <ul>
-                    <li>Combines aspects of both traditional and headless CMS, offering flexibility.</li>
-                    <li>Allows for both traditional website delivery and API-based content distribution.</li>
-                </ul>
-            </li>
-            <li><strong>E-commerce CMS:</strong>
-                <ul>
-                    <li>Specifically designed for online stores.</li>
-                    <li>Examples: Shopify, Magento, WooCommerce (WordPress plugin).</li>
-                </ul>
-            </li>
-            <li><strong>Cloud-based CMS (SaaS CMS):</strong>
-                <ul>
-                    <li>Hosted and managed by the CMS provider.</li>
-                    <li>Examples: Wix, Squarespace.</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</main>
+    <div class="question">
+        <p class="question-number">10.</p>
+        <p><strong>Чтобы проверить, содержит ли book_title цифру '3', используя оператор LIKE, какой шаблон является правильным?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>book_title LIKE '3'</li>
+            <li>book_title LIKE '3%'</li>
+            <li>book_title LIKE '%3'</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">book_title LIKE '%3%'</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">11.</p>
+        <p><strong>Чтобы найти названия книг жанра 'Fantasy', которые присутствуют одновременно в genre_books_set1 и genre_books_set2, какой оператор множеств используется между двумя выражениями SELECT ... WHERE genre = 'Fantasy'?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>UNION</li>
+            <li>UNION ALL</li>
+            <li>EXCEPT</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">INTERSECT</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">12.</p>
+        <p><strong>Запрос с CROSS JOIN:</strong></p>
+        <pre><code>SELECT c.category_name, p.product_name 
+FROM categories AS c 
+CROSS JOIN products AS p;</code></pre>
+        <p>Если имеется 4 категории и 9 продуктов, сколько строк вернет этот запрос? <em>(1 балл)</em></p>
+        <ul>
+            <li>9 строк (количество продуктов).</li>
+            <li>4 строки (количество категорий).</li>
+            <li>13 строк (4 + 9).</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">36 строк (4 * 9).</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">13.</p>
+        <p><strong>Чтобы удалить столбец birth_date из таблицы authors и предотвратить ошибку, если столбец не существует, какое правильное предложение следует использовать с DROP COLUMN?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>IF PRESENT</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">IF EXISTS</li>
+            <li>CHECK EXISTS</li>
+            <li>WHEN EXISTS</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">14.</p>
+        <p><strong>Переименуйте столбец author_name в таблице authors в name.</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>RENAME author_name TO name</li>
+            <li>ALTER COLUMN author_name TO name</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">RENAME COLUMN author_name TO name</li>
+            <li>CHANGE COLUMN author_name TO name</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">15.</p>
+        <p><strong>В операторе CREATE TABLE для таблицы authors, как бы вы определили столбец birth_date для хранения значений даты?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>birth_date DATETIME</li>
+            <li>birth_date TIMESTAMP</li>
+            <li>birth_date DATE_TYPE</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">birth_date DATE</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">16.</p>
+        <p><strong>Чтобы найти названия книг, которые есть в genre_books_set1, но нет в genre_books_set2, какой оператор правильно завершает следующее выражение:</strong></p>
+        <pre><code>SELECT book_title FROM genre_books_set1
+---
+SELECT book_title FROM genre_books_set2;</code></pre>
+        <p><em>(1 балл)</em></p>
+        <ul>
+            <li>UNION</li>
+            <li>INTERSECT</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">EXCEPT</li>
+            <li>COMBINE</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">17.</p>
+        <p><strong>Для извлечения уникальных жанров из таблицы orders, какое выражение является обязательным?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>ORDER BY genre</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">GROUP BY genre</li>
+            <li>HAVING genre</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">18.</p>
+        <p><strong>Чтобы найти все уникальные названия книг, присутствующие либо в genre_books_set1, либо в genre_books_set2, какой оператор множеств следует использовать для объединения результатов запросов SELECT book_title FROM genre_books_set1 и SELECT book_title FROM genre_books_set2?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>INTERSECT</li>
+            <li>UNION ALL</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">UNION</li>
+            <li>EXCEPT</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">19.</p>
+        <p><strong>В запросе для вывода названий продуктов и соответствующих им названий категорий с использованием INNER JOIN:</strong></p>
+        <pre><code>SELECT p.product_name, c.category_name 
+FROM products AS p 
+INNER JOIN categories AS c 
+ON p.category_id = c.category_id;</code></pre>
+        <p>Каково назначение условия ON p.category_id = c.category_id? <em>(1 балл)</em></p>
+        <ul>
+            <li>Для фильтрации продуктов по их цене.</li>
+            <li>Для указания, какие столбцы отображать в результате.</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">Для определения условия соответствия строк между таблицами products и categories.</li>
+            <li>Для переименования таблицы products в p и таблицы categories в c.</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">20.</p>
+        <p><strong>Какой SQL-запрос правильно выбирает книги: либо из категории 'Science Fiction' по цене менее $20.00, ИЛИ из категории 'Classic', опубликованные до 1900 года?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>SELECT * FROM books WHERE (category = 'Science Fiction' AND price < 20.00) AND (category = 'Classic' AND publication_year < 1900);</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">SELECT * FROM books WHERE (category = 'Science Fiction' AND price < 20.00) OR (category = 'Classic' AND publication_year < 1900);</li>
+            <li>SELECT * FROM books WHERE category = 'Science Fiction' OR price < 20.00 OR category = 'Classic' OR publication_year < 1900;</li>
+            <li>SELECT * FROM books WHERE category = 'Science Fiction' AND price < 20.00 AND publication_year < 1900 OR category = 'Classic';</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">21.</p>
+        <p><strong>Рассмотрим запрос с LEFT JOIN:</strong></p>
+        <pre><code>SELECT c.category_name, p.product_name 
+FROM categories AS c 
+LEFT JOIN products AS p 
+ON c.category_id = p.category_id;</code></pre>
+        <p>Какое утверждение точно описывает строки, которые будут включены из таблицы categories? <em>(1 балл)</em></p>
+        <ul>
+            <li>Только категории, у которых есть хотя бы один соответствующий продукт в таблице products.</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">Все категории будут включены, независимо от того, есть ли у них соответствующие продукты.</li>
+            <li>Только категории, у которых нет соответствующих продуктов.</li>
+            <li>Категории будут включены, только если p.product_name не является NULL.</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">22.</p>
+        <p><strong>Добавьте столбец stock_quantity (целочисленный тип) в таблицу books со значением по умолчанию 0.</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>ADD COLUMN stock_quantity INTEGER WITH DEFAULT 0</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">ADD COLUMN stock_quantity INTEGER DEFAULT 0</li>
+            <li>ADD COLUMN stock_quantity INTEGER HAS DEFAULT 0</li>
+            <li>ADD COLUMN stock_quantity INTEGER, DEFAULT IS 0</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">23.</p>
+        <p><strong>В запросе, который объединяет продукты и категории и упорядочивает их по цене:</strong></p>
+        <pre><code>SELECT p.product_name, c.category_name 
+FROM products AS p 
+INNER JOIN categories AS c 
+ON p.category_id = c.category_id 
+ORDER BY p.price DESC;</code></pre>
+        <p>Что означает DESC в условии ORDER BY p.price DESC? <em>(1 балл)</em></p>
+        <ul>
+            <li>Упорядочить по цене продукта в порядке по умолчанию (возрастанию).</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">Упорядочить по цене продукта в порядке убывания.</li>
+            <li>Описать тип данных столбца p.price.</li>
+            <li>Выбрать только уникальные цены.</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">24.</p>
+        <p><strong>Какой SQL-запрос правильно выбирает книги, цена которых меньше $15.00 И которые относятся к категории 'Классика'?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>SELECT * FROM books WHERE price < 15.00 OR category = 'Classic';</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">SELECT * FROM books WHERE price < 15.00 AND category = 'Classic';</li>
+            <li>SELECT * FROM books WHERE price > 15.00 AND category = 'Classic';</li>
+            <li>SELECT * FROM books WHERE category = 'Classic';</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">25.</p>
+        <p><strong>Предполагая, что существует функция LENGTH(column_name), возвращающая длину строки в символах, как бы вы отсортировали названия книг от самого короткого к самому длинному?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>ORDER BY book_title LENGTH ASC</li>
+            <li>ORDER BY LENGTH(book_title) DESC</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">ORDER BY LENGTH(book_title) ASC</li>
+            <li>SORT BY LENGTH(book_title) ASC</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">26.</p>
+        <p><strong>Какой SQL-запрос правильно выбирает книги, которые НЕ относятся к категории 'Science Fiction'?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>SELECT * FROM books WHERE category = 'Science Fiction';</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">SELECT * FROM books WHERE NOT category = 'Science Fiction';</li>
+            <li>SELECT * FROM books WHERE category = 'Science Fiction' AND NOT category = 'Science Fiction';</li>
+            <li>SELECT * FROM books WHERE NOT category <> 'Science Fiction';</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">27.</p>
+        <p><strong>Какой шаблон LIKE правильно определяет жанры, которые заканчиваются на букву 'e'?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">genre LIKE 'e%'</li>
+            <li>genre LIKE '%e'</li>
+            <li>genre LIKE '%e%'</li>
+            <li>genre LIKE '_e'</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">28.</p>
+        <p><strong>Какой SQL-запрос правильно выбирает книги, которые НЕ ('Fantasy' ИЛИ 'Dystopian') И цена которых меньше $15.00?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>SELECT * FROM books WHERE (category = 'Fantasy' OR category = 'Dystopian') AND price < 15.00;</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">SELECT * FROM books WHERE NOT (category = 'Fantasy' OR category = 'Dystopian') AND price < 15.00;</li>
+            <li>SELECT * FROM books WHERE (NOT category = 'Fantasy' OR NOT category = 'Dystopian') AND price < 15.00;</li>
+            <li>SELECT * FROM books WHERE NOT (category = 'Fantasy' AND category = 'Dystopian') AND price < 15.00;</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">29.</p>
+        <p><strong>При использовании оператора EXCEPT для поиска названий книг, которые есть в genre_books_set2, но нет в genre_books_set1, оператор SELECT для какой таблицы должен идти первым в выражении:</strong></p>
+        <pre><code>SELECT book_title FROM table_A 
+EXCEPT 
+SELECT book_title FROM table_B;</code></pre>
+        <p><em>(1 балл)</em></p>
+        <ul>
+            <li>table_A должна быть genre_books_set1</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">table_A должна быть genre_books_set2</li>
+            <li>Порядок не имеет значения для EXCEPT</li>
+            <li>Обе должны быть genre_books_set1</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">30.</p>
+        <p><strong>Чтобы добавить новый столбец с именем price и типом данных DECIMAL в существующую таблицу books, какую структуру SQL-команды следует использовать?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>UPDATE TABLE books ADD COLUMN price DECIMAL;</li>
+            <li>MODIFY TABLE books ADD price DECIMAL;</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">ALTER TABLE books ADD COLUMN price DECIMAL;</li>
+            <li>INSERT INTO books COLUMN price DECIMAL;</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">31.</p>
+        <p><strong>В запросе:</strong></p>
+        <pre><code>SELECT p.product_name, COALESCE(c.category_name, 'Uncategorized') AS category_name 
+FROM categories AS c 
+RIGHT JOIN products AS p 
+ON c.category_id = p.category_id;</code></pre>
+        <p>Какова основная функция COALESCE(c.category_name, 'Uncategorized')? <em>(1 балл)</em></p>
+        <ul>
+            <li>Отфильтровать продукты, не отнесенные к категориям.</li>
+            <li>Присвоить 'Uncategorized' полю c.category_name, если p.product_name равно NULL.</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">Вернуть 'Uncategorized', если c.category_name равно NULL для продукта, в противном случае вернуть c.category_name.</li>
+            <li>Объединить c.category_name со строкой 'Uncategorized'.</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">32.</p>
+        <p><strong>Чтобы изменить тип данных столбца genre в таблице books на VARCHAR(75), какое конкретное предложение ALTER TABLE следует использовать?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>ALTER COLUMN genre SET DATA TYPE VARCHAR(75)</li>
+            <li>MODIFY COLUMN genre TYPE VARCHAR(75)</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">ALTER COLUMN genre TYPE VARCHAR(75)</li>
+            <li>CHANGE COLUMN genre TO VARCHAR(75)</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">33.</p>
+        <p><strong>Какой SQL-запрос правильно выбирает книги, которые относятся к категориям 'Classic' ИЛИ 'Dystopian' И цена которых больше $12.00?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>SELECT * FROM books WHERE category = 'Classic' AND category = 'Dystopian' AND price > 12.00;</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">SELECT * FROM books WHERE (category = 'Classic' OR category = 'Dystopian') AND price > 12.00;</li>
+            <li>SELECT * FROM books WHERE category = 'Classic' OR category = 'Dystopian' OR price > 12.00;</li>
+            <li>SELECT * FROM books WHERE category = 'Classic' OR category = 'Dystopian' AND price > 12.00;</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">34.</p>
+        <p><strong>Какой SQL-запрос правильно выбирает книги, опубликованные до 1960 года И цена которых больше $14.00?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>SELECT * FROM books WHERE publication_year < 1960 OR price > 14.00;</li>
+            <li>SELECT * FROM books WHERE publication_year > 1960 AND price < 14.00;</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">SELECT * FROM books WHERE publication_year < 1960 AND price > 14.00;</li>
+            <li>SELECT * FROM books WHERE NOT (publication_year < 1960 AND price > 14.00);</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">35.</p>
+        <p><strong>Для запроса, который подсчитывает количество продуктов в каждой категории:</strong></p>
+        <pre><code>SELECT c.category_name, COUNT(p.product_id) AS product_count 
+FROM categories AS c 
+LEFT JOIN products AS p 
+ON c.category_id = p.category_id 
+GROUP BY c.category_name;</code></pre>
+        <p>Какая часть запроса является существенной для того, чтобы COUNT(p.product_id) предоставлял количество по каждой категории, а не общее количество? <em>(1 балл)</em></p>
+        <ul>
+            <li>LEFT JOIN products AS p</li>
+            <li>COUNT(p.product_id) AS product_count</li>
+            <li>ON c.category_id = c.category_id</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">GROUP BY c.category_name</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">36.</p>
+        <p><strong>В запросе с RIGHT JOIN:</strong></p>
+        <pre><code>SELECT p.product_name, c.category_name 
+FROM categories AS c 
+RIGHT JOIN products AS p 
+ON c.category_id = p.category_id;</code></pre>
+        <p>Если продукт в таблице products имеет category_id, который не существует в таблице categories (или равен NULL), каким будет значение c.category_name для этого продукта в результате? <em>(1 балл)</em></p>
+        <ul>
+            <li>Значение product_name.</li>
+            <li>Произойдет ошибка.</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">NULL.</li>
+            <li>Строка 'Uncategorized'.</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">37.</p>
+        <p><strong>В запросе:</strong></p>
+        <pre><code>SELECT book_title FROM genre_books_set1
+---
+SELECT book_title FROM genre_books_set2;</code></pre>
+        <p>Какой оператор следует подставить в пропуск, чтобы найти названия книг, которые появляются одновременно в genre_books_set1 и genre_books_set2? <em>(1 балл)</em></p>
+        <ul>
+            <li>UNION</li>
+            <li>EXCEPT</li>
+            <li>JOIN</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">INTERSECT</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">38.</p>
+        <p><strong>Чтобы убедиться, что выбранные названия книг содержат одновременно букву "a" И букву "s" при фильтрации групп, какой логический оператор используется между двумя условиями LIKE в выражении HAVING?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>OR</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">AND</li>
+            <li>BOTH</li>
+            <li>XOR</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">39.</p>
+        <p><strong>Какой SQL-оператор правильно удаляет таблицу authors из базы данных, гарантируя, что ошибка не возникнет, если таблица уже отсутствует?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>DELETE TABLE IF EXISTS authors;</li>
+            <li>DROP TABLE authors IF NOT EXISTS;</li>
+            <li>REMOVE TABLE IF EXISTS authors;</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">DROP TABLE IF EXISTS authors;</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">40.</p>
+        <p><strong>В запросе:</strong></p>
+        <pre><code>SELECT genre FROM genre_books_set1 
+INTERSECT 
+SELECT genre FROM genre_books_set2;</code></pre>
+        <p>Оператор INTERSECT используется для: <em>(1 балл)</em></p>
+        <ul>
+            <li>Вывода списка всех жанров только из genre_books_set1.</li>
+            <li>Вывода списка всех уникальных жанров из обеих таблиц, объединенных вместе.</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">Вывода списка только тех жанров, которые присутствуют одновременно в genre_books_set1 и genre_books_set2.</li>
+            <li>Вывода списка жанров из genre_books_set1, которых нет в genre_books_set2.</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">41.</p>
+        <p><strong>Чтобы отфильтровать названия книг, которые начинаются с "The", какое условие выражения WHERE является правильным?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>WHERE book_title LIKE '%The'</li>
+            <li>WHERE book_title LIKE 'The_'</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">WHERE book_title LIKE 'The%'</li>
+            <li>WHERE book_title = 'The'</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">42.</p>
+        <p><strong>Для сортировки названий книг в обратном алфавитном порядке (от Я до А), какой синтаксис ORDER BY является правильным?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>ORDER BY book_title ASC</li>
+            <li>ORDER BY book_title REVERSE</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">ORDER BY book_title DESC</li>
+            <li>SORT BY book_title DESC</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">43.</p>
+        <p><strong>Какой SQL-запрос правильно выбирает книги, написанные 'Джейн Остин' ИЛИ опубликованные после 1970 года?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>SELECT * FROM books WHERE author_name = 'Jane Austen' AND publication_year > 1970;</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">SELECT * FROM books WHERE author_name = 'Jane Austen' OR publication_year > 1970;</li>
+            <li>SELECT * FROM books WHERE author_name = 'Jane Austen' AND publication_year < 1970;</li>
+            <li>SELECT * FROM books WHERE NOT (author_name = 'Jane Austen' OR publication_year > 1970);</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">44.</p>
+        <p><strong>Чтобы найти названия книг, содержащие "The" (с учетом регистра) как подстроку, какой шаблон LIKE вы бы использовали в выражении WHERE?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li>book_title LIKE 'The'</li>
+            <li>book_title LIKE 'The%'</li>
+            <li>book_title LIKE '%The'</li>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">book_title LIKE '%The%'</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p class="question-number">45.</p>
+        <p><strong>При создании таблицы books, как правильно определить столбец book_id как уникальный идентификатор, который автоматически увеличивается и служит первичным ключом?</strong> <em>(1 балл)</em></p>
+        <ul>
+            <li style="color: rgb(13, 208, 13); font-size: larger;">book_id INT AUTO_INCREMENT PRIMARY KEY</li>
+            <li>book_id SERIAL PRIMARY KEY</li>
+            <li>book_id INTEGER PRIMARY KEY AUTOINCREMENT</li>
+            <li>book_id IDENTITY PRIMARY KEY</li>
+        </ul>
+    </div>
+
 </body>
 </html>
