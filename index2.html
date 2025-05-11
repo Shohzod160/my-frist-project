@@ -1,271 +1,325 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Introduction to Web Development</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Правильные ответы на Databases (3-7) RU Test с объяснениями</title>
     <style>
-        body{
-            margin: 0;
-            padding: 0;
-            
-        }
-        main {
+        body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 20px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+            background-color: #f9f9f9;
         }
-        h1, h2, h3 {
-            color: #2c3e50;
+        h1 {
+            text-align: center;
+            color: #333;
         }
-        h2 {
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 5px;
+        a:hover{
+            color: #0066cc;
         }
-        ul, ol {
-            margin-left: 20px;
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
-        .section {
-            margin-bottom: 30px;
+        .question-text {
+            font-weight: bold;
+            color: #333;
+        }
+        .answer {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        .explanation {
+            color: #555;
+            margin-top: 5px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
         }
         code {
-            background-color: #f1f1f1;
-            padding: 2px 5px;
-            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
         }
-        header {
-            position: sticky;
-            top: 0;
-        }
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    padding-bottom: 5px;
-    background-color: #f1f1f1;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.back{
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-decoration: none;
-    color: #2c3e50;
-    margin-left: 50px;
-    font-size: 25px;
-    transition: b;
-    font-weight: bold;
-}
-
-.menu{
-    display: flex;
-    font-size: 20px;
-}
-
-.menu a{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-decoration: none;
-    color: #2c3e50;
-    margin-left: 40px;
-    margin-right: 30px;
-    font-weight: bold;
-}
     </style>
 </head>
 <body>
-<header>
+    <h1>Правильные ответы на Databases (3-7) RU Test с объяснениями</h1>
+    <h2><a href="index.html" style="text-decoration: none;">Back to Profile</a></h2>
+    <div class="question">
+        <p class="question-text">1. Что произойдет, если категория (например, 'Books') содержит только продукты по цене $50.00 или меньше?</p>
+        <p class="answer">Ответ: Категория вообще не появится в результатах.</p>
+        <p class="explanation">Объяснение: В запросе используется LEFT JOIN с условием WHERE p.price > 50.00. Если в категории нет продуктов, удовлетворяющих этому условию, то вся строка (включая категорию) исключается из результата, так как WHERE фильтрует после объединения.</p>
+    </div>
 
-</header>
-<main>
-<div class="section">
-    <h2>Network Topology and Its Structure</h2>
-    <ul>
-        <li>Network topology refers to the arrangement of devices and connections in a computer network. There are several types of network topologies, each with its own structure and characteristics:</li>
-        <li><strong>1. Bus Topology</strong>
-            <ul>
-                <li><strong>Structure:</strong> All devices are connected to a single central cable (the "bus"). Data is transmitted in both directions.</li>
-                <li><strong>Advantages:</strong> Simple and cost-effective for small networks.</li>
-                <li><strong>Disadvantages:</strong> A single cable failure can bring down the entire network; performance degrades with more devices.</li>
-            </ul>
-        </li>
-        <li><strong>2. Star Topology</strong>
-            <ul>
-                <li><strong>Structure:</strong> All devices connect to a central hub or switch. The hub manages communication between nodes.</li>
-                <li><strong>Advantages:</strong> Easy to manage and expand; a failure in one device doesn’t affect the network.</li>
-                <li><strong>Disadvantages:</strong> If the central hub fails, the entire network goes down; more cabling is required.</li>
-            </ul>
-        </li>
-        <li><strong>3. Ring Topology</strong>
-            <ul>
-                <li><strong>Structure:</strong> Devices are connected in a closed loop; data travels in one or both directions.</li>
-                <li><strong>Advantages:</strong> Efficient for handling data traffic; predictable performance.</li>
-                <li><strong>Disadvantages:</strong> A single node failure can disrupt the entire network (unless a dual-ring structure is used).</li>
-            </ul>
-        </li>
-        <li><strong>4. Mesh Topology</strong>
-            <ul>
-                <li><strong>Structure:</strong> Every device connects to every other device, forming a fully or partially connected network.</li>
-                <li><strong>Advantages:</strong> Highly reliable; if one connection fails, data can take an alternative route.</li>
-                <li><strong>Disadvantages:</strong> Expensive and complex due to a large number of connections.</li>
-            </ul>
-        </li>
-        <li><strong>5. Tree (Hierarchical) Topology</strong>
-            <ul>
-                <li><strong>Structure:</strong> A combination of star and bus topologies, forming a hierarchy with multiple levels.</li>
-                <li><strong>Advantages:</strong> Scalable and easy to manage in large networks.</li>
-                <li><strong>Disadvantages:</strong> Failure at higher levels can affect multiple nodes.</li>
-            </ul>
-        </li>
-        <li><strong>6. Hybrid Topology</strong>
-            <ul>
-                <li><strong>Structure:</strong> A mix of two or more topologies, designed for specific needs.</li>
-                <li><strong>Advantages:</strong> Flexible and optimized for different use cases.</li>
-                <li><strong>Disadvantages:</strong> Complex design and higher cost.</li>
-            </ul>
-        </li>
-    </ul>
-</div>
-<div class="section">
-    <h2>DNS (Domain Name System) Protocol</h2>
-    <ul>
-        <li>DNS (Domain Name System) Protocol is a fundamental protocol of the internet that translates human-friendly domain names (e.g., www.google.com) into IP addresses (e.g., 142.250.190.78), which computers use to locate and communicate with each other.</li>
-        <li>How DNS Works:
-            <ul>
-                <li><strong>User Request:</strong> When a user enters a URL in a browser, the request is sent to a DNS resolver.</li>
-                <li><strong>Recursive Query:</strong> The resolver queries different DNS servers to find the IP address of the domain.</li>
-                <li><strong>Response from DNS Servers:</strong> The resolver gets the IP address and returns it to the user’s device.</li>
-                <li><strong>Connection to Website:</strong> The device uses the IP address to connect to the target server and load the website.</li>
-            </ul>
-        </li>
-        <li>Types of DNS Servers:
-            <ul>
-                <li><strong>Recursive Resolver:</strong> Receives queries from users and finds the IP address by contacting other DNS servers.</li>
-                <li><strong>Root DNS Server:</strong> The first step in resolving domain names, directing queries to the correct TLD (Top-Level Domain) servers (e.g., .com, .org).</li>
-                <li><strong>TLD Server:</strong> Manages specific domain extensions and points to the appropriate Authoritative DNS Server.</li>
-                <li><strong>Authoritative DNS Server:</strong> Stores the actual IP address for the requested domain and returns it to the resolver.</li>
-            </ul>
-        </li>
-        <li>DNS Query Types:
-            <ul>
-                <li><strong>Recursive Query:</strong> The resolver does all the work and returns the final IP address.</li>
-                <li><strong>Iterative Query:</strong> The resolver queries multiple servers step by step until it finds the IP.</li>
-                <li><strong>Reverse DNS Lookup:</strong> Translates an IP address back into a domain name.</li>
-            </ul>
-        </li>
-        <li>DNS Protocol and Ports:
-            <ul>
-                <li>Uses UDP (User Datagram Protocol) on Port 53 (for fast, lightweight communication).</li>
-                <li>Uses TCP (Transmission Control Protocol) on Port 53 for large responses (e.g., DNS zone transfers).</li>
-                <li>DNS over HTTPS (DoH) and DNS over TLS (DoT) improve security by encrypting DNS queries.</li>
-            </ul>
-        </li>
-        <li>Common DNS Records:
-            <ul>
-                <li><strong>A Record:</strong> Maps a domain to an IPv4 address.</li>
-                <li><strong>AAAA Record:</strong> Maps a domain to an IPv6 address.</li>
-                <li><strong>CNAME Record:</strong> Aliases one domain name to another.</li>
-                <li><strong>MX Record:</strong> Specifies mail servers for a domain.</li>
-                <li><strong>TXT Record:</strong> Stores arbitrary text, often for verification.</li>
-            </ul>
-        </li>
-        <li>DNS is essential for internet functionality, ensuring human-friendly web navigation.</li>
-    </ul>
-</div>
-<div class="section">
-    <h2>DNS (Domen Nomi Tizimi) Protokoli</h2>
-    <ul>
-        <li>DNS (Domain Name System) Protokoli – bu internetning asosiy protokollaridan biri bo‘lib, odamlar uchun qulay bo‘lgan domen nomlarini (masalan, www.google.com) kompyuterlar ishlatadigan IP-manzillarga (masalan, 142.250.190.78) o‘zgartiradi.</li>
-        <li>DNS Qanday Ishlaydi?
-            <ul>
-                <li><strong>Foydalanuvchi So‘rovi:</strong> Foydalanuvchi brauzerga URL kiritganda, bu so‘rov DNS rezolveriga yuboriladi.</li>
-                <li><strong>Rekursiv So‘rov:</strong> Rezolver IP-manzilni topish uchun turli DNS serverlariga so‘rov yuboradi.</li>
-                <li><strong>DNS Serverlarining Javobi:</strong> Rezolver domen nomiga mos keluvchi IP-manzilni topib, uni foydalanuvchi qurilmasiga qaytaradi.</li>
-                <li><strong>Veb-saytga Ulanish:</strong> Qurilma ushbu IP-manzildan foydalanib, kerakli serverga ulanadi va veb-saytni yuklaydi.</li>
-            </ul>
-        </li>
-        <li>DNS Server Turlari:
-            <ul>
-                <li><strong>Rekursiv Rezolver:</strong> Foydalanuvchi qurilmasidan so‘rov oladi va IP-manzilni topish uchun boshqa DNS serverlari bilan bog‘lanadi.</li>
-                <li><strong>Root DNS Server:</strong> Birinchi bosqich bo‘lib, so‘rovni tegishli TLD (Top-Level Domain – yuqori darajali domen) serveriga yo‘naltiradi (masalan, .com, .org).</li>
-                <li><strong>TLD Server:</strong> Muayyan domen kengaytmasini boshqaradi va kerakli Avtorizatsiyalangan DNS serverga yo‘naltiradi.</li>
-                <li><strong>Avtorizatsiyalangan DNS Server:</strong> Asl IP-manzilni o‘zida saqlaydi va uni rezolverga qaytaradi.</li>
-            </ul>
-        </li>
-        <li>DNS So‘rov Turlari:
-            <ul>
-                <li><strong>Rekursiv So‘rov:</strong> Rezolver barcha bosqichlarni bajarib, oxirgi IP-manzilni qaytaradi.</li>
-                <li><strong>Iterativ So‘rov:</strong> Rezolver bosqichma-bosqich turli serverlardan ma’lumot so‘rab boradi.</li>
-                <li><strong>Teskari DNS Qidiruv:</strong> IP-manzilni domen nomiga o‘zgartiradi.</li>
-            </ul>
-        </li>
-        <li>DNS Protokoli va Portlari:
-            <ul>
-                <li>UDP (User Datagram Protocol) 53-portda ishlaydi (tez va yengil aloqa uchun).</li>
-                <li>TCP (Transmission Control Protocol) 53-portda ishlaydi (katta javoblar, masalan, DNS zonalar almashinuvi uchun).</li>
-                <li>DNS over HTTPS (DoH) va DNS over TLS (DoT) – xavfsizlikni oshirish uchun DNS so‘rovlarini shifrlaydi.</li>
-            </ul>
-        </li>
-        <li>DNS Yozuvlari:
-            <ul>
-                <li><strong>A Record:</strong> Domenni IPv4 manzilga bog‘laydi.</li>
-                <li><strong>AAAA Record:</strong> Domenni IPv6 manzilga bog‘laydi.</li>
-                <li><strong>CNAME Record:</strong> Bitta domenni boshqa domenga yo‘naltiradi.</li>
-                <li><strong>MX Record:</strong> Domen uchun pochta serverlarini ko‘rsatadi.</li>
-                <li><strong>TXT Record:</strong> Tekshiruv ma’lumotlari yoki boshqa matnli ma’lumotlarni saqlaydi.</li>
-            </ul>
-        </li>
-    </ul>
-</div>
-<div class="section">
-    <h2>Tarmoq topologiyasi va uning tuzilishi</h2>
-    <ul>
-        <li>Tarmoq topologiyasi – bu kompyuter tarmog‘idagi qurilmalar va ulanishlarning joylashuvi va tuzilishini ifodalaydi. Bir nechta tarmoq topologiyalari mavjud bo‘lib, har birining o‘ziga xos tuzilishi va xususiyatlari bor:</li>
-        <li><strong>1. Magistral (Bus) Topologiya</strong>
-            <ul>
-                <li><strong>Tuzilishi:</strong> Barcha qurilmalar bitta markaziy kabelga ("magistral") ulanadi. Ma’lumotlar ikkala yo‘nalishda uzatiladi.</li>
-                <li><strong>Afzalliklari:</strong> Kichik tarmoqlar uchun oddiy va arzon.</li>
-                <li><strong>Kamchiliklari:</strong> Bitta kabelning ishlamay qolishi butun tarmoqni ishdan chiqarishi mumkin; qurilmalar soni ortishi bilan ishlash sifati pasayadi.</li>
-            </ul>
-        </li>
-        <li><strong>2. Yulduz (Star) Topologiya</strong>
-            <ul>
-                <li><strong>Tuzilishi:</strong> Barcha qurilmalar markaziy tugun (switch yoki hub) bilan bog‘lanadi. Tugun ma’lumot almashinuvini boshqaradi.</li>
-                <li><strong>Afzalliklari:</strong> Oson boshqariladi va kengaytiriladi; bitta qurilma ishlamay qolsa, tarmoqqa ta’sir qilmaydi.</li>
-                <li><strong>Kamchiliklari:</strong> Agar markaziy tugun ishlamay qolsa, butun tarmoq ishdan chiqadi; ko‘proq kabel talab etiladi.</li>
-            </ul>
-        </li>
-        <li><strong>3. Halqa (Ring) Topologiya</strong>
-            <ul>
-                <li><strong>Tuzilishi:</strong> Qurilmalar yopiq doira shaklida bog‘langan; ma’lumot bir yoki ikkala yo‘nalishda harakatlanishi mumkin.</li>
-                <li><strong>Afzalliklari:</strong> Ma’lumotlarni samarali uzatadi; oldindan belgilangan ishlash tartibiga ega.</li>
-                <li><strong>Kamchiliklari:</strong> Bitta tugunning ishlamay qolishi butun tarmoqni ishdan chiqarishi mumkin (agar qo‘shaloq halqa ishlatilmasa).</li>
-            </ul>
-        </li>
-        <li><strong>4. To‘r (Mesh) Topologiya</strong>
-            <ul>
-                <li><strong>Tuzilishi:</strong> Har bir qurilma boshqa barcha qurilmalarga ulanadi, to‘liq yoki qisman bog‘langan tarmoq hosil qiladi.</li>
-                <li><strong>Afzalliklari:</strong> Juda ishonchli; agar bir ulanish ishlamay qolsa, ma’lumot boshqa yo‘nalish orqali yetkaziladi.</li>
-                <li><strong>Kamchiliklari:</strong> Juda qimmat va murakkab, chunki ko‘p ulanish talab etiladi.</li>
-            </ul>
-        </li>
-        <li><strong>5. Daraxt (Tree) yoki Ierarxik Topologiya</strong>
-            <ul>
-                <li><strong>Tuzilishi:</strong> Yulduz va magistral topologiyalarining kombinatsiyasi bo‘lib, ko‘p bosqichli ierarxik tuzilishga ega.</li>
-                <li><strong>Afzalliklari:</strong> Katta tarmoqlar uchun mos va oson boshqariladi.</li>
-                <li><strong>Kamchiliklari:</strong> Yuqori darajadagi tugun ishlamay qolsa, bir nechta qurilmalar ishdan chiqishi mumkin.</li>
-            </ul>
-        </li>
-        <li><strong>6. Gibrid (Hybrid) Topologiya</strong>
-            <ul>
-                <li><strong>Tuzilishi:</strong> Ikki yoki undan ortiq topologiyalar birlashtirilgan bo‘lib, maxsus ehtiyojlar uchun moslashtirilgan.</li>
-                <li><strong>Afzalliklari:</strong> Moslashuvchan va turli vaziyatlar uchun optimallashtirilgan.</li>
-                <li><strong>Kamchiliklari:</strong> Dizayni murakkab va narxi yuqori.</li>
-            </ul>
-        </li>
-    </ul>
-</div>
-</main>
+    <div class="question">
+        <p class="question-text">2. Чтобы найти все уникальные комбинации (genre, book_title) из обеих таблиц, используя оператор UNION, что должно быть выбрано в первом операторе SELECT?</p>
+        <p class="answer">Ответ: genre, book_title</p>
+        <p class="explanation">Объяснение: Для объединения уникальных комбинаций (genre, book_title) из двух таблиц с помощью UNION, в обоих SELECT должны быть выбраны одинаковые столбцы, то есть genre, book_title.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">3. Какое условие отвечает за фильтрацию результатов, чтобы включить только продукты из категории 'Electronics'?</p>
+        <p class="answer">Ответ: WHERE c.category_name = 'Electronics'</p>
+        <p class="explanation">Объяснение: Условие WHERE c.category_name = 'Electronics' фильтрует строки после объединения таблиц, оставляя только те, где название категории — 'Electronics'.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">4. Какая часть этого запроса гарантирует, что если у категории нет продуктов, она все равно появится в результате, и если у продукта нет категории, он также появится?</p>
+        <p class="answer">Ответ: FULL OUTER JOIN products AS p</p>
+        <p class="explanation">Объяснение: FULL OUTER JOIN включает все строки из обеих таблиц (categories и products), даже если нет соответствия, обеспечивая появление категорий без продуктов и продуктов без категорий.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">5. Какой столбец должен быть выбран из genre_books_set1 в её операторе SELECT в следующем запросе?</p>
+        <p class="answer">Ответ: genre</p>
+        <p class="explanation">Объяснение: В запросе с UNION для объединения уникальных жанров из двух таблиц, в обоих SELECT должен быть выбран столбец genre, чтобы результат содержал только жанры.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">6. Какое имя таблицы должно заменить table_A?</p>
+        <p class="answer">Ответ: genre_books_set1</p>
+        <p class="explanation">Объяснение: Оператор EXCEPT возвращает строки, которые есть в первом запросе, но отсутствуют во втором. Чтобы найти жанры, присутствующие в genre_books_set1, но не в genre_books_set2, table_A должна быть genre_books_set1.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">7. Чтобы отфильтровать группы жанров так, чтобы включить только те, которые содержат букву 'e', какое выражение и условие используются после GROUP BY genre?</p>
+        <p class="answer">Ответ: HAVING genre LIKE '%e%'</p>
+        <p class="explanation">Объяснение: Условие HAVING применяется после GROUP BY для фильтрации групп. LIKE '%e%' проверяет, содержит ли жанр букву 'e'.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">8. Какой фрагмент SQL-определения является правильным?</p>
+        <p class="answer">Ответ: title VARCHAR(100) NOT NULL</p>
+        <p class="explanation">Объяснение: Для текстового столбца с максимальной длиной 100 символов и обязательным значением в SQL используется VARCHAR(100) NOT NULL.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">9. Какое выражение используется для фильтрации строк перед группировкой так, чтобы рассматривались только заказы, где book_title содержит "of"?</p>
+        <p class="answer">Ответ: WHERE book_title LIKE '%of%'</p>
+        <p class="explanation">Объяснение: Условие WHERE применяется до группировки для фильтрации строк. LIKE '%of%' проверяет наличие подстроки "of" в book_title.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">10. Чтобы проверить, содержит ли book_title цифру '3', используя оператор LIKE, какой шаблон является правильным?</p>
+        <p class="answer">Ответ: book_title LIKE '%3%'</p>
+        <p class="explanation">Объяснение: Шаблон %3% в LIKE ищет строки, содержащие цифру '3' в любой позиции.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">11. Какой оператор множеств используется между двумя выражениями SELECT ... WHERE genre = 'Fantasy'?</p>
+        <p class="answer">Ответ: INTERSECT</p>
+        <p class="explanation">Объяснение: INTERSECT возвращает только те строки, которые присутствуют в результатах обоих запросов, то есть книги жанра 'Fantasy', общие для обеих таблиц.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">12. Если имеется 4 категории и 9 продуктов, сколько строк вернет этот запрос?</p>
+        <p class="answer">Ответ: 36 строк (4 * 9).</p>
+        <p class="explanation">Объяснение: CROSS JOIN создает декартово произведение, то есть каждая категория объединяется с каждым продуктом, что дает 4 * 9 = 36 строк.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">13. Какое правильное предложение следует использовать с DROP COLUMN?</p>
+        <p class="answer">Ответ: IF EXISTS</p>
+        <p class="explanation">Объяснение: В SQL (например, в PostgreSQL) используется IF EXISTS с DROP COLUMN для предотвращения ошибки, если столбец отсутствует.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">14. Переименуйте столбец author_name в таблице authors в name.</p>
+        <p class="answer">Ответ: RENAME COLUMN author_name TO name</p>
+        <p class="explanation">Объяснение: В большинстве диалектов SQL (например, PostgreSQL) для переименования столбца используется ALTER TABLE authors RENAME COLUMN author_name TO name.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">15. Как бы вы определили столбец birth_date для хранения значений даты?</p>
+        <p class="answer">Ответ: birth_date DATE</p>
+        <p class="explanation">Объяснение: Тип данных DATE предназначен для хранения только дат (без времени), что подходит для birth_date.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">16. Какой оператор правильно завершает следующее выражение?</p>
+        <p class="answer">Ответ: EXCEPT</p>
+        <p class="explanation">Объяснение: EXCEPT возвращает строки, которые есть в первом запросе (genre_books_set1), но отсутствуют во втором (genre_books_set2).</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">17. Для извлечения уникальных жанров из таблицы orders, какое выражение является обязательным?</p>
+        <p class="answer">Ответ: GROUP BY genre</p>
+        <p class="explanation">Объяснение: Для получения уникальных жанров используется GROUP BY genre, которое группирует строки по уникальным значениям жанра.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">18. Какой оператор множеств следует использовать для объединения результатов запросов?</p>
+        <p class="answer">Ответ: UNION</p>
+        <p class="explanation">Объяснение: UNION объединяет результаты двух запросов, удаляя дубликаты, что подходит для получения всех уникальных названий книг из обеих таблиц.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">19. Каково назначение условия ON p.category_id = c.category_id?</p>
+        <p class="answer">Ответ: Для определения условия соответствия строк между таблицами products и categories.</p>
+        <p class="explanation">Объяснение: Условие ON в INNER JOIN указывает, как связать строки двух таблиц, в данном случае по совпадению category_id.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">20. Какой SQL-запрос правильно выбирает книги: либо из категории 'Science Fiction' по цене менее $20.00, ИЛИ из категории 'Classic', опубликованные до 1900 года?</p>
+        <p class="answer">Ответ: <pre><code>SELECT * FROM books WHERE (category = 'Science Fiction' AND price < 20.00) OR (category = 'Classic' AND publication_year < 1900);</code></pre></p>
+        <p class="explanation">Объяснение: Условие использует OR для объединения двух независимых критериев, каждый из которых включает AND для фильтрации по категории и дополнительному условию.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">21. Какое утверждение точно описывает строки, которые будут включены из таблицы categories?</p>
+        <p class="answer">Ответ: Все категории будут включены, независимо от того, есть ли у них соответствующие продукты.</p>
+        <p class="explanation">Объяснение: LEFT JOIN включает все строки из левой таблицы (categories), даже если нет соответствующих строк в правой таблице (products).</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">22. Добавьте столбец stock_quantity (целочисленный тип) в таблицу books со значением по умолчанию 0.</p>
+        <p class="answer">Ответ: ADD COLUMN stock_quantity INTEGER DEFAULT 0</p>
+        <p class="explanation">Объяснение: В SQL для добавления столбца используется ALTER TABLE books ADD COLUMN stock_quantity INTEGER DEFAULT 0.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">23. Что означает DESC в условии ORDER BY p.price DESC?</p>
+        <p class="answer">Ответ: Упорядочить по цене продукта в порядке убывания.</p>
+        <p class="explanation">Объяснение: DESC в ORDER BY указывает сортировку в порядке убывания (от большего к меньшему).</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">24. Какой SQL-запрос правильно выбирает книги, цена которых меньше $15.00 И которые относятся к категории 'Классика'?</p>
+        <p class="answer">Ответ: <pre><code>SELECT * FROM books WHERE price < 15.00 AND category = 'Classic';</code></pre></p>
+        <p class="explanation">Объяснение: Условие AND объединяет два критерия: цена менее $15.00 и категория 'Classic'.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">25. Как бы вы отсортировали названия книг от самого короткого к самому длинному?</p>
+        <p class="answer">Ответ: ORDER BY LENGTH(book_title) ASC</p>
+        <p class="explanation">Объяснение: Функция LENGTH возвращает длину строки, а ASC сортирует по возрастанию (от коротких к длинным).</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">26. Какой SQL-запрос правильно выбирает книги, которые НЕ относятся к категории 'Science Fiction'?</p>
+        <p class="answer">Ответ: <pre><code>SELECT * FROM books WHERE NOT category = 'Science Fiction';</code></pre></p>
+        <p class="explanation">Объяснение: Оператор NOT инвертирует условие, выбирая все книги, где категория не 'Science Fiction'.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">27. Какой шаблон LIKE правильно определяет жанры, которые заканчиваются на букву 'e'?</p>
+        <p class="answer">Ответ: genre LIKE '%e'</p>
+        <p class="explanation">Объяснение: Шаблон %e в LIKE ищет строки, заканчивающиеся на 'e'.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">28. Какой SQL-запрос правильно выбирает книги, которые НЕ ('Fantasy' ИЛИ 'Dystopian') И цена которых меньше $15.00?</p>
+        <p class="answer">Ответ: <pre><code>SELECT * FROM books WHERE NOT (category = 'Fantasy' OR category = 'Dystopian') AND price < 15.00;</code></pre></p>
+        <p class="explanation">Объяснение: NOT (category = 'Fantasy' OR category = 'Dystopian') исключает книги категорий 'Fantasy' и 'Dystopian', а AND price < 15.00 добавляет условие по цене.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">29. Оператор SELECT для какой таблицы должен идти первым в выражении?</p>
+        <p class="answer">Ответ: table_A должна быть genre_books_set2</p>
+        <p class="explanation">Объяснение: Для поиска книг, которые есть в genre_books_set2, но нет в genre_books_set1, первый SELECT должен быть из genre_books_set2 (table_A), а второй — из genre_books_set1 (table_B).</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">30. Какую структуру SQL-команды следует использовать?</p>
+        <p class="answer">Ответ: ALTER TABLE books ADD COLUMN price DECIMAL;</p>
+        <p class="explanation">Объяснение: Для добавления нового столбца используется ALTER TABLE с ADD COLUMN.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">31. Какова основная функция COALESCE(c.category_name, 'Uncategorized')?</p>
+        <p class="answer">Ответ: Вернуть 'Uncategorized', если c.category_name равно NULL для продукта, в противном случае вернуть c.category_name.</p>
+        <p class="explanation">Объяснение: COALESCE возвращает первое ненулевое значение из списка, заменяя NULL в c.category_name на 'Uncategorized'.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">32. Какое конкретное предложение ALTER TABLE следует использовать?</p>
+        <p class="answer">Ответ: ALTER COLUMN genre TYPE VARCHAR(75)</p>
+        <p class="explanation">Объяснение: В PostgreSQL для изменения типа данных столбца используется ALTER TABLE books ALTER COLUMN genre TYPE VARCHAR(75).</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">33. Какой SQL-запрос правильно выбирает книги, которые относятся к категориям 'Classic' ИЛИ 'Dystopian' И цена которых больше $12.00?</p>
+        <p class="answer">Ответ: <pre><code>SELECT * FROM books WHERE (category = 'Classic' OR category = 'Dystopian') AND price > 12.00;</code></pre></p>
+        <p class="explanation">Объяснение: Условие (category = 'Classic' OR category = 'Dystopian') выбирает книги из указанных категорий, а AND price > 12.00 фильтрует по цене.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">34. Какой SQL-запрос правильно выбирает книги, опубликованные до 1960 года И цена которых больше $14.00?</p>
+        <p class="answer">Ответ: <pre><code>SELECT * FROM books WHERE publication_year < 1960 AND price > 14.00;</code></pre></p>
+        <p class="explanation">Объяснение: Условие AND объединяет два критерия: год публикации до 1960 и цена больше $14.00.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">35. Какая часть запроса является существенной для того, чтобы COUNT(p.product_id) предоставлял количество по каждой категории, а не общее количество?</p>
+        <p class="answer">Ответ: GROUP BY c.category_name</p>
+        <p class="explanation">Объяснение: GROUP BY c.category_name группирует строки по названию категории, позволяя COUNT(p.product_id) подсчитывать продукты для каждой категории отдельно.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">36. Если продукт в таблице products имеет category_id, который не существует в таблице categories (или равен NULL), каким будет значение c.category_name для этого продукта в результате?</p>
+        <p class="answer">Ответ: NULL.</p>
+        <p class="explanation">Объяснение: При RIGHT JOIN все продукты включаются, но если category_id не соответствует ни одной категории, то c.category_name будет NULL.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">37. Какой оператор следует подставить в пропуск, чтобы найти названия книг, которые появляются одновременно в genre_books_set1 и genre_books_set2?</p>
+        <p class="answer">Ответ: INTERSECT</p>
+        <p class="explanation">Объяснение: INTERSECT возвращает только те строки, которые присутствуют в обоих запросах, то есть общие книги.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">38. Какой логический оператор используется между двумя условиями LIKE в выражении HAVING?</p>
+        <p class="answer">Ответ: AND</p>
+        <p class="explanation">Объяснение: Для проверки, что book_title содержит и 'a', и 's', в HAVING используется AND для объединения условий LIKE '%a%' и LIKE '%s%'.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">39. Какой SQL-оператор правильно удаляет таблицу authors из базы данных, гарантируя, что ошибка не возникнет, если таблица уже отсутствует?</p>
+        <p class="answer">Ответ: DROP TABLE IF EXISTS authors;</p>
+        <p class="explanation">Объяснение: DROP TABLE IF EXISTS удаляет таблицу, если она существует, и не вызывает ошибку, если таблицы нет.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">40. Оператор INTERSECT используется для:</p>
+        <p class="answer">Ответ: Вывода списка только тех жанров, которые присутствуют одновременно в genre_books_set1 и genre_books_set2.</p>
+        <p class="explanation">Объяснение: INTERSECT возвращает только те строки, которые есть в обоих запросах, то есть общие жанры.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">41. Чтобы отфильтровать названия книг, которые начинаются с "The", какое условие выражения WHERE является правильным?</p>
+        <p class="answer">Ответ: WHERE book_title LIKE 'The%'</p>
+        <p class="explanation">Объяснение: Шаблон The% в LIKE ищет строки, начинающиеся с "The".</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">42. Для сортировки названий книг в обратном алфавитном порядке (от Я до А), какой синтаксис ORDER BY является правильным?</p>
+        <p class="answer">Ответ: ORDER BY book_title DESC</p>
+        <p class="explanation">Объяснение: DESC сортирует в порядке убывания, что соответствует обратному алфавитному порядку.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">43. Какой SQL-запрос правильно выбирает книги, написанные 'Джейн Остин' ИЛИ опубликованные после 1970 года?</p>
+        <p class="answer">Ответ: <pre><code>SELECT * FROM books WHERE author_name = 'Jane Austen' OR publication_year > 1970;</code></pre></p>
+        <p class="explanation">Объяснение: Условие OR объединяет два критерия: автор 'Jane Austen' или год публикации после 1970.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">44. Чтобы найти названия книг, содержащие "The" (с учетом регистра) как подстроку, какой шаблон LIKE вы бы использовали в выражении WHERE?</p>
+        <p class="answer">Ответ: book_title LIKE '%The%'</p>
+        <p class="explanation">Объяснение: Шаблон %The% ищет подстроку "The" в любой позиции строки.</p>
+    </div>
+
+    <div class="question">
+        <p class="question-text">45. Как правильно определить столбец book_id как уникальный идентификатор, который автоматически увеличивается и служит первичным ключом?</p>
+        <p class="answer">Ответ: book_id INT AUTO_INCREMENT PRIMARY KEY</p>
+        <p class="explanation">Объяснение: В MySQL для автоинкрементного первичного ключа используется INT AUTO_INCREMENT PRIMARY KEY.</p>
+    </div>
+
 </body>
 </html>
