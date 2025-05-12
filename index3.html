@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Databases (3-7) RU Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        a:hover {
+            color: #0066cc;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+        }
+        .email {
+            font-style: italic;
+            color: #555;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .question-number {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        .correct {
+            color: green;
+            font-weight: bold;
+        }
+        .incorrect {
+            color: red;
+        }
+        .submit-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #0055aa;
+        }
+    </style>
+</head>
+<body>
+    <h1>Тест по базам данных (3-7)</h1>
+    <h2><a href="index.html" style="text-decoration: none;">Назад к профилю</a></h2>
+
+    <form id="quiz-form">
+        <div class="question">
+            <p class="question-number">1.</p>
+            <p><strong>Рассмотрим запрос:</strong></p>
+            <pre><code>SELECT c.category_name, p.product_name 
+FROM categories AS c 
+LEFT JOIN products AS p 
+ON c.category_id = p.category_id 
+WHERE p.price > 50.00;</code></pre>
+            <p>Что произойдет, если категория (например, 'Books') содержит только продукты по цене $50.00 или меньше? <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q1" value="a"> Название категории появится со значением NULL для p.product_name.</li>
+                <li><input type="radio" name="q1" value="b"> Категория вообще не появится в результатах.</li>
+                <li><input type="radio" name="q1" value="c"> Будет вызвана ошибка, поскольку ни один продукт не соответствует условию WHERE для этой категории.</li>
+                <li><input type="radio" name="q1" value="d"> Название категории появится, и все ее продукты будут перечислены, игнорируя условие WHERE для этой категории.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">2.</p>
+            <p><strong>Чтобы найти все уникальные комбинации (genre, book_title) из обеих таблиц, используя оператор UNION, что должно быть выбрано в первом операторе SELECT:</strong></p>
+            <pre><code>SELECT _____ FROM genre_books_set1 
+UNION ...;</code></pre>
+            <p><em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q2" value="a"> genre</li>
+                <li><input type="radio" name="q2" value="b"> book_title</li>
+                <li><input type="radio" name="q2" value="c"> genre, book_title</li>
+                <li><input type="radio" name="q2" value="d"> book_id, genre</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">3.</p>
+            <p><strong>В запросе для поиска названий продуктов и их цен для продуктов из категории 'Electronics':</strong></p>
+            <pre><code>SELECT p.product_name, p.price 
+FROM products AS p 
+INNER JOIN categories AS c 
+ON p.category_id = c.category_id 
+WHERE c.category_name = 'Electronics';</code></pre>
+            <p>Какое условие отвечает за фильтрацию результатов, чтобы включить только продукты из категории 'Electronics'? <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q3" value="a"> SELECT p.product_name, p.price</li>
+                <li><input type="radio" name="q3" value="b"> INNER JOIN categories AS c</li>
+                <li><input type="radio" name="q3" value="c"> ON p.category_id = c.category_id</li>
+                <li><input type="radio" name="q3" value="d"> WHERE c.category_name = 'Electronics'</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">4.</p>
+            <p><strong>FULL OUTER JOIN используется для объединения категорий и продуктов:</strong></p>
+            <pre><code>SELECT c.category_name, p.product_name 
+FROM categories AS c 
+FULL OUTER JOIN products AS p 
+ON c.category_id = p.category_id;</code></pre>
+            <p>Какая часть этого запроса гарантирует, что если у категории нет продуктов, она все равно появится в результате, и если у продукта нет категории, он также появится? <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q4" value="a"> SELECT c.category_name, p.product_name</li>
+                <li><input type="radio" name="q4" value="b"> FROM categories AS c</li>
+                <li><input type="radio" name="q4" value="c"> FULL OUTER JOIN products AS p</li>
+                <li><input type="radio" name="q4" value="d"> ON c.category_id = p.category_id</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">5.</p>
+            <p><strong>Чтобы вывести список всех уникальных жанров, присутствующих либо в genre_books_set1, либо в genre_books_set2, используя операцию UNION, какой столбец должен быть выбран из genre_books_set1 в её операторе SELECT в следующем запросе:</strong></p>
+            <pre><code>SELECT __ FROM genre_books_set1 
+UNION 
+SELECT genre FROM genre_books_set2;</code></pre>
+            <p><em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q5" value="a"> book_id</li>
+                <li><input type="radio" name="q5" value="b"> book_title</li>
+                <li><input type="radio" name="q5" value="c"> genre</li>
+                <li><input type="radio" name="q5" value="d"> * (все столбцы)</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">6.</p>
+            <p><strong>Чтобы вывести список жанров, присутствующих в genre_books_set1, но не в genre_books_set2, структура запроса следующая:</strong></p>
+            <pre><code>SELECT genre FROM table_A 
+EXCEPT 
+SELECT genre FROM table_B;</code></pre>
+            <p>Какое имя таблицы должно заменить table_A? <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q6" value="a"> genre_books_set2</li>
+                <li><input type="radio" name="q6" value="b"> genre_books_set1</li>
+                <li><input type="radio" name="q6" value="c"> genre_books_set1 UNION genre_books_set2</li>
+                <li><input type="radio" name="q6" value="d"> Не имеет значения, какая таблица является table_A.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">7.</p>
+            <p><strong>Чтобы отфильтровать группы жанров так, чтобы включить только те, которые содержат букву 'e', какое выражение и условие используются после GROUP BY genre?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q7" value="a"> WHERE genre LIKE '%e%'</li>
+                <li><input type="radio" name="q7" value="b"> HAVING genre = 'e'</li>
+                <li><input type="radio" name="q7" value="c"> HAVING genre LIKE '%e%'</li>
+                <li><input type="radio" name="q7" value="d"> FILTER genre LIKE '%e%'</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">8.</p>
+            <p><strong>Для таблицы books столбец title должен быть текстовым, не может быть null и иметь максимальную длину 100 символов. Какой фрагмент SQL-определения является правильным?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q8" value="a"> title TEXT(100) NOT NULL</li>
+                <li><input type="radio" name="q8" value="b"> title VARCHAR(100) NOT NULL</li>
+                <li><input type="radio" name="q8" value="c"> title STRING(100) REQUIRED</li>
+                <li><input type="radio" name="q8" value="d"> title CHAR(100) MANDATORY</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">9.</p>
+            <p><strong>Какое выражение используется для фильтрации строк перед группировкой так, чтобы рассматривались только заказы, где book_title содержит "of"?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q9" value="a"> HAVING book_title LIKE '%of%'</li>
+                <li><input type=" prospettive
+
+radio" name="q9" value="b"> ORDER BY book_title LIKE '%of%'</li>
+                <li><input type="radio" name="q9" value="c"> WHERE book_title LIKE '%of%'</li>
+                <li><input type="radio" name="q9" value="d"> GROUP BY book_title LIKE '%of%'</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">10.</p>
+            <p><strong>Чтобы проверить, содержит ли book_title цифру '3', используя оператор LIKE, какой шаблон является правильным?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q10" value="a"> book_title LIKE '3'</li>
+                <li><input type="radio" name="q10" value="b"> book_title LIKE '3%'</li>
+                <li><input type="radio" name="q10" value="c"> book_title LIKE '%3'</li>
+                <li><input type="radio" name="q10" value="d"> book_title LIKE '%3%'</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">11.</p>
+            <p><strong>Чтобы найти названия книг жанра 'Fantasy', которые присутствуют одновременно в genre_books_set1 и genre_books_set2, какой оператор множеств используется между двумя выражениями SELECT ... WHERE genre = 'Fantasy'?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q11" value="a"> UNION</li>
+                <li><input type="radio" name="q11" value="b"> UNION ALL</li>
+                <li><input type="radio" name="q11" value="c"> EXCEPT</li>
+                <li><input type="radio" name="q11" value="d"> INTERSECT</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">12.</p>
+            <p><strong>Запрос с CROSS JOIN:</strong></p>
+            <pre><code>SELECT c.category_name, p.product_name 
+FROM categories AS c 
+CROSS JOIN products AS p;</code></pre>
+            <p>Если имеется 4 категории и 9 продуктов, сколько строк вернет этот запрос? <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q12" value="a"> 9 строк (количество продуктов).</li>
+                <li><input type="radio" name="q12" value="b"> 4 строки (количество категорий).</li>
+                <li><input type="radio" name="q12" value="c"> 13 строк (4 + 9).</li>
+                <li><input type="radio" name="q12" value="d"> 36 строк (4 * 9).</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">13.</p>
+            <p><strong>Чтобы удалить столбец birth_date из таблицы authors и предотвратить ошибку, если столбец не существует, какое правильное предложение следует использовать с DROP COLUMN?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q13" value="a"> IF PRESENT</li>
+                <li><input type="radio" name="q13" value="b"> IF EXISTS</li>
+                <li><input type="radio" name="q13" value="c"> CHECK EXISTS</li>
+                <li><input type="radio" name="q13" value="d"> WHEN EXISTS</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">14.</p>
+            <p><strong>Переименуйте столбец author_name в таблице authors в name.</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q14" value="a"> RENAME author_name TO name</li>
+                <li><input type="radio" name="q14" value="b"> ALTER COLUMN author_name TO name</li>
+                <li><input type="radio" name="q14" value="c"> RENAME COLUMN author_name TO name</li>
+                <li><input type="radio" name="q14" value="d"> CHANGE COLUMN author_name TO name</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">15.</p>
+            <p><strong>В операторе CREATE TABLE для таблицы authors, как бы вы определили столбец birth_date для хранения значений даты?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q15" value="a"> birth_date DATETIME</li>
+                <li><input type="radio" name="q15" value="b"> birth_date TIMESTAMP</li>
+                <li><input type="radio" name="q15" value="c"> birth_date DATE_TYPE</li>
+                <li><input type="radio" name="q15" value="d"> birth_date DATE</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">16.</p>
+            <p><strong>Чтобы найти названия книг, которые есть в genre_books_set1, но нет в genre_books_set2, какой оператор правильно завершает следующее выражение:</strong></p>
+            <pre><code>SELECT book_title FROM genre_books_set1
+---
+SELECT book_title FROM genre_books_set2;</code></pre>
+            <p><em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q16" value="a"> UNION</li>
+                <li><input type="radio" name="q16" value="b"> INTERSECT</li>
+                <li><input type="radio" name="q16" value="c"> EXCEPT</li>
+                <li><input type="radio" name="q16" value="d"> COMBINE</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">17.</p>
+            <p><strong>Для извлечения уникальных жанров из таблицы orders, какое выражение является обязательным?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q17" value="a"> ORDER BY genre</li>
+                <li><input type="radio" name="q17" value="b"> GROUP BY genre</li>
+                <li><input type="radio" name="q17" value="c"> HAVING genre</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">18.</p>
+            <p><strong>Чтобы найти все уникальные названия книг, присутствующие либо в genre_books_set1, либо в genre_books_set2, какой оператор множеств следует использовать для объединения результатов запросов SELECT book_title FROM genre_books_set1 и SELECT book_title FROM genre_books_set2?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q18" value="a"> INTERSECT</li>
+                <li><input type="radio" name="q18" value="b"> UNION ALL</li>
+                <li><input type="radio" name="q18" value="c"> UNION</li>
+                <li><input type="radio" name="q18" value="d"> EXCEPT</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">19.</p>
+            <p><strong>В запросе для вывода названий продуктов и соответствующих им названий категорий с использованием INNER JOIN:</strong></p>
+            <pre><code>SELECT p.product_name, c.category_name 
+FROM products AS p 
+INNER JOIN categories AS c 
+ON p.category_id = c.category_id;</code></pre>
+            <p>Каково назначение условия ON p.category_id = c.category_id? <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q19" value="a"> Для фильтрации продуктов по их цене.</li>
+                <li><input type="radio" name="q19" value="b"> Для указания, какие столбцы отображать в результате.</li>
+                <li><input type="radio" name="q19" value="c"> Для определения условия соответствия строк между таблицами products и categories.</li>
+                <li><input type="radio" name="q19" value="d"> Для переименования таблицы products в p и таблицы categories в c.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">20.</p>
+            <p><strong>Какой SQL-запрос правильно выбирает книги: либо из категории 'Science Fiction' по цене менее $20.00, ИЛИ из категории 'Classic', опубликованные до 1900 года?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q20" value="a"> SELECT * FROM books WHERE (category = 'Science Fiction' AND price < 20.00) AND (category = 'Classic' AND publication_year < 1900);</li>
+                <li><input type="radio" name="q20" value="b"> SELECT * FROM books WHERE (category = 'Science Fiction' AND price < 20.00) OR (category = 'Classic' AND publication_year < 1900);</li>
+                <li><input type="radio" name="q20" value="c"> SELECT * FROM books WHERE category = 'Science Fiction' OR price < 20.00 OR category = 'Classic' OR publication_year < 1900;</li>
+                <li><input type="radio" name="q20" value="d"> SELECT * FROM books WHERE category = 'Science Fiction' AND price < 20.00 AND publication_year < 1900 OR category = 'Classic';</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">21.</p>
+            <p><strong>Рассмотрим запрос с LEFT JOIN:</strong></p>
+            <pre><code>SELECT c.category_name, p.product_name 
+FROM categories AS c 
+LEFT JOIN products AS p 
+ON c.category_id = p.category_id;</code></pre>
+            <p>Какое утверждение точно описывает строки, которые будут включены из таблицы categories? <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q21" value="a"> Только категории, у которых есть хотя бы один соответствующий продукт в таблице products.</li>
+                <li><input type="radio" name="q21" value="b"> Все категории будут включены, независимо от того, есть ли у них соответствующие продукты.</li>
+                <li><input type="radio" name="q21" value="c"> Только категории, у которых нет соответствующих продуктов.</li>
+                <li><input type="radio" name="q21" value="d"> Категории будут включены, только если p.product_name не является NULL.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">22.</p>
+            <p><strong>Добавьте столбец stock_quantity (целочисленный тип) в таблицу books со значением по умолчанию 0.</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q22" value="a"> ADD COLUMN stock_quantity INTEGER WITH DEFAULT 0</li>
+                <li><input type="radio" name="q22" value="b"> ADD COLUMN stock_quantity INTEGER DEFAULT 0</li>
+                <li><input type="radio" name="q22" value="c"> ADD COLUMN stock_quantity INTEGER HAS DEFAULT 0</li>
+                <li><input type="radio" name="q22" value="d"> ADD COLUMN stock_quantity INTEGER, DEFAULT IS 0</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">23.</p>
+            <p><strong>В запросе, который объединяет продукты и категории и упорядочивает их по цене:</strong></p>
+            <pre><code>SELECT p.product_name, c.category_name 
+FROM products AS p 
+INNER JOIN categories AS c 
+ON p.category_id = c.category_id 
+ORDER BY p.price DESC;</code></pre>
+            <p>Что означает DESC в условии ORDER BY p.price DESC? <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q23" value="a"> Упорядочить по цене продукта в порядке по умолчанию (возрастанию).</li>
+                <li><input type="radio" name="q23" value="b"> Упорядочить по цене продукта в порядке убывания.</li>
+                <li><input type="radio" name="q23" value="c"> Описать тип данных столбца p.price.</li>
+                <li><input type="radio" name="q23" value="d"> Выбрать только уникальные цены.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">24.</p>
+            <p><strong>Какой SQL-запрос правильно выбирает книги, цена которых меньше $15.00 И которые относятся к категории 'Классика'?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q24" value="a"> SELECT * FROM books WHERE price < 15.00 OR category = 'Classic';</li>
+                <li><input type="radio" name="q24" value="b"> SELECT * FROM books WHERE price < 15.00 AND category = 'Classic';</li>
+                <li><input type="radio" name="q24" value="c"> SELECT * FROM books WHERE price > 15.00 AND category = 'Classic';</li>
+                <li><input type="radio" name="q24" value="d"> SELECT * FROM books WHERE category = 'Classic';</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">25.</p>
+            <p><strong>Предполагая, что существует функция LENGTH(column_name), возвращающая длину строки в символах, как бы вы отсортировали названия книг от самого короткого к самому длинному?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q25" value="a"> ORDER BY book_title LENGTH ASC</li>
+                <li><input type="radio" name="q25" value="b"> ORDER BY LENGTH(book_title) DESC</li>
+                <li><input type="radio" name="q25" value="c"> ORDER BY LENGTH(book_title) ASC</li>
+                <li><input type="radio" name="q25" value="d"> SORT BY LENGTH(book_title) ASC</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">26.</p>
+            <p><strong>Какой SQL-запрос правильно выбирает книги, которые НЕ относятся к категории 'Science Fiction'?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q26" value="a"> SELECT * FROM books WHERE category = 'Science Fiction';</li>
+                <li><input type="radio" name="q26" value="b"> SELECT * FROM books WHERE NOT category = 'Science Fiction';</li>
+                <li><input type="radio" name="q26" value="c"> SELECT * FROM books WHERE category = 'Science Fiction' AND NOT category = 'Science Fiction';</li>
+                <li><input type="radio" name="q26" value="d"> SELECT * FROM books WHERE NOT category <> 'Science Fiction';</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">27.</p>
+            <p><strong>Какой шаблон LIKE правильно определяет жанры, которые заканчиваются на букву 'e'?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q27" value="a"> genre LIKE 'e%'</li>
+                <li><input type="radio" name="q27" value="b"> genre LIKE '%e'</li>
+                <li><input type="radio" name="q27" value="c"> genre LIKE '%e%'</li>
+                <li><input type="radio" name="q27" value="d"> genre LIKE '_e'</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">28.</p>
+            <p><strong>Какой SQL-запрос правильно выбирает книги, которые НЕ ('Fantasy' ИЛИ 'Dystopian') И цена которых меньше $15.00?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q28" value="a"> SELECT * FROM books WHERE (category = 'Fantasy' OR category = 'Dystopian') AND price < 15.00;</li>
+                <li><input type="radio" name="q28" value="b"> SELECT * FROM books WHERE NOT (category = 'Fantasy' OR category = 'Dystopian') AND price < 15.00;</li>
+                <li><input type="radio" name="q28" value="c"> SELECT * FROM books WHERE (NOT category = 'Fantasy' OR NOT category = 'Dystopian') AND price < 15.00;</li>
+                <li><input type="radio" name="q28" value="d"> SELECT * FROM books WHERE NOT (category = 'Fantasy' AND category = 'Dystopian') AND price < 15.00;</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">29.</p>
+            <p><strong>При использовании оператора EXCEPT для поиска названий книг, которые есть в genre_books_set2, но нет в genre_books_set1, оператор SELECT для какой таблицы должен идти первым в выражении:</strong></p>
+            <pre><code>SELECT book_title FROM table_A 
+EXCEPT 
+SELECT book_title FROM table_B;</code></pre>
+            <p><em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q29" value="a"> table_A должна быть genre_books_set1</li>
+                <li><input type="radio" name="q29" value="b"> table_A должна быть genre_books_set2</li>
+                <li><input type="radio" name="q29" value="c"> Порядок не имеет значения для EXCEPT</li>
+                <li><input type="radio" name="q29" value="d"> Обе должны быть genre_books_set1</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">30.</p>
+            <p><strong>Чтобы добавить новый столбец с именем price и типом данных DECIMAL в существующую таблицу books, какую структуру SQL-команды следует использовать?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q30" value="a"> UPDATE TABLE books ADD COLUMN price DECIMAL;</li>
+                <li><input type="radio" name="q30" value="b"> MODIFY TABLE books ADD price DECIMAL;</li>
+                <li><input type="radio" name="q30" value="c"> ALTER TABLE books ADD COLUMN price DECIMAL;</li>
+                <li><input type="radio" name="q30" value="d"> INSERT INTO books COLUMN price DECIMAL;</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">31.</p>
+            <p><strong>В запросе:</strong></p>
+            <pre><code>SELECT p.product_name, COALESCE(c.category_name, 'Uncategorized') AS category_name 
+FROM categories AS c 
+RIGHT JOIN products AS p 
+ON c.category_id = p.category_id;</code></pre>
+            <p>Какова основная функция COALESCE(c.category_name, 'Uncategorized')? <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q31" value="a"> Отфильтровать продукты, не отнесенные к категориям.</li>
+                <li><input type="radio" name="q31" value="b"> Присвоить 'Uncategorized' полю c.category_name, если p.product_name равно NULL.</li>
+                <li><input type="radio" name="q31" value="c"> Вернуть 'Uncategorized', если c.category_name равно NULL для продукта, в противном случае вернуть c.category_name.</li>
+                <li><input type="radio" name="q31" value="d"> Объединить c.category_name со строкой 'Uncategorized'.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">32.</p>
+            <p><strong>Чтобы изменить тип данных столбца genre в таблице books на VARCHAR(75), какое конкретное предложение ALTER TABLE следует использовать?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q32" value="a"> ALTER COLUMN genre SET DATA TYPE VARCHAR(75)</li>
+                <li><input type="radio" name="q32" value="b"> MODIFY COLUMN genre TYPE VARCHAR(75)</li>
+                <li><input type="radio" name="q32" value="c"> ALTER COLUMN genre TYPE VARCHAR(75)</li>
+                <li><input type="radio" name="q32" value="d"> CHANGE COLUMN genre TO VARCHAR(75)</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">33.</p>
+            <p><strong>Какой SQL-запрос правильно выбирает книги, которые относятся к категориям 'Classic' ИЛИ 'Dystopian' И цена которых больше $12.00?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q33" value="a"> SELECT * FROM books WHERE category = 'Classic' AND category = 'Dystopian' AND price > 12.00;</li>
+                <li><input type="radio" name="q33" value="b"> SELECT * FROM books WHERE (category = 'Classic' OR category = 'Dystopian') AND price > 12.00;</li>
+                <li><input type="radio" name="q33" value="c"> SELECT * FROM books WHERE category = 'Classic' OR category = 'Dystopian' OR price > 12.00;</li>
+                <li><input type="radio" name="q33" value="d"> SELECT * FROM books WHERE category = 'Classic' OR category = 'Dystopian' AND price > 12.00;</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">34.</p>
+            <p><strong>Какой SQL-запрос правильно выбирает книги, опубликованные до 1960 года И цена которых больше $14.00?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q34" value="a"> SELECT * FROM books WHERE publication_year < 1960 OR price > 14.00;</li>
+                <li><input type="radio" name="q34" value="b"> SELECT * FROM books WHERE publication_year > 1960 AND price < 14.00;</li>
+                <li><input type="radio" name="q34" value="c"> SELECT * FROM books WHERE publication_year < 1960 AND price > 14.00;</li>
+                <li><input type="radio" name="q34" value="d"> SELECT * FROM books WHERE NOT (publication_year < 1960 AND price > 14.00);</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">35.</p>
+            <p><strong>Для запроса, который подсчитывает количество продуктов в каждой категории:</strong></p>
+            <pre><code>SELECT c.category_name, COUNT(p.product_id) AS product_count 
+FROM categories AS c 
+LEFT JOIN products AS p 
+ON c.category_id = p.category_id 
+GROUP BY c.category_name;</code></pre>
+            <p>Какая часть запроса является существенной для того, чтобы COUNT(p.product_id) предоставлял количество по каждой категории, а не общее количество? <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q35" value="a"> LEFT JOIN products AS p</li>
+                <li><input type="radio" name="q35" value="b"> COUNT(p.product_id) AS product_count</li>
+                <li><input type="radio" name="q35" value="c"> ON c.category_id = c.category_id</li>
+                <li><input type="radio" name="q35" value="d"> GROUP BY c.category_name</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">36.</p>
+            <p><strong>В запросе с RIGHT JOIN:</strong></p>
+            <pre><code>SELECT p.product_name, c.category_name 
+FROM categories AS c 
+RIGHT JOIN products AS p 
+ON c.category_id = p.category_id;</code></pre>
+            <p>Если продукт в таблице products имеет category_id, который не существует в таблице categories (или равен NULL), каким будет значение c.category_name для этого продукта в результате? <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q36" value="a"> Значение product_name.</li>
+                <li><input type="radio" name="q36" value="b"> Произойдет ошибка.</li>
+                <li><input type="radio" name="q36" value="c"> NULL.</li>
+                <li><input type="radio" name="q36" value="d"> Строка 'Uncategorized'.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">37.</p>
+            <p><strong>В запросе:</strong></p>
+            <pre><code>SELECT book_title FROM genre_books_set1
+---
+SELECT book_title FROM genre_books_set2;</code></pre>
+            <p>Какой оператор следует подставить в пропуск, чтобы найти названия книг, которые появляются одновременно в genre_books_set1 и genre_books_set2? <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q37" value="a"> UNION</li>
+                <li><input type="radio" name="q37" value="b"> EXCEPT</li>
+                <li><input type="radio" name="q37" value="c"> JOIN</li>
+                <li><input type="radio" name="q37" value="d"> INTERSECT</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">38.</p>
+            <p><strong>Чтобы убедиться, что выбранные названия книг содержат одновременно букву "a" И букву "s" при фильтрации групп, какой логический оператор используется между двумя условиями LIKE в выражении HAVING?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q38" value="a"> OR</li>
+                <li><input type="radio" name="q38" value="b"> AND</li>
+                <li><input type="radio" name="q38" value="c"> BOTH</li>
+                <li><input type="radio" name="q38" value="d"> XOR</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">39.</p>
+            <p><strong>Какой SQL-оператор правильно удаляет таблицу authors из базы данных, гарантируя, что ошибка не возникнет, если таблица уже отсутствует?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q39" value="a"> DELETE TABLE IF EXISTS authors;</li>
+                <li><input type="radio" name="q39" value="b"> DROP TABLE authors IF NOT EXISTS;</li>
+                <li><input type="radio" name="q39" value="c"> REMOVE TABLE IF EXISTS authors;</li>
+                <li><input type="radio" name="q39" value="d"> DROP TABLE IF EXISTS authors;</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">40.</p>
+            <p><strong>В запросе:</strong></p>
+            <pre><code>SELECT genre FROM genre_books_set1 
+INTERSECT 
+SELECT genre FROM genre_books_set2;</code></pre>
+            <p>Оператор INTERSECT используется для: <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q40" value="a"> Вывода списка всех жанров только из genre_books_set1.</li>
+                <li><input type="radio" name="q40" value="b"> Вывода списка всех уникальных жанров из обеих таблиц, объединенных вместе.</li>
+                <li><input type="radio" name="q40" value="c"> Вывода списка только тех жанров, которые присутствуют одновременно в genre_books_set1 и genre_books_set2.</li>
+                <li><input type="radio" name="q40" value="d"> Вывода списка жанров из genre_books_set1, которых нет в genre_books_set2.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">41.</p>
+            <p><strong>Чтобы отфильтровать названия книг, которые начинаются с "The", какое условие выражения WHERE является правильным?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q41" value="a"> WHERE book_title LIKE '%The'</li>
+                <li><input type="radio" name="q41" value="b"> WHERE book_title LIKE 'The_'</li>
+                <li><input type="radio" name="q41" value="c"> WHERE book_title LIKE 'The%'</li>
+                <li><input type="radio" name="q41" value="d"> WHERE book_title = 'The'</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">42.</p>
+            <p><strong>Для сортировки названий книг в обратном алфавитном порядке (от Я до А), какой синтаксис ORDER BY является правильным?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q42" value="a"> ORDER BY book_title ASC</li>
+                <li><input type="radio" name="q42" value="b"> ORDER BY book_title REVERSE</li>
+                <li><input type="radio" name="q42" value="c"> ORDER BY book_title DESC</li>
+                <li><input type="radio" name="q42" value="d"> SORT BY book_title DESC</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">43.</p>
+            <p><strong>Какой SQL-запрос правильно выбирает книги, написанные 'Джейн Остин' ИЛИ опубликованные после 1970 года?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q43" value="a"> SELECT * FROM books WHERE author_name = 'Jane Austen' AND publication_year > 1970;</li>
+                <li><input type="radio" name="q43" value="b"> SELECT * FROM books WHERE author_name = 'Jane Austen' OR publication_year > 1970;</li>
+                <li><input type="radio" name="q43" value="c"> SELECT * FROM books WHERE author_name = 'Jane Austen' AND publication_year < 1970;</li>
+                <li><input type="radio" name="q43" value="d"> SELECT * FROM books WHERE NOT (author_name = 'Jane Austen' OR publication_year > 1970);</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">44.</p>
+            <p><strong>Чтобы найти названия книг, содержащие "The" (с учетом регистра) как подстроку, какой шаблон LIKE вы бы использовали в выражении WHERE?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q44" value="a"> book_title LIKE 'The'</li>
+                <li><input type="radio" name="q44" value="b"> book_title LIKE 'The%'</li>
+                <li><input type="radio" name="q44" value="c"> book_title LIKE '%The'</li>
+                <li><input type="radio" name="q44" value="d"> book_title LIKE '%The%'</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p class="question-number">45.</p>
+            <p><strong>При создании таблицы books, как правильно определить столбец book_id как уникальный идентификатор, который автоматически увеличивается и служит первичным ключом?</strong> <em>(1 балл)</em></p>
+            <ul>
+                <li><input type="radio" name="q45" value="a"> book_id INT AUTO_INCREMENT PRIMARY KEY</li>
+                <li><input type="radio" name="q45" value="b"> book_id SERIAL PRIMARY KEY</li>
+                <li><input type="radio" name="q45" value="c"> book_id INTEGER PRIMARY KEY AUTOINCREMENT</li>
+                <li><input type="radio" name="q45" value="d"> book_id IDENTITY PRIMARY KEY</li>
+            </ul>
+        </div>
+
+        <button type="button" class="submit-btn" onclick="checkAnswers()">Проверить ответы</button>
+    </form>
+
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                q1: 'b', q2: 'c', q3: 'd', q4: 'c', q5: 'c', q6: 'b', q7: 'c', q8: 'b', q9: 'c', q10: 'd',
+                q11: 'd', q12: 'd', q13: 'b', q14: 'c', q15: 'd', q16: 'c', q17: 'b', q18: 'c', q19: 'c', q20: 'b',
+                q21: 'b', q22: 'b', q23: 'b', q24: 'b', q25: 'c', q26: 'b', q27: 'b', q28: 'b', q29: 'b', q30: 'c',
+                q31: 'c', q32: 'c', q33: 'b', q34: 'c', q35: 'd', q36: 'c', q37: 'd', q38: 'b', q39: 'd', q40: 'c',
+                q41: 'c', q42: 'c', q43: 'b', q44: 'd', q45: 'a'
+            };
+
+            let score = 0;
+            const totalQuestions = 45;
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const question = document.getElementsByName(`q${i}`);
+                let selectedValue = null;
+
+                for (const option of question) {
+                    if (option.checked) {
+                        selectedValue = option.value;
+                        break;
+                    }
+                }
+
+                const listItems = question[0].parentElement.parentElement.getElementsByTagName('li');
+                for (const li of listItems) {
+                    li.classList.remove('correct', 'incorrect');
+                }
+
+                if (selectedValue) {
+                    if (selectedValue === correctAnswers[`q${i}`]) {
+                        listItems[[...question].findIndex(opt => opt.value === selectedValue)].classList.add('correct');
+                        score++;
+                    } else {
+                        listItems[[...question].findIndex(opt => opt.value === selectedValue)].classList.add('incorrect');
+                        listItems[[...question].findIndex(opt => opt.value === correctAnswers[`q${i}`])].classList.add('correct');
+                    }
+                }
+            }
+
+            alert(`Ваш результат: ${score} из ${totalQuestions}`);
+        }
+    </script>
+</body>
+</html>
