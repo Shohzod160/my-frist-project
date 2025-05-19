@@ -1,0 +1,1944 @@
+{
+  "questions": [
+    {
+      "question": "1. In PostgreSQL, which of the following database constraints typically lead to the automatic creation of an underlying index on the constrained column(s)?",
+      "options": [
+        "CHECK constraints and FOREIGN KEY constraints",
+        "NOT NULL constraints and DEFAULT value constraints",
+        "PRIMARY KEY constraints and UNIQUE constraints",
+        "EXCLUSION constraints and TRIGGER definitions"
+      ],
+      "correctAnswer": "PRIMARY KEY constraints and UNIQUE constraints"
+    },
+    {
+      "question": "2. Which system catalog view in PostgreSQL can be queried to list existing indexes along with their definitions for a specific table?",
+      "options": [
+        "pg_catalog.pg_tables",
+        "pg_catalog.pg_views",
+        "pg_catalog.pg_indexes",
+        "pg_catalog.pg_constraints"
+      ],
+      "correctAnswer": "pg_catalog.pg_indexes"
+    },
+    {
+      "question": "3. Which of the following SQL clauses is specifically designed to filter groups created by a GROUP BY clause based on the results of aggregate functions?",
+      "options": ["WHERE", "FILTER", "HAVING", "GROUP FILTER"],
+      "correctAnswer": "HAVING"
+    },
+    {
+      "question": "4. When using the EXTRACT() function to get a specific part from a date or timestamp value, which field keyword is used to retrieve the day of the week (where Sunday is typically 0)?",
+      "options": ["WEEKDAY", "DAY_OF_WEEK", "DOW", "DAYNUM"],
+      "correctAnswer": "DOW"
+    },
+    {
+      "question": "5. The MIN() and MAX() aggregate functions can operate on which of the following general categories of data types?",
+      "options": [
+        "Numeric data types only",
+        "Numeric and string data types only",
+        "Numeric, string, and date/time data types",
+        "Any data type without restriction"
+      ],
+      "correctAnswer": "Numeric, string, and date/time data types"
+    },
+    {
+      "question": "6. Which statement correctly describes the operational difference between the WHERE clause and the HAVING clause in SQL queries involving aggregations?",
+      "options": [
+        "WHERE filters data after grouping, while HAVING filters before grouping",
+        "WHERE filters individual rows before they are grouped and aggregated, while HAVING filters the groups themselves after aggregation",
+        "Both WHERE and HAVING are applied simultaneously after aggregation",
+        "WHERE can use aggregate functions for filtering, while HAVING cannot"
+      ],
+      "correctAnswer": "WHERE filters individual rows before they are grouped and aggregated, while HAVING filters the groups themselves after aggregation"
+    },
+    {
+      "question": "7. Which SQL clause allows for implementing if-then-else logic directly within a query to derive different results based on conditions?",
+      "options": [
+        "IF ... THEN ... ELSE ... ENDIF",
+        "DECODE(condition, result1, condition2, result2, ..., else_result)",
+        "SWITCH ... CASE ... DEFAULT ... END",
+        "CASE WHEN condition1 THEN result1 ... ELSE else_result END"
+      ],
+      "correctAnswer": "CASE WHEN condition1 THEN result1 ... ELSE else_result END"
+    },
+    {
+      "question": "8. What is the primary purpose of a UNIQUE INDEX in addition to potentially speeding up data retrieval?",
+      "options": [
+        "It only allows non-NULL values in the indexed column",
+        "It enforces that all values in the indexed column(s) must be distinct across the table",
+        "It automatically sorts the table data physically based on the indexed column",
+        "It is the only type of index that can be used for primary keys"
+      ],
+      "correctAnswer": "It enforces that all values in the indexed column(s) must be distinct across the table"
+    },
+    {
+      "question": "9. What is the primary purpose of the || operator in SQL, particularly as recommended in PostgreSQL for string manipulation?",
+      "options": [
+        "To perform a logical OR operation within a WHERE clause",
+        "To concatenate (join) two or more strings",
+        "To calculate the bitwise OR of two integer values",
+        "To specify alternative values in a COALESCE function"
+      ],
+      "correctAnswer": "To concatenate (join) two or more strings"
+    },
+    {
+      "question": "10. Which type of SQL join is most suitable when you need to retrieve all records from the first table and the matched records from the second table, displaying NULLs for columns of the second table if no match is found?",
+      "options": ["INNER JOIN", "RIGHT JOIN", "FULL OUTER JOIN", "LEFT JOIN"],
+      "correctAnswer": "LEFT JOIN"
+    },
+    {
+      "question": "11. What best describes an SQL VIEW in terms of its data storage?",
+      "options": [
+        "It physically stores a copy of the data from base tables",
+        "It is a virtual table whose content is defined by a stored query",
+        "It temporarily stores data only when being queried",
+        "It caches frequently accessed data for faster retrieval"
+      ],
+      "correctAnswer": "It is a virtual table whose content is defined by a stored query"
+    },
+    {
+      "question": "12. Which numeric function would you use to round a number like 789.123 to the nearest hundred, resulting in 800?",
+      "options": [
+        "ROUND(789.123, 2)",
+        "ROUND(789.123, -2)",
+        "CEIL(789.123, -2)",
+        "FLOOR(789.123 TO 100)"
+      ],
+      "correctAnswer": "ROUND(789.123, -2)"
+    },
+    {
+      "question": "13. If an attempt is made to drop a view using DROP VIEW view_name; (without CASCADE), and other database objects depend on this view, what is the default behavior?",
+      "options": [
+        "The view is dropped, and all dependent objects are automatically dropped as well",
+        "The view is dropped, but dependent objects might become invalid",
+        "The DROP VIEW statement will fail, and the view will not be dropped",
+        "The database system will prompt the user to confirm dropping dependent objects"
+      ],
+      "correctAnswer": "The DROP VIEW statement will fail, and the view will not be dropped"
+    },
+    {
+      "question": "14. What is the primary purpose of the OR REPLACE clause in a CREATE VIEW statement?",
+      "options": [
+        "To rename an existing view if the new name is different",
+        "To create the view only if it does not already exist, otherwise do nothing",
+        "To update the definition of an existing view or create it if it doesn't exist",
+        "To force the recreation of the view, dropping all dependent objects"
+      ],
+      "correctAnswer": "To update the definition of an existing view or create it if it doesn't exist"
+    },
+    {
+      "question": "15. What is the SQL command used to rebuild all existing indexes on a specific table, often to address fragmentation?",
+      "options": [
+        "OPTIMIZE INDEXES FOR table_name;",
+        "REBUILD ALL INDEXES ON table_name;",
+        "REINDEX TABLE table_name;",
+        "DEFRAGMENT INDEXES table_name;"
+      ],
+      "correctAnswer": "REINDEX TABLE table_name;"
+    },
+    {
+      "question": "16. In an SQL query that uses aggregate functions (e.g., COUNT(), SUM()) with a GROUP BY clause, which clause is used to filter the grouped results based on the outcome of the aggregate function?",
+      "options": ["WHERE", "FILTER", "HAVING", "CONDITION"],
+      "correctAnswer": "HAVING"
+    },
+    {
+      "question": "17. Which is the correct basic SQL syntax to define a new view named active_users?",
+      "options": [
+        "NEW VIEW active_users AS SELECT user_id, username FROM users WHERE status = 'active';",
+        "CREATE VIEW active_users USING SELECT user_id, username FROM users WHERE status = 'active';",
+        "DEFINE VIEW active_users AS SELECT user_id, username FROM users WHERE status = 'active';",
+        "CREATE VIEW active_users AS SELECT user_id, username FROM users WHERE status = 'active';"
+      ],
+      "correctAnswer": "CREATE VIEW active_users AS SELECT user_id, username FROM users WHERE status = 'active';"
+    },
+    {
+      "question": "18. Which SQL aggregate function is used to determine the total number of rows in a query's result set, including rows with NULL values in some columns?",
+      "options": ["SUM(*)", "COUNT(column_name)", "TOTAL(*)", "COUNT(*)"],
+      "correctAnswer": "COUNT(*)"
+    },
+    {
+      "question": "19. Which SQL query structure is appropriate for selecting categories and their total counts, but only including categories where the total count is greater than 10?",
+      "options": [
+        "SELECT category, COUNT(*) FROM products WHERE COUNT(*) > 10 GROUP BY category;",
+        "SELECT category, COUNT(*) FROM products GROUP BY category HAVING COUNT(*) > 10;",
+        "SELECT category, COUNT(*) FROM products GROUP BY category, COUNT(*) WHERE COUNT(*) > 10;",
+        "SELECT category, COUNT(*) FROM products GROUP BY category ORDER BY COUNT(*) > 10;"
+      ],
+      "correctAnswer": "SELECT category, COUNT(*) FROM products GROUP BY category HAVING COUNT(*) > 10;"
+    },
+    {
+      "question": "20. To find the number of unique, non-NULL entries in a specific column, which SQL expression should be used?",
+      "options": [
+        "UNIQUE COUNT(column_name)",
+        "COUNT(DISTINCT column_name)",
+        "DISTINCT(COUNT(column_name))",
+        "COUNT(column_name UNIQUE)"
+      ],
+      "correctAnswer": "COUNT(DISTINCT column_name)"
+    },
+    {
+      "question": "21. One of the key advantages of using views for security is their ability to:",
+      "options": [
+        "Encrypt all data selected through the view automatically",
+        "Prevent all SQL injection attacks when querying the view",
+        "Restrict user access to specific columns or rows from underlying tables",
+        "Automatically audit all DML operations performed through the view"
+      ],
+      "correctAnswer": "Restrict user access to specific columns or rows from underlying tables"
+    },
+    {
+      "question": "22. Which SQL command correctly removes an index from the database, while also preventing an error if the index does not exist?",
+      "options": [
+        "DELETE INDEX IF EXISTS index_name;",
+        "DROP INDEX IF EXISTS index_name;",
+        "REMOVE INDEX index_name IF PRESENT;",
+        "ERASE INDEX IF NOT EXISTS index_name;"
+      ],
+      "correctAnswer": "DROP INDEX IF EXISTS index_name;"
+    },
+    {
+      "question": "23. The core definition of an SQL view, which determines its columns and rows, is specified using:",
+      "options": [
+        "A CREATE TABLE AS statement",
+        "A SELECT statement",
+        "A series of INSERT statements",
+        "An ALTER TABLE statement"
+      ],
+      "correctAnswer": "A SELECT statement"
+    },
+    {
+      "question": "24. Which SQL command is used to remove a table from the database, but only if the table currently exists, thus preventing an error if it has already been deleted?",
+      "options": [
+        "DELETE TABLE IF EXISTS table_name;",
+        "REMOVE TABLE table_name IF PRESENT;",
+        "DROP TABLE IF EXISTS table_name;",
+        "ERASE TABLE table_name ON EXISTENCE;"
+      ],
+      "correctAnswer": "DROP TABLE IF EXISTS table_name;"
+    },
+    {
+      "question": "25. What is the main functionality of the COALESCE() expression in SQL?",
+      "options": [
+        "To convert a value from one data type to another, ensuring no nulls are produced",
+        "To return the first non-NULL expression from a list of arguments",
+        "To combine (concatenate) multiple string arguments into one",
+        "To evaluate a condition and return NULL if the condition is met, otherwise return the original value"
+      ],
+      "correctAnswer": "To return the first non-NULL expression from a list of arguments"
+    },
+    {
+      "question": "26. To create a view that presents data combined from two or more related tables, which SQL clause would typically be essential in the view's defining SELECT query?",
+      "options": ["UNION ALL", "INTERSECT", "JOIN", "MERGE"],
+      "correctAnswer": "JOIN"
+    },
+    {
+      "question": "27. What does the NULLIF(value1, value2) expression return if value1 is NOT equal to value2?",
+      "options": [
+        "NULL",
+        "value1",
+        "value2",
+        "An error, because the function expects value1 and value2 to be equal"
+      ],
+      "correctAnswer": "value1"
+    },
+    {
+      "question": "28. When joining three tables (e.g., TableA, TableB, TableC) in sequence, where TableA is joined to TableB, and then the result of that is joined to TableC, how are the ON conditions generally structured?",
+      "options": [
+        "FROM TableA JOIN TableB ON TableA.key = TableC.key JOIN TableC ON TableB.key = TableC.key",
+        "FROM TableA JOIN TableB JOIN TableC ON TableA.key = TableB.key AND TableB.key = TableC.key",
+        "FROM TableA JOIN TableB ON TableA.join_col_AB = TableB.join_col_AB JOIN TableC ON TableB.join_col_BC = TableC.join_col_BC",
+        "FROM TableA, TableB, TableC WHERE TableA.key = TableB.key AND TableA.key = TableC.key"
+      ],
+      "correctAnswer": "FROM TableA JOIN TableB ON TableA.join_col_AB = TableB.join_col_AB JOIN TableC ON TableB.join_col_BC = TableC.join_col_BC"
+    },
+    {
+      "question": "29. Which of the following represents PostgreSQL's shorthand syntax for type casting, equivalent to the standard SQL CAST(expression AS type)?",
+      "options": [
+        "CONVERT(type, expression)",
+        "expression::type",
+        "TYPE(expression, type)",
+        "TO_TYPE(expression, type)"
+      ],
+      "correctAnswer": "expression::type"
+    },
+    {
+      "question": "30. When defining a view that includes aggregate functions (e.g., COUNT(), AVG()) in its SELECT list, which SQL clause is typically required in the view's defining query?",
+      "options": ["HAVING", "ORDER BY", "WHERE", "GROUP BY"],
+      "correctAnswer": "GROUP BY"
+    },
+    {
+      "question": "31. Which SQL string function is designed to substitute all occurrences of a specified substring within a given string with another substring?",
+      "options": [
+        "SUBSTRING(string FROM start FOR length)",
+        "ALTER(string, from_substring, to_substring)",
+        "REPLACE(string, from_substring, to_substring)",
+        "MODIFY(string, from_substring, to_substring)"
+      ],
+      "correctAnswer": "REPLACE(string, from_substring, to_substring)"
+    },
+    {
+      "question": "32. If the TRIM() function is used without specifying LEADING, TRAILING, or BOTH, and without specifying characters to remove, what is its default behavior on a string?",
+      "options": [
+        "It removes only leading whitespace characters",
+        "It removes only trailing whitespace characters",
+        "It removes both leading and trailing whitespace characters",
+        "It removes all occurrences of whitespace characters throughout the string"
+      ],
+      "correctAnswer": "It removes both leading and trailing whitespace characters"
+    },
+    {
+      "question": "33. When constructing an SQL query that joins a table to itself (a self-join), what is an essential requirement for distinguishing between the different references to the same table?",
+      "options": [
+        "Using the SELF JOIN keyword explicitly",
+        "Ensuring the table has a composite primary key",
+        "Using different table aliases for each reference to the table",
+        "Filtering results with a WHERE clause comparing identical columns from both references"
+      ],
+      "correctAnswer": "Using different table aliases for each reference to the table"
+    },
+    {
+      "question": "34. What is the result of the FLOOR(number) function when applied to a positive decimal number like 9.87?",
+      "options": ["10", "9.9", "9", "9.8"],
+      "correctAnswer": "9"
+    },
+    {
+      "question": "35. What is the default index type used by PostgreSQL when creating an index without specifying a USING method clause?",
+      "options": ["Hash", "GiST", "B-tree", "GIN"],
+      "correctAnswer": "B-tree"
+    },
+    {
+      "question": "36. Which SQL command is used to permanently remove a view from a database schema?",
+      "options": [
+        "DELETE VIEW view_name;",
+        "REMOVE VIEW view_name;",
+        "DROP VIEW view_name;",
+        "ERASE VIEW view_name;"
+      ],
+      "correctAnswer": "DROP VIEW view_name;"
+    },
+    {
+      "question": "37. When creating a multicolumn index, such as CREATE INDEX idx_multi ON my_table (colA, colB, colC), how does the order of columns generally affect query optimization?",
+      "options": [
+        "The order of columns does not matter; the optimizer can use any column combination",
+        "Queries filtering only on colC will be most effectively optimized",
+        "The index is most effective for queries filtering on colA, or colA and colB, or all three columns",
+        "The index primarily speeds up queries that sort by the last column specified (colC)"
+      ],
+      "correctAnswer": "The index is most effective for queries filtering on colA, or colA and colB, or all three columns"
+    },
+    {
+      "question": "38. Which SQL constraint is used to ensure that values entered into a specific column adhere to a defined condition, such as a value being positive or belonging to a predefined list of options?",
+      "options": ["VALIDATE", "ASSERT", "ENSURE", "CHECK"],
+      "correctAnswer": "CHECK"
+    },
+    {
+      "question": "39. If an SQL query uses the JOIN keyword between two tables without specifying INNER, LEFT, RIGHT, or FULL OUTER, what type of join is typically assumed by default?",
+      "options": ["LEFT JOIN", "FULL OUTER JOIN", "INNER JOIN", "CROSS JOIN"],
+      "correctAnswer": "INNER JOIN"
+    },
+    {
+      "question": "40. What is a primary benefit of using table aliases (e.g., ... FROM main_table AS mt) in SQL queries, especially when joining multiple tables?",
+      "options": [
+        "To increase the speed of query execution significantly",
+        "To improve query readability and avoid ambiguity if columns from different tables share the same name",
+        "To automatically create temporary indexes on the columns used in join conditions"
+      ],
+      "correctAnswer": "To improve query readability and avoid ambiguity if columns from different tables share the same name"
+    },
+    {
+      "question": "41. Once a view is created, how is data generally retrieved from it?",
+      "options": [
+        "By using the EXECUTE VIEW view_name; command",
+        "By calling a special stored procedure associated with the view",
+        "By using a standard SELECT statement, similar to querying a table",
+        "By using the FETCH DATA FROM VIEW view_name; command"
+      ],
+      "correctAnswer": "By using a standard SELECT statement, similar to querying a table"
+    },
+    {
+      "question": "42. When defining a column that should automatically generate unique integer values for each new row and serve as the table's primary identifier, which SQL keyword combination is typically used in PostgreSQL?",
+      "options": [
+        "AUTO_NUMBER PRIMARY",
+        "IDENTITY KEY UNIQUE",
+        "SERIAL PRIMARY KEY",
+        "INCREMENTAL ID NOT NULL"
+      ],
+      "correctAnswer": "SERIAL PRIMARY KEY"
+    },
+    {
+      "question": "43. Which type of index is specifically designed to include entries only for a subset of a table's rows that satisfy a condition defined by a WHERE clause?",
+      "options": ["A partial index", "A filtered index", "A selective index", "A conditional index"],
+      "correctAnswer": "A partial index"
+    },
+    {
+      "question": "44. When performing an aggregate sum (e.g., SUM(column_name)) on data that might include groups with no matching records (often due to a LEFT JOIN), what SQL function can be used to replace potential NULL results from the sum with a zero or another default value?",
+      "options": [
+        "IFNULL(SUM(column_name), 0)",
+        "NULL_TO_ZERO(SUM(column_name))",
+        "REPLACE_NULL(SUM(column_name), 0)",
+        "COALESCE(SUM(column_name), 0)"
+      ],
+      "correctAnswer": "COALESCE(SUM(column_name), 0)"
+    },
+    {
+      "question": "45. Which SQL command is used to create a standard B-tree index on a single column to potentially speed up queries?",
+      "options": [
+        "ADD INDEX index_name ON table_name (column_name);",
+        "CREATE INDEX index_name FOR table_name (column_name);",
+        "CREATE INDEX index_name ON table_name (column_name);",
+        "MAKE INDEX index_name ON table_name USING (column_name);"
+      ],
+      "correctAnswer": "CREATE INDEX index_name ON table_name (column_name);"
+    },
+    {
+      "question": "46. How does the AVG() aggregate function handle NULL values within a numeric column when calculating an average?",
+      "options": [
+        "It treats NULL values as zero, including them in the count and sum",
+        "It ignores NULL values entirely, so they do not affect the count or sum used for the average",
+        "It causes the query to return an error if any NULL values are present",
+        "It returns NULL for the average if any NULL value is encountered in the column"
+      ],
+      "correctAnswer": "It ignores NULL values entirely, so they do not affect the count or sum used for the average"
+    },
+
+  {
+    "question": "Which of the following BEST describes a fundamental purpose of using a database system in modern applications?",
+    "options": [
+      "To manage and organize application source code and version control.",
+      "To enforce data accuracy, consistency, and reliability through defined rules and constraints.",
+      "To provide a platform for executing complex machine learning algorithms directly on raw data files.",
+      "To offer a simple, unstructured way to store miscellaneous user files and documents."
+    ],
+    "correctAnswer": "To enforce data accuracy, consistency, and reliability through defined rules and constraints."
+  },
+  {
+    "question": "A key responsibility of a Database Administrator (DBA) involves safeguarding data against unauthorized access and corruption. Which of the following BEST encapsulates this responsibility?",
+    "options": [
+      "Performing daily data entry tasks and generating routine reports.",
+      "Developing the front-end user interface for database applications.",
+      "Implementing security measures and integrity constraints to protect data assets.",
+      "Writing application business logic that interacts with the database."
+    ],
+    "correctAnswer": "Implementing security measures and integrity constraints to protect data assets."
+  },
+  {
+    "question": "In the relational model, what term is used to describe a single row in a table, representing a specific instance of an entity?",
+    "options": [
+      "Schema",
+      "Attribute",
+      "Field",
+      "Tuple"
+    ],
+    "correctAnswer": "Tuple"
+  },
+  {
+    "question": "During which stage of the database lifecycle, following a Waterfall model, is the conceptual schema (e.g., an ER diagram) translated into a specific database schema, including the definition of tables, columns, and data types?",
+    "options": [
+      "Application Development",
+      "Logical Design",
+      "Physical Design",
+      "Requirements Gathering"
+    ],
+    "correctAnswer": "Logical Design"
+  },
+  {
+    "question": "Which essential skill enables a Database Administrator (DBA) to effectively diagnose complex technical issues, identify root causes of performance bottlenecks, and develop effective solutions?",
+    "options": [
+      "Proficiency in multiple foreign languages for international support.",
+      "Strong problem-solving and analytical abilities for troubleshooting and optimization.",
+      "Expertise in marketing and sales strategy for database products.",
+      "Advanced graphic design and UI/UX expertise."
+    ],
+    "correctAnswer": "Strong problem-solving and analytical abilities for troubleshooting and optimization."
+  },
+  {
+    "question": "What is the primary purpose of using an index in a database, and what distinguishes a primary index from a secondary index?",
+    "options": [
+      "To store metadata about the table structure; a primary index describes the main table, a secondary index describes related tables.",
+      "To create backups of the data; a primary index backs up key tables, while a secondary index backs up less critical data.",
+      "To improve the efficiency of data retrieval; a primary index is built on the primary key and enforces uniqueness, while a secondary index is on non-primary key attributes.",
+      "To encrypt data for security; a primary index encrypts the primary key, while a secondary index encrypts other sensitive columns."
+    ],
+    "correctAnswer": "To improve the efficiency of data retrieval; a primary index is built on the primary key and enforces uniqueness, while a secondary index is on non-primary key attributes."
+  },
+  {
+    "question": "In the context of database security, which component of the CIA Triad ensures that data is accurate, complete, and protected from unauthorized modification?",
+    "options": [
+      "Availability",
+      "Confidentiality",
+      "Integrity",
+      "Auditability"
+    ],
+    "correctAnswer": "Integrity"
+  },
+  {
+    "question": "Which category of SQL commands is primarily used to define and modify the structure of database objects, such as creating tables or altering their columns?",
+    "options": [
+      "DDL (Data Definition Language)",
+      "DML (Data Manipulation Language)",
+      "TCL (Transaction Control Language)",
+      "DCL (Data Control Language)"
+    ],
+    "correctAnswer": "DDL (Data Definition Language)"
+  },
+  {
+    "question": "What is a key characteristic that distinguishes Embedded SQL from Interactive SQL?",
+    "options": [
+      "Embedded SQL is always compiled, while Interactive SQL is always interpreted.",
+      "Embedded SQL statements are integrated within the source code of an application program, while Interactive SQL is executed directly via a database client.",
+      "Embedded SQL can only perform read operations, while Interactive SQL can perform read and write operations.",
+      "Embedded SQL is used for database administration, while Interactive SQL is used by end-users."
+    ],
+    "correctAnswer": "Embedded SQL statements are integrated within the source code of an application program, while Interactive SQL is executed directly via a database client."
+  },
+  {
+    "question": "During which stage of the database design lifecycle are high-level, DBMS-independent models of data, such as Entity-Relationship Diagrams (ERDs), typically created to represent user requirements?",
+    "options": [
+      "Maintenance",
+      "Implementation",
+      "Conceptual Design",
+      "Physical Design"
+    ],
+    "correctAnswer": "Conceptual Design"
+  },
+  {
+    "question": "In the three-tier architecture of a database system, what is the primary purpose of the Conceptual Tier (Logical Level)?",
+    "options": [
+      "To handle network communication between clients and the database server.",
+      "To provide user-specific views and interfaces for interacting with the data.",
+      "To manage the physical storage of data on disk drives and memory.",
+      "To define the overall logical structure of the database, including entities and relationships, independent of physical storage and user views."
+    ],
+    "correctAnswer": "To define the overall logical structure of the database, including entities and relationships, independent of physical storage and user views."
+  },
+  {
+    "question": "Which of the following best exemplifies a \"Physical Data Description\" for a \"Products\" table in a relational database?",
+    "options": [
+      "The \"Products\" table data is stored in a file named `products.dbf`, with an index on ProductName using a B+ tree structure to speed up searches.",
+      "The \"Products\" entity has a one-to-many relationship with the \"Orders\" entity.",
+      "Users can query the \"Products\" table to find items by name or filter by price range.",
+      "The \"Products\" table includes columns for product ID, name, price, and category, with specified data types."
+    ],
+    "correctAnswer": "The \"Products\" table data is stored in a file named `products.dbf`, with an index on ProductName using a B+ tree structure to speed up searches."
+  },
+  {
+    "question": "Which component of a Database Management System (DBMS) is primarily responsible for parsing user queries, optimizing execution plans, and then executing these plans to retrieve or modify data?",
+    "options": [
+      "Data Dictionary",
+      "Query Processor",
+      "Storage Manager",
+      "Transaction Manager"
+    ],
+    "correctAnswer": "Query Processor"
+  },
+  {
+    "question": "In the context of relational database keys, which of the following BEST defines a Candidate Key?",
+    "options": [
+      "A minimal superkey, meaning it is a superkey from which no attribute can be removed without losing its uniqueness property.",
+      "The key chosen by the database designer to be the primary means of identifying rows.",
+      "A key that references a primary key in another table.",
+      "Any attribute or set of attributes that can uniquely identify a row."
+    ],
+    "correctAnswer": "A minimal superkey, meaning it is a superkey from which no attribute can be removed without losing its uniqueness property."
+  },
+  {
+    "question": "Which of the following relational algebra operations is classified as a unary operation because it operates on a single relation?",
+    "options": [
+      "PROJECT (π)",
+      "UNION (∪)",
+      "JOIN (⋈)",
+      "DIFFERENCE (−)"
+    ],
+    "correctAnswer": "PROJECT (π)"
+  },
+  {
+    "question": "You have `students` (aliased `s`) and `courses` (aliased `c`) tables. Which SQL query correctly lists all student names (`s.student_name`) and their enrolled course names (`c.course_name`), ensuring all students are displayed, with `NULL` for `course_name` if a student is not enrolled in any course?",
+    "options": [
+      "SELECT s.student_name, c.course_name FROM students AS s INNER JOIN courses AS c ON s.student_id = c.student_id;",
+      "SELECT s.student_name, c.course_name FROM students AS s RIGHT JOIN courses AS c ON s.student_id = c.student_id;",
+      "SELECT s.student_name, c.course_name FROM students AS s LEFT JOIN courses AS c ON s.student_id = c.student_id;",
+      "SELECT s.student_name, c.course_name FROM students AS s FULL OUTER JOIN courses AS c ON s.student_id = c.student_id WHERE s.student_name IS NOT NULL;"
+    ],
+    "correctAnswer": "SELECT s.student_name, c.course_name FROM students AS s LEFT JOIN courses AS c ON s.student_id = c.student_id;"
+  },
+  {
+    "question": "Given `students` (aliased `s`) and `courses` (aliased `c`) tables, which SQL query correctly lists all course names (`c.course_name`) and the names of students enrolled in them (`s.student_name`), ensuring all courses are displayed, with `NULL` for `student_name` if no student is enrolled in a particular course?",
+    "options": [
+      "SELECT s.student_name, c.course_name FROM students AS s INNER JOIN courses AS c ON s.student_id = c.student_id;",
+      "SELECT s.student_name, c.course_name FROM students AS s RIGHT JOIN courses AS c ON s.student_id = c.student_id;",
+      "SELECT s.student_name, c.course_name FROM students AS s FULL OUTER JOIN courses AS c ON s.student_id = c.student_id WHERE c.course_name IS NOT NULL;",
+      "SELECT s.student_name, c.course_name FROM students AS s LEFT JOIN courses AS c ON s.student_id = c.student_id;"
+    ],
+    "correctAnswer": "SELECT s.student_name, c.course_name FROM students AS s RIGHT JOIN courses AS c ON s.student_id = c.student_id;"
+  },
+  {
+    "question": "Consider the `students` (aliased `s` with a `major` column) and `courses` (aliased `c`) tables. You need to retrieve the `student_name` and `course_name` exclusively for students whose `major` is 'Physics' and who are enrolled in a course. Which SQL query achieves this using an `INNER JOIN` and appropriate filtering?",
+    "options": [
+      "SELECT s.student_name, c.course_name FROM students AS s INNER JOIN courses AS c ON s.student_id = c.student_id WHERE s.major = 'Physics';",
+      "SELECT s.student_name, c.course_name FROM students AS s RIGHT JOIN courses AS c ON s.student_id = c.student_id AND s.major = 'Physics';",
+      "SELECT s.student_name, c.course_name FROM students AS s INNER JOIN courses AS c ON s.student_id = c.student_id AND s.major = 'Any';",
+      "SELECT s.student_name, c.course_name FROM students AS s LEFT JOIN courses AS c ON s.student_id = c.student_id WHERE s.major = 'Physics';"
+    ],
+    "correctAnswer": "SELECT s.student_name, c.course_name FROM students AS s INNER JOIN courses AS c ON s.student_id = c.student_id WHERE s.major = 'Physics';"
+  },
+  {
+    "question": "You want to list all student names (`s.student_name` from `students` table aliased `s`) along with the `course_name` (`c.course_name` from `courses` table aliased `c`) they are enrolled in. If a student is not enrolled in any course, 'Not Enrolled' should be displayed instead of `NULL` for the course name. Which query correctly achieves this using `COALESCE`?",
+    "options": [
+      "SELECT s.student_name, NVL(c.course_name, 'Not Enrolled') AS course_name FROM students s LEFT JOIN courses c ON s.student_id = c.student_id;",
+      "SELECT s.student_name, COALESCE(c.course_name, 'Not Enrolled') AS course_name FROM students AS s LEFT JOIN courses AS c ON s.student_id = c.student_id;",
+      "SELECT s.student_name, CASE c.course_name WHEN NULL THEN 'Not Enrolled' ELSE c.course_name END AS course_name FROM students s LEFT JOIN courses c ON s.student_id = c.student_id;",
+      "SELECT s.student_name, IFNULL(c.course_name, 'Not Enrolled') AS course_name FROM students s LEFT JOIN courses c ON s.student_id = c.student_id;"
+    ],
+    "correctAnswer": "SELECT s.student_name, COALESCE(c.course_name, 'Not Enrolled') AS course_name FROM students AS s LEFT JOIN courses AS c ON s.student_id = c.student_id;"
+  },
+  {
+    "question": "Which PostgreSQL query correctly concatenates the `first_name` and `last_name` from the `employees` table with a single space in between, aliasing the result as `full_name`, and also displays the original `first_name` and `last_name`?",
+    "options": [
+      "SELECT first_name, last_name, first_name || ' ' || last_name AS full_name FROM employees;",
+      "SELECT first_name + ' ' + last_name AS full_name FROM employees;",
+      "SELECT first_name, last_name, CONCAT(first_name, ' ', last_name) AS full_name FROM employees;",
+      "SELECT first_name, last_name, first_name || last_name AS full_name FROM employees;"
+    ],
+    "correctAnswer": "SELECT first_name, last_name, first_name || ' ' || last_name AS full_name FROM employees;"
+  },
+  {
+    "question": "From the `products` table, which SQL query correctly selects the `product_name` converted to all uppercase letters, aliasing this new column as `upper_product_name`?",
+    "options": [
+      "SELECT UPPERCASE(product_name) AS upper_product_name FROM products;",
+      "SELECT TO_UPPER(product_name) AS upper_product_name FROM products;",
+      "SELECT UPPER(product_name) AS upper_product_name FROM products;",
+      "SELECT product_name.UPPER() AS upper_product_name FROM products;"
+    ],
+    "correctAnswer": "SELECT UPPER(product_name) AS upper_product_name FROM products;"
+  },
+  {
+    "question": "The `products` table has a `product_code` column that may contain leading or trailing spaces. Which SQL query correctly displays the original `product_code` and also the `product_code` with both leading and trailing whitespace removed, aliased as `trimmed_code`?",
+    "options": [
+      "SELECT product_code, STRIP(product_code) AS trimmed_code FROM products;",
+      "SELECT product_code, TRIM(product_code) AS trimmed_code FROM products;",
+      "SELECT product_code, REMOVE_SPACES(product_code) AS trimmed_code FROM products;",
+      "SELECT product_code, LTRIM(RTRIM(product_code)) AS trimmed_code FROM products;"
+    ],
+    "correctAnswer": "SELECT product_code, TRIM(product_code) AS trimmed_code FROM products;"
+  },
+  {
+    "question": "You need to display the `product_name`, original `price`, and the `price` rounded to one decimal place from the `products` table. The rounded price column should be aliased as `rounded_price`. Which SQL query achieves this?",
+    "options": [
+      "SELECT product_name, price, FLOOR(price, 1) AS rounded_price FROM products;",
+      "SELECT product_name, price, ROUND(price, 1) AS rounded_price FROM products;",
+      "SELECT product_name, price, TRUNCATE(price, 1) AS rounded_price FROM products;",
+      "SELECT product_name, price, CEIL(price, 1) AS rounded_price FROM products;"
+    ],
+    "correctAnswer": "SELECT product_name, price, ROUND(price, 1) AS rounded_price FROM products;"
+  },
+  {
+    "question": "From the `employees` table, which SQL query correctly displays the original `hire_date` and extracts the year from the `hire_date`, aliasing the extracted year as `hire_year`?",
+    "options": [
+      "SELECT hire_date, DATE_PART('year', hire_date) AS hire_year FROM employees;",
+      "SELECT hire_date, YEAR(hire_date) AS hire_year FROM employees;",
+      "SELECT hire_date, EXTRACT(YEAR FROM hire_date) AS hire_year FROM employees;",
+      "SELECT hire_date, GET_YEAR(hire_date) AS hire_year FROM employees;"
+    ],
+    "correctAnswer": "SELECT hire_date, EXTRACT(YEAR FROM hire_date) AS hire_year FROM employees;"
+  },
+  {
+    "question": "Which SQL query correctly calculates a `review_date` that is exactly 90 days after an employee's `hire_date` from the `employees` table, using standard SQL interval syntax?",
+    "options": [
+      "SELECT hire_date, hire_date + 90 AS review_date FROM employees;",
+      "SELECT hire_date, hire_date + INTERVAL '90 day' AS review_date FROM employees;",
+      "SELECT hire_date, ADDDATE(hire_date, INTERVAL 90 DAY) AS review_date FROM employees;",
+      "SELECT hire_date, DATE_ADD(hire_date, 90, 'DAY') AS review_date FROM employees;"
+    ],
+    "correctAnswer": "SELECT hire_date, hire_date + INTERVAL '90 day' AS review_date FROM employees;"
+  },
+  {
+    "question": "You need to display an employee's `first_name`, `middle_name`, and `last_name` from the `employees` table. If the `middle_name` is `NULL`, it should be displayed as 'None'. Which query best achieves this using the `COALESCE` function?",
+    "options": [
+      "SELECT first_name, CASE WHEN middle_name IS NULL THEN 'None' ELSE middle_name END, last_name FROM employees;",
+      "SELECT first_name, IFNULL(middle_name, 'None') AS middle_name, last_name FROM employees;",
+      "SELECT first_name, COALESCE(middle_name, 'None') AS middle_name, last_name FROM employees;",
+      "SELECT first_name, NVL(middle_name, 'None'), last_name FROM employees;"
+    ],
+    "correctAnswer": "SELECT first_name, COALESCE(middle_name, 'None') AS middle_name, last_name FROM employees;"
+  },
+  {
+    "question": "You need to retrieve the `first_name`, `last_name`, and `hire_date` of all employees from the `employees` table who were hired specifically in December of any year. Which SQL query correctly uses a date extraction function in the `WHERE` clause for this purpose?",
+    "options": [
+      "SELECT first_name, last_name, hire_date FROM employees WHERE MONTH(hire_date) = 12;",
+      "SELECT first_name, last_name, hire_date FROM employees WHERE DATE_PART('month', hire_date) = 'December';",
+      "SELECT first_name, last_name, hire_date FROM employees WHERE EXTRACT(MONTH FROM hire_date) = 12;",
+      "SELECT first_name, last_name, hire_date FROM employees WHERE hire_date LIKE '%-12-%';"
+    ],
+    "correctAnswer": "SELECT first_name, last_name, hire_date FROM employees WHERE EXTRACT(MONTH FROM hire_date) = 12;"
+  },
+  {
+    "question": "To display the `first_name` and `last_name` of employees from the `employees` table, ordered such that employees with the longest last names appear first, which SQL query is correct?",
+    "options": [
+      "SELECT first_name, last_name FROM employees SORT BY LEN(last_name) DESCENDING;",
+      "SELECT first_name, last_name FROM employees ORDER BY LENGTH(last_name) DESC;",
+      "SELECT first_name, last_name FROM employees ORDER BY CHAR_LENGTH(last_name) ASC;",
+      "SELECT first_name, last_name FROM employees ORDER BY last_name LENGTH DESC;"
+    ],
+    "correctAnswer": "SELECT first_name, last_name FROM employees ORDER BY LENGTH(last_name) DESC;"
+  },
+  {
+    "question": "Which SQL query correctly determines the total number of records in the `employees` table, displaying the result with the alias `total_employees`?",
+    "options": [
+      "SELECT SUM(*) AS total_employees FROM employees;",
+      "SELECT COUNT(*) AS total_employees FROM employees;",
+      "SELECT RECORDS() AS total_employees FROM employees;",
+      "SELECT TOTAL(records) AS total_employees FROM employees;"
+    ],
+    "correctAnswer": "SELECT COUNT(*) AS total_employees FROM employees;"
+  },
+  {
+    "question": "You need to calculate the total sum of salaries for all employees within the 'Engineering' department (identified by `department_id = 2`). Which SQL query correctly provides this sum, aliased as `engineering_salary_total`?",
+    "options": [
+      "SELECT AGGREGATE(salary, SUM) AS engineering_salary_total FROM employees WHERE department_id = 2;",
+      "SELECT SUM(salary) AS engineering_salary_total FROM employees WHERE department_id = 2;",
+      "SELECT COUNT(salary) AS engineering_salary_total FROM employees WHERE department_id = 2;",
+      "SELECT TOTAL(salary) AS engineering_salary_total FROM employees WHERE department_id = 2;"
+    ],
+    "correctAnswer": "SELECT SUM(salary) AS engineering_salary_total FROM employees WHERE department_id = 2;"
+  },
+  {
+    "question": "Which SQL query is used to find the earliest (minimum) `hire_date` from the `employees` table, displaying the result as `earliest_hire_date`?",
+    "options": [
+      "SELECT MIN(hire_date) AS earliest_hire_date FROM employees;",
+      "SELECT MAX(hire_date) AS earliest_hire_date FROM employees;",
+      "SELECT BOTTOM(hire_date) AS earliest_hire_date FROM employees ORDER BY hire_date ASC;",
+      "SELECT FIRST(hire_date) AS earliest_hire_date FROM employees;"
+    ],
+    "correctAnswer": "SELECT MIN(hire_date) AS earliest_hire_date FROM employees;"
+  },
+  {
+    "question": "To determine the average salary for employees specifically holding the `job_title` 'Software Engineer', which SQL query should be used, aliasing the result as `avg_salary_software_engineer`?",
+    "options": [
+      "SELECT MEAN(salary) AS avg_salary_software_engineer FROM employees WHERE job_title = 'Software Engineer';",
+      "SELECT AVG(salary) AS avg_salary_software_engineer FROM employees WHERE job_title = 'Software Engineer';",
+      "SELECT SUM(salary) / COUNT(salary) AS avg_salary_software_engineer FROM employees WHERE job_title = 'Software Engineer';",
+      "SELECT MEDIAN(salary) AS avg_salary_software_engineer FROM employees WHERE job_title = 'Software Engineer';"
+    ],
+    "correctAnswer": "SELECT AVG(salary) AS avg_salary_software_engineer FROM employees WHERE job_title = 'Software Engineer';"
+  },
+  {
+    "question": "Which SQL query correctly calculates the total number of unique `job_title` values present in the `employees` table, aliased as `distinct_job_titles`, ensuring NULL job titles are not counted?",
+    "options": [
+      "SELECT COUNT(DISTINCT job_title) AS distinct_job_titles FROM employees;",
+      "SELECT UNIQUE COUNT(job_title) AS distinct_job_titles FROM employees;",
+      "SELECT COUNT(job_title) AS distinct_job_titles FROM employees WHERE job_title IS NOT NULL GROUP BY job_title;",
+      "SELECT SUM(DISTINCT job_title) AS distinct_job_titles FROM employees;"
+    ],
+    "correctAnswer": "SELECT COUNT(DISTINCT job_title) AS distinct_job_titles FROM employees;"
+  },
+  {
+    "question": "Which SQL command correctly creates a basic index named `idx_emp_hire_date` on the `hire_date` column of the `employees` table to potentially speed up queries filtering or sorting by hire date?",
+    "options": [
+      "DEFINE INDEX idx_emp_hire_date ON employees USING (hire_date);",
+      "ADD INDEX idx_emp_hire_date ON employees (hire_date);",
+      "CREATE INDEX idx_emp_hire_date ON employees (hire_date);",
+      "MAKE INDEX idx_emp_hire_date FOR employees COLUMN hire_date;"
+    ],
+    "correctAnswer": "CREATE INDEX idx_emp_hire_date ON employees (hire_date);"
+  },
+  {
+    "question": "To ensure that every entry in the `email` column of the `employees` table is unique, which SQL command creates an appropriate index named `idx_employees_email_unique`?",
+    "options": [
+      "CREATE CONSTRAINT idx_employees_email_unique UNIQUE ON employees (email);",
+      "CREATE INDEX idx_employees_email_unique ON employees (email) WITH UNIQUE;",
+      "CREATE UNIQUE INDEX idx_employees_email_unique ON employees (email);",
+      "ALTER TABLE employees ADD UNIQUE INDEX idx_employees_email_unique (email);"
+    ],
+    "correctAnswer": "CREATE UNIQUE INDEX idx_employees_email_unique ON employees (email);"
+  },
+  {
+    "question": "You need to optimize case-insensitive searches on the `email` column in the `employees` table. Which SQL command creates an index named `idx_employees_email_lower` suitable for this purpose by indexing the lowercase version of the email addresses?",
+    "options": [
+      "CREATE INDEX idx_employees_email_lower ON employees (LOWER(email));",
+      "CREATE FUNCTIONAL INDEX idx_employees_email_lower ON employees (LOWER(email));",
+      "CREATE INDEX idx_employees_email_lower ON employees (email) IGNORE CASE;",
+      "CREATE INDEX idx_employees_email_lower ON employees (email COLLATE NOCASE);"
+    ],
+    "correctAnswer": "CREATE INDEX idx_employees_email_lower ON employees (LOWER(email));"
+  },
+  {
+    "question": "Which SQL command correctly creates a partial index named `idx_employees_active_hire_date` on the `hire_date` column of the `employees` table, but only for rows where the `status` column is 'active'?",
+    "options": [
+      "CREATE PARTIAL INDEX idx_employees_active_hire_date ON employees (hire_date) WHERE status = 'active';",
+      "CREATE INDEX idx_employees_active_hire_date ON employees (hire_date HAVING status = 'active');",
+      "CREATE INDEX idx_employees_active_hire_date ON employees (hire_date) IF status = 'active';",
+      "CREATE INDEX idx_employees_active_hire_date ON employees (hire_date) WHERE status = 'active';"
+    ],
+    "correctAnswer": "CREATE INDEX idx_employees_active_hire_date ON employees (hire_date) WHERE status = 'active';"
+  },
+  {
+    "question": "Which SQL command is used to create a multicolumn index named `idx_employees_dept_salary` on the `department_id` and `salary` columns of the `employees` table?",
+    "options": [
+      "CREATE INDEX idx_employees_dept_salary ON employees (department_id, salary);",
+      "CREATE INDEX idx_employees_dept_salary ON employees USING (department_id, salary);",
+      "CREATE MULTI_INDEX idx_employees_dept_salary ON employees (department_id, salary);",
+      "CREATE INDEX idx_employees_dept_salary ON employees (department_id) AND (salary);"
+    ],
+    "correctAnswer": "CREATE INDEX idx_employees_dept_salary ON employees (department_id, salary);"
+  },
+  {
+    "question": "Which SQL command is used to rebuild all indexes specifically associated with the `employees` table?",
+    "options": [
+      "REINDEX TABLE employees;",
+      "ALTER TABLE employees REBUILD INDEXES;",
+      "UPDATE INDEXES ON employees;",
+      "OPTIMIZE TABLE employees INDEXES;"
+    ],
+    "correctAnswer": "REINDEX TABLE employees;"
+  },
+  {
+    "question": "What is the correct SQL command to remove an index named `idx_employees_last_name`, ensuring that the command completes successfully without an error even if the index does not exist?",
+    "options": [
+      "ALTER TABLE employees DROP INDEX idx_employees_last_name;",
+      "DROP INDEX IF EXISTS idx_employees_last_name;",
+      "REMOVE INDEX idx_employees_last_name IGNORE ERRORS;",
+      "DELETE INDEX idx_employees_last_name IF EXISTS;"
+    ],
+    "correctAnswer": "DROP INDEX IF EXISTS idx_employees_last_name;"
+  },
+  {
+    "question": "Which statement accurately describes the primary difference in data storage and behavior between `CHAR(10)` and `VARCHAR(10)` data types in SQL?",
+    "options": [
+      "`CHAR(10)` stores variable-length strings efficiently, while `VARCHAR(10)` always uses 10 characters, truncating longer strings.",
+      "`VARCHAR(10)` stores variable-length strings using only the necessary space up to 10 characters, while `CHAR(10)` always allocates 10 characters of storage, padding shorter strings with spaces.",
+      "Both `CHAR(10)` and `VARCHAR(10)` store data identically but `VARCHAR` is preferred for performance.",
+      "`CHAR(10)` is for numeric characters only, while `VARCHAR(10)` is for alphanumeric characters."
+    ],
+    "correctAnswer": "`VARCHAR(10)` stores variable-length strings using only the necessary space up to 10 characters, while `CHAR(10)` always allocates 10 characters of storage, padding shorter strings with spaces."
+  },
+  {
+    "question": "When an SQL query contains a subquery within its `WHERE` clause, what is the typical execution order followed by the database system?",
+    "options": [
+      "The outer query is executed first, and its results are passed to the subquery for filtering.",
+      "The execution order depends entirely on the `JOIN` types used and cannot be generalized.",
+      "The subquery is executed first, and its result set is then used by the outer query as a condition for its own execution.",
+      "The subquery and outer query are executed simultaneously in parallel."
+    ],
+    "correctAnswer": "The subquery is executed first, and its result set is then used by the outer query as a condition for its own execution."
+  },
+  {
+    "question": "In SQL, what is the default sorting direction used by the `ORDER BY` clause if no specific direction (like ASC or DESC) is explicitly stated?",
+    "options": [
+      "ASC (Ascending)",
+      "DESC (Descending)",
+      "NONE (Database dependent, usually an error if not specified)",
+      "RANDOM"
+    ],
+    "correctAnswer": "ASC (Ascending)"
+  },
+  {
+    "question": "The `GROUP BY` clause in SQL is most effectively used in conjunction with which type of functions to produce summary results for distinct groups of rows?",
+    "options": [
+      "String manipulation functions (e.g., `CONCAT()`, `SUBSTRING()`)",
+      "Aggregate functions (e.g., `COUNT()`, `SUM()`, `AVG()`)",
+      "Window functions (e.g., `ROW_NUMBER()`, `RANK()`)",
+      "Scalar functions that operate on single values (e.g., `UPPER()`, `ROUND()`)"
+    ],
+    "correctAnswer": "Aggregate functions (e.g., `COUNT()`, `SUM()`, `AVG()`)"
+  },
+  {
+    "question": "What is the primary purpose of a database transaction?",
+    "options": [
+      "To create a backup copy of the database at a specific point in time.",
+      "To define the schema and structure of database tables.",
+      "To ensure a sequence of database operations is treated as a single, atomic unit of work, thereby maintaining data integrity and consistency.",
+      "To optimize the speed of individual query execution."
+    ],
+    "correctAnswer": "To ensure a sequence of database operations is treated as a single, atomic unit of work, thereby maintaining data integrity and consistency."
+  },
+  {
+    "question": "Which of the following BEST describes a key difference between a static website and a dynamic web application regarding content delivery and database usage?",
+    "options": [
+      "Static websites deliver pre-written, fixed HTML content and typically do not require a database, while dynamic web applications generate content on-the-fly, often using a database for persistent data storage and personalization.",
+      "Static websites are always faster and more secure, while dynamic applications are inherently slow and vulnerable.",
+      "Dynamic web applications deliver pre-written HTML, while static websites generate content from databases.",
+      "Static websites use databases extensively for all content, while dynamic applications store content in HTML files."
+    ],
+    "correctAnswer": "Static websites deliver pre-written, fixed HTML content and typically do not require a database, while dynamic web applications generate content on-the-fly, often using a database for persistent data storage and personalization."
+  },
+  {
+    "question": "Why is database scalability a critical design consideration for web applications, and which of the following is a common technique for achieving horizontal scalability?",
+    "options": [
+      "Scalability ensures data is encrypted; vertical scaling by adding more RAM is a horizontal technique.",
+      "Scalability is only important for small applications; read replicas are used for horizontal scaling by duplicating write operations.",
+      "Scalability is crucial for handling potentially massive and unpredictable user loads; sharding (partitioning) data across multiple machines is a technique for horizontal scaling.",
+      "Scalability improves user interface design; data compression is the primary technique for horizontal scaling."
+    ],
+    "correctAnswer": "Scalability is crucial for handling potentially massive and unpredictable user loads; sharding (partitioning) data across multiple machines is a technique for horizontal scaling."
+  },
+  {
+    "question": "Concurrency poses a significant challenge for databases supporting web applications primarily because:",
+    "options": [
+      "Each user typically requires exclusive access to the entire database.",
+      "Databases are single-threaded and can only process one user request at a time.",
+      "Network latency between the web server and database server is too high for multiple users.",
+      "A high number of users may attempt to access and modify the same data simultaneously, potentially leading to inconsistencies or data corruption."
+    ],
+    "correctAnswer": "A high number of users may attempt to access and modify the same data simultaneously, potentially leading to inconsistencies or data corruption."
+  },
+  {
+    "question": "What fundamental problem do database drivers (e.g., JDBC, ODBC) and database APIs primarily address in the context of application development?",
+    "options": [
+      "They provide tools for graphical database design and schema modeling.",
+      "They enable application code, written in various programming languages, to communicate consistently with different database management systems, each with its own protocols.",
+      "They enforce data encryption and security policies across different databases.",
+      "They automatically write SQL queries based on application logic."
+    ],
+    "correctAnswer": "They enable application code, written in various programming languages, to communicate consistently with different database management systems, each with its own protocols."
+  },
+  {
+    "question": "Which coding practice is most likely to make a web application vulnerable to SQL Injection (SQLi) attacks?",
+    "options": [
+      "Implementing strong input validation and sanitization on all user-supplied data.",
+      "Dynamically constructing SQL query strings by directly concatenating unvalidated user-supplied input.",
+      "Storing database credentials securely and limiting database user privileges.",
+      "Using prepared statements or parameterized queries for all database interactions."
+    ],
+    "correctAnswer": "Dynamically constructing SQL query strings by directly concatenating unvalidated user-supplied input."
+  },
+  {
+    "question": "An SQL Injection attack occurs when malicious SQL code is inserted into an application's input fields. Which component is primarily responsible for the vulnerability that allows such an attack to succeed?",
+    "options": [
+      "The network infrastructure, for allowing malicious packets to reach the server.",
+      "The application code, for improperly constructing SQL queries with user input.",
+      "The end-user's browser, for not sanitizing input before sending it.",
+      "The database server, for not being able to distinguish malicious SQL from legitimate SQL."
+    ],
+    "correctAnswer": "The application code, for improperly constructing SQL queries with user input."
+  },
+  {
+    "question": "What is the primary advantage of implementing Role-Based Access Control (RBAC) in a database system?",
+    "options": [
+      "It automatically optimizes query performance for users based on their roles.",
+      "It simplifies privilege management by grouping permissions into roles that are then assigned to users, improving consistency.",
+      "It encrypts data differently for users based on their assigned roles.",
+      "It eliminates the need for users to have individual passwords."
+    ],
+    "correctAnswer": "It simplifies privilege management by grouping permissions into roles that are then assigned to users, improving consistency."
+  },
+  {
+    "question": "What is the fundamental purpose of creating an index on a database table column?",
+    "options": [
+      "To enforce data type constraints on the column.",
+      "To speed up data retrieval operations (e.g., `SELECT` queries) by providing a faster lookup mechanism.",
+      "To make the column's data read-only.",
+      "To reduce the storage space required by the table."
+    ],
+    "correctAnswer": "To speed up data retrieval operations (e.g., `SELECT` queries) by providing a faster lookup mechanism."
+  },
+  {
+    "question": "In PostgreSQL, what is a key difference in the types of query operations efficiently supported by a Hash index compared to a B-Tree index?",
+    "options": [
+      "Hash indexes are better for range queries (`<`, `>`), while B-Tree indexes excel at exact equality (`=`).",
+      "B-Tree indexes support equality (`=`) and range queries (e.g., `<` , `>`), while Hash indexes primarily support only equality (`=`) operations efficiently.",
+      "Hash indexes support full-text search, while B-Tree indexes support only numeric comparisons.",
+      "Hash indexes support sorting operations (`ORDER BY`), while B-Tree indexes do not."
+    ],
+    "correctAnswer": "B-Tree indexes support equality (`=`) and range queries (e.g., `<` , `>`), while Hash indexes primarily support only equality (`=`) operations efficiently."
+  },
+  {
+    "question": "GIN (Generalized Inverted Index) indexes in PostgreSQL are particularly effective for indexing which type of data values?",
+    "options": [
+      "Composite values, such as elements within an array or key/value pairs within a JSONB document.",
+      "Columns that are frequently used in `ORDER BY` clauses with `ASC` or `DESC`.",
+      "Simple scalar values like integers or dates that require fast equality checks.",
+      "Foreign key columns to speed up join operations."
+    ],
+    "correctAnswer": "Composite values, such as elements within an array or key/value pairs within a JSONB document."
+  },
+  {
+    "question": "Which of the following Relational Algebra expressions correctly retrieves only the `ProductName` of all products from the `Products` table (attributes: `ProductID`, `ProductName`, `Category`) where the `Category` is 'Electronics'?",
+    "options": [
+      "π ProductName (σ Category = 'Electronics' (Products))",
+      "Products ⋈ (σ Category = 'Electronics' (Products))",
+      "σ Category = 'Electronics' (π ProductName (Products))",
+      "π ProductName, Category (σ Category = 'Electronics' (Products))"
+    ],
+    "correctAnswer": "π ProductName (σ Category = 'Electronics' (Products))"
+  },
+  {
+    "question": "Given the `Students` table with attributes (StudentID, Name, Major, GPA), which Relational Algebra expression correctly finds the `Name` of students who have a `GPA` greater than 3.5 AND are majoring in 'CS'?",
+    "options": [
+      "σ GPA > 3.5 ∧ Major = 'CS' (π Name (Students))",
+      "π Name (σ GPA > 3.5 ∧ Major = 'CS' (Students))",
+      "π StudentID (σ GPA > 3.5 ∧ Major = 'CS' (Students))",
+      "π Name (σ GPA > 3.5 ∨ Major = 'CS' (Students))"
+    ],
+    "correctAnswer": "π Name (σ GPA > 3.5 ∧ Major = 'CS' (Students))"
+  },
+  {
+    "question": "Given the `Students` table with attributes (StudentID, Name, Major, GPA), which Tuple Relational Calculus (TRC) expression correctly retrieves the `StudentID` of all students whose `GPA` is less than 3.0?",
+    "options": [
+      "{t.StudentID | t ∈ Students ∧ t.GPA < 3.0}",
+      "{t.Name | t ∈ Students ∧ t.GPA < 3.0}",
+      "{t | t ∈ Students ∧ t.GPA < 3.0}",
+      "{t.StudentID | t ∈ Students ∨ t.GPA < 3.0}"
+    ],
+    "correctAnswer": "{t.StudentID | t ∈ Students ∧ t.GPA < 3.0}"
+  },
+  {
+    "question": "Given `Employees` (EmpID, EmpName, DeptID) and `Departments` (DeptID, DeptName) tables, which Tuple Relational Calculus (TRC) expression correctly finds the `EmpName` of employees working in the 'Sales' department?",
+    "options": [
+      "{e.EmpName | e ∈ Employees ∧ ∃d ∈ Departments (d.DeptID = e.DeptID ∧ d.DeptName = 'Sales')}",
+      "{e | e ∈ Employees ∧ ∃d ∈ Departments (d.DeptID = e.DeptID ∧ d.DeptName = 'Sales')}",
+      "{e.EmpName | e ∈ Employees ∧ e.DeptID = 'Sales'}",
+      "{e.EmpName | e ∈ Employees ∨ ∃d ∈ Departments (d.DeptID = e.DeptID ∧ d.DeptName = 'Sales')}"
+    ],
+    "correctAnswer": "{e.EmpName | e ∈ Employees ∧ ∃d ∈ Departments (d.DeptID = e.DeptID ∧ d.DeptName = 'Sales')}"
+  },
+  {
+    "question": "Which SQL query correctly selects only the `FirstName` and `LastName` of all employees from the `Employees` table, which also contains `EmployeeID` and `Department` columns?",
+    "options": [
+      "SELECT EmployeeID, Department FROM Employees;",
+      "SELECT FirstName, LastName FROM Employees;",
+      "SELECT * FROM Employees;",
+      "SELECT FirstName + LastName FROM Employees;"
+    ],
+    "correctAnswer": "SELECT FirstName, LastName FROM Employees;"
+  },
+  {
+    "question": "From an `Employees` table with columns `EmployeeID`, `FirstName`, `LastName`, and `Department`, which SQL query correctly retrieves the `FirstName`, `LastName`, and `Department` for only those employees who work in the 'Sales' department?",
+    "options": [
+      "SELECT FirstName, LastName, Department FROM Employees WHERE Department = 'Sales';",
+      "SELECT * FROM Employees WHERE Department = 'Sales';",
+      "SELECT FirstName, LastName, Department FROM Employees HAVING Department = 'Sales';",
+      "SELECT FirstName, LastName FROM Employees WHERE Department = 'Sales';"
+    ],
+    "correctAnswer": "SELECT FirstName, LastName, Department FROM Employees WHERE Department = 'Sales';"
+  },
+  {
+    "question": "Given a `Courses` table with columns `CourseID`, `CourseName`, `Credits`, and `Department`, which SQL query correctly lists the `CourseName` and `Credits` for all courses, sorted such that courses with the highest number of `Credits` appear first?",
+    "options": [
+      "SELECT CourseName, Credits FROM Courses GROUP BY Credits DESC;",
+      "SELECT CourseName, Credits FROM Courses ORDER BY Credits ASC;",
+      "SELECT CourseName, Credits FROM Courses ORDER BY Credits DESC;",
+      "SELECT CourseName, Credits FROM Courses SORT BY Credits DESC;"
+    ],
+    "correctAnswer": "SELECT CourseName, Credits FROM Courses ORDER BY Credits DESC;"
+  },
+  {
+    "question": "An `Employees` table contains an `EmployeeID`, `FirstName`, `LastName`, and `City` column. Which SQL query will return a list of all unique city names where employees are located, ensuring no city appears more than once in the result set?",
+    "options": [
+      "SELECT DISTINCT City FROM Employees;",
+      "SELECT ALL City FROM Employees;",
+      "SELECT UNIQUE City FROM Employees;",
+      "SELECT City FROM Employees GROUP BY City;"
+    ],
+    "correctAnswer": "SELECT DISTINCT City FROM Employees;"
+  },
+  {
+    "question": "You need to add a new course, 'Database Systems' with ID 'INFO301' and 3 credits, into the `Courses` table which has columns `course_id` (TEXT), `course_name` (TEXT), and `credits` (INTEGER). Which SQL statement correctly performs this action?",
+    "options": [
+      "INSERT INTO Courses (course_id, course_name, credits) VALUES ('INFO301', 'Database Systems', 3);",
+      "ADD ROW TO Courses VALUES ('INFO301', 'Database Systems', 3);",
+      "UPDATE Courses ADD ('INFO301', 'Database Systems', 3);",
+      "CREATE NEW Course ('INFO301', 'Database Systems', 3) IN Courses;"
+    ],
+    "correctAnswer": "INSERT INTO Courses (course_id, course_name, credits) VALUES ('INFO301', 'Database Systems', 3);"
+  },
+  {
+    "question": "Consider the `Courses` table with columns `course_id`, `course_name`, and `credits`. Which SQL statement correctly changes the `credits` to 4 for the course with `course_id` 'CS202'?",
+    "options": [
+      "ALTER Courses SET credits = 4 WHERE course_id = 'CS202';",
+      "MODIFY Courses SET credits = 4 WHERE course_id = 'CS202';",
+      "UPDATE Courses SET credits = 4 WHERE course_id = 'CS202';",
+      "INSERT INTO Courses (credits) VALUES (4) WHERE course_id = 'CS202';"
+    ],
+    "correctAnswer": "UPDATE Courses SET credits = 4 WHERE course_id = 'CS202';"
+  },
+  {
+    "question": "You need to remove the course with `course_id` 'CS101' from the `Courses` table. Which SQL statement correctly achieves this?",
+    "options": [
+      "DROP ROW FROM Courses WHERE course_id = 'CS101';",
+      "DELETE FROM Courses WHERE course_id = 'CS101';",
+      "REMOVE FROM Courses WHERE course_id = 'CS101';",
+      "UPDATE Courses SET course_id = NULL WHERE course_id = 'CS101';"
+    ],
+    "correctAnswer": "DELETE FROM Courses WHERE course_id = 'CS101';"
+  },
+  {
+    "question": "Consider three tables: `Students` (`id`, `first_name`, `last_name`), `Enrollments` (`student_id`, `course_id`), and `Courses` (`course_id`, `course_name`). Which SQL query correctly retrieves the `first_name` and `last_name` of students and the `course_name` they are enrolled in, only including students who are actually enrolled in at least one course?",
+    "options": [
+      "SELECT s.first_name, s.last_name, c.course_name FROM Students s OUTER JOIN Enrollments e ON s.id = e.student_id OUTER JOIN Courses c ON e.course_id = c.course_id;",
+      "SELECT s.first_name, s.last_name, c.course_name FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id LEFT JOIN Courses c ON e.course_id = c.course_id;",
+      "SELECT s.first_name, s.last_name, c.course_name FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id INNER JOIN Courses c ON e.course_id = c.course_id;",
+      "SELECT s.first_name, s.last_name, c.course_name FROM Students s, Enrollments e, Courses c WHERE s.id = e.student_id AND e.course_id = c.course_id AND e.student_id IS NOT NULL;"
+    ],
+    "correctAnswer": "SELECT s.first_name, s.last_name, c.course_name FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id INNER JOIN Courses c ON e.course_id = c.course_id;"
+  },
+  {
+    "question": "Given the `Students` table (`id`, `first_name`, `last_name`) and the `Enrollments` table (`student_id`, `course_id`), which SQL query will retrieve the `first_name` and `last_name` of *all* students, along with their `course_id` if they are enrolled, displaying `NULL` for `course_id` if a student has no enrollments?",
+    "options": [
+      "SELECT s.first_name, s.last_name, e.course_id FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id;",
+      "SELECT s.first_name, s.last_name, e.course_id FROM Students s, Enrollments e WHERE s.id = e.student_id (+);",
+      "SELECT s.first_name, s.last_name, e.course_id FROM Students s RIGHT JOIN Enrollments e ON s.id = e.student_id;",
+      "SELECT s.first_name, s.last_name, e.course_id FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id;"
+    ],
+    "correctAnswer": "SELECT s.first_name, s.last_name, e.course_id FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id;"
+  },
+  {
+    "question": "Which SQL query correctly combines the `first_name` and `last_name` columns from the `Students` table into a single string, separated by a space, and aliases this new column as `full_name`?",
+    "options": [
+      "SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM Students;",
+      "SELECT CONCAT_WS(' ', first_name, last_name) AS full_name FROM Students;",
+      "SELECT first_name + ' ' + last_name AS full_name FROM Students;",
+      "SELECT STRING_AGG(first_name, ' ', last_name) AS full_name FROM Students;"
+    ],
+    "correctAnswer": "SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM Students;"
+  },
+  {
+    "question": "Which SQL query correctly counts the number of enrollments for each `course_id` in the `Enrollments` table, displaying the `course_id` and the count aliased as `enrollment_count`?",
+    "options": [
+      "SELECT course_id, COUNT(course_id) AS enrollment_count FROM Enrollments;",
+      "SELECT course_id, COUNT(*) AS enrollment_count FROM Enrollments GROUP BY course_id;",
+      "SELECT course_id, TOTAL(enrollments) AS enrollment_count FROM Enrollments GROUP BY course_id;",
+      "SELECT course_id, SUM(*) AS enrollment_count FROM Enrollments GROUP BY course_id;"
+    ],
+    "correctAnswer": "SELECT course_id, COUNT(*) AS enrollment_count FROM Enrollments GROUP BY course_id;"
+  },
+  {
+    "question": "From the `Enrollments` table (which includes `course_id` and `grade`), which SQL query accurately calculates the average `grade` for each `course_id` and displays it as `average_grade` alongside the `course_id`?",
+    "options": [
+      "SELECT course_id, SUM(grade) / COUNT(*) AS average_grade FROM Enrollments GROUP BY course_id;",
+      "SELECT course_id, MEAN(grade) AS average_grade FROM Enrollments GROUP BY course_id;",
+      "SELECT course_id, AVG(grade) AS average_grade FROM Enrollments GROUP BY course_id;",
+      "SELECT course_id, MEDIAN(grade) AS average_grade FROM Enrollments GROUP BY course_id;"
+    ],
+    "correctAnswer": "SELECT course_id, AVG(grade) AS average_grade FROM Enrollments GROUP BY course_id;"
+  },
+  {
+    "question": "Which SQL statement correctly creates a view named `CourseEnrollmentCounts` that displays each `course_id` from the `Enrollments` table along with its total number of enrollments, aliased as `enrollment_count`?",
+    "options": [
+      "CREATE VIRTUAL TABLE CourseEnrollmentCounts AS SELECT course_id, COUNT(*) AS enrollment_count FROM Enrollments GROUP BY course_id;",
+      "DEFINE VIEW CourseEnrollmentCounts AS SELECT course_id, COUNT(*) AS enrollment_count FROM Enrollments GROUP BY course_id;",
+      "CREATE VIEW CourseEnrollmentCounts AS SELECT course_id, COUNT(*) AS enrollment_count FROM Enrollments GROUP BY course_id;",
+      "SELECT course_id, COUNT(*) AS enrollment_count INTO VIEW CourseEnrollmentCounts FROM Enrollments GROUP BY course_id;"
+    ],
+    "correctAnswer": "CREATE VIEW CourseEnrollmentCounts AS SELECT course_id, COUNT(*) AS enrollment_count FROM Enrollments GROUP BY course_id;"
+  },
+  {
+    "question": "What is a key characteristic that primarily distinguishes a database from a simple collection of files (e.g., text files or spreadsheets not managed by a DBMS)?",
+    "options": [
+      "It is managed by a Database Management System (DBMS) that enforces structure, data integrity, and controlled access.",
+      "Databases are always stored in the cloud, while files are stored locally.",
+      "Databases can only store numerical data, while files can store any type of data.",
+      "Databases are exclusively used for web applications, while files are for desktop applications."
+    ],
+    "correctAnswer": "It is managed by a Database Management System (DBMS) that enforces structure, data integrity, and controlled access."
+  },
+  {
+    "question": "Which of the following is NOT considered a primary purpose of using a database system?",
+    "options": [
+      "To ensure data consistency and reduce redundancy.",
+      "To directly provide sophisticated graphical user interfaces for end-user application development.",
+      "To enable concurrent access to data by multiple users.",
+      "To provide mechanisms for data backup and recovery."
+    ],
+    "correctAnswer": "To directly provide sophisticated graphical user interfaces for end-user application development."
+  },
+  {
+    "question": "How is \"information\" typically distinguished from \"data\" in the context of database systems?",
+    "options": [
+      "Information is data that has been processed, organized, or given context to become meaningful and useful.",
+      "Data is always structured, while information can be unstructured.",
+      "Information is the raw input, while data is the processed output.",
+      "Data and information are synonyms in database contexts."
+    ],
+    "correctAnswer": "Information is data that has been processed, organized, or given context to become meaningful and useful."
+  },
+  {
+    "question": "In database terminology, what is the fundamental difference between a database \"schema\" and a database \"instance\"?",
+    "options": [
+      "The schema defines the database's logical structure and organization, while the instance is the actual data residing in the database at a specific point in time.",
+      "The instance is a backup of the schema at a point in time.",
+      "The schema is the actual data, while the instance is the description of the data structure.",
+      "The schema refers to a single table, while the instance refers to the entire database."
+    ],
+    "correctAnswer": "The schema defines the database's logical structure and organization, while the instance is the actual data residing in the database at a specific point in time."
+  },
+  {
+    "question": "In the context of a database, \"metadata\" primarily refers to:",
+    "options": [
+      "The application code that interacts with the database.",
+      "Backup copies of the database used for recovery purposes.",
+      "Descriptive information about the database structure itself, such as table names, column data types, and constraints, typically stored in a data dictionary or catalog.",
+      "The actual user data stored within the tables, such as customer names or product details."
+    ],
+    "correctAnswer": "Descriptive information about the database structure itself, such as table names, column data types, and constraints, typically stored in a data dictionary or catalog."
+  },
+  {
+    "question": "Which of the following tasks is generally NOT considered a primary responsibility of a Database Administrator (DBA)?",
+    "options": [
+      "Monitoring database performance and tuning queries.",
+      "Implementing and maintaining database security measures.",
+      "Writing the business logic and user interface code for applications that access the database.",
+      "Planning for database backup and recovery."
+    ],
+    "correctAnswer": "Writing the business logic and user interface code for applications that access the database."
+  },
+  {
+    "question": "A database system like MySQL or PostgreSQL, which organizes data into tables consisting of rows and columns and uses SQL for data manipulation, is based on which data model?",
+    "options": [
+      "Object-Oriented Model",
+      "Relational Model",
+      "Network Model",
+      "Hierarchical Model"
+    ],
+    "correctAnswer": "Relational Model"
+  },
+  {
+    "question": "In the relational database model, which term is used to describe a single row in a table, representing one instance of an entity or a single record?",
+    "options": [
+      "Field",
+      "Attribute",
+      "Tuple",
+      "Relation"
+    ],
+    "correctAnswer": "Tuple"
+  },
+  {
+    "question": "A \"BookAuthors\" relation is defined with the attributes (ISBN, AuthorID, AuthorSequence). If this relation currently contains 500 entries, each linking a book's ISBN to one of its authors and their sequence number, what are the degree and what does the cardinality represent for this \"BookAuthors\" relation?",
+    "options": [
+      "Degree is 2 (ISBN, AuthorID); Cardinality is 500.",
+      "Degree is 500; Cardinality is 3.",
+      "Degree is 3 (number of attributes); Cardinality is 500 (number of tuples/rows).",
+      "Degree is the number of tables; Cardinality is the number of columns."
+    ],
+    "correctAnswer": "Degree is 3 (number of attributes); Cardinality is 500 (number of tuples/rows)."
+  },
+  {
+    "question": "Which of the following is a fundamental property of relations in the relational model that ensures each recorded fact is distinct and prevents redundancy?",
+    "options": [
+      "The order of attributes (columns) in a relation is significant.",
+      "Each tuple (row) in a relation must be unique.",
+      "All attributes in a relation must be of the same data type.",
+      "The order of tuples (rows) in a relation is significant."
+    ],
+    "correctAnswer": "Each tuple (row) in a relation must be unique."
+  },
+  {
+    "question": "How does Relational Algebra primarily differ from Relational Calculus in its approach to query specification?",
+    "options": [
+      "Relational Algebra is declarative, while Relational Calculus is procedural.",
+      "Relational Algebra uses graphical notations, while Relational Calculus uses mathematical formulas.",
+      "Relational Algebra is procedural, specifying the sequence of operations to retrieve data, while Relational Calculus is declarative, describing the properties of the desired data.",
+      "Relational Algebra is used for defining table structures, while Relational Calculus is for data manipulation."
+    ],
+    "correctAnswer": "Relational Algebra is procedural, specifying the sequence of operations to retrieve data, while Relational Calculus is declarative, describing the properties of the desired data."
+  },
+  {
+    "question": "In the database lifecycle, which stage is primarily focused on creating a high-level, abstract model of the database structure, often using tools like Entity-Relationship Diagrams (ERDs), without considering the specific DBMS or physical storage details?",
+    "options": [
+      "Testing and Evaluation",
+      "Physical Design",
+      "Conceptual Design",
+      "Implementation and Loading"
+    ],
+    "correctAnswer": "Conceptual Design"
+  },
+  {
+    "question": "A Database Administrator (DBA) requires a diverse set of skills. Which of the following best describes the importance of strong \"Problem-Solving and Analytical Abilities\" for a DBA?",
+    "options": [
+      "To write marketing copy for new database features.",
+      "To diagnose complex technical issues, identify root causes, and develop effective solutions to ensure database stability and optimal performance.",
+      "To design aesthetically pleasing user interfaces for database tools.",
+      "To negotiate contracts with database software vendors."
+    ],
+    "correctAnswer": "To diagnose complex technical issues, identify root causes, and develop effective solutions to ensure database stability and optimal performance."
+  },
+  {
+    "question": "In the context of database query formalisms, how does Relational Algebra primarily differ from Relational Calculus?",
+    "options": [
+      "Relational Algebra is procedural, specifying the *sequence of operations* to retrieve data, while Relational Calculus is declarative, specifying *what* data is needed without detailing the exact steps.",
+      "Relational Algebra is based on set theory, while Relational Calculus is based on predicate logic, but both are procedural.",
+      "Relational Algebra describes *what* data is needed, while Relational Calculus describes *how* to get it.",
+      "Relational Algebra is used for NoSQL databases, while Relational Calculus is for SQL databases."
+    ],
+    "correctAnswer": "Relational Algebra is procedural, specifying the *sequence of operations* to retrieve data, while Relational Calculus is declarative, specifying *what* data is needed without detailing the exact steps."
+  },
+  {
+    "question": "Regarding database indexes, which statement accurately describes a key difference between a primary index and a secondary index?",
+    "options": [
+      "A table can have multiple primary indexes but only one secondary index.",
+      "A primary index is always clustered, while a secondary index is always non-clustered.",
+      "A primary index is based on the table's primary key, enforcing uniqueness and providing fast access via that key, while a secondary index is built on other non-primary key attributes to optimize queries based on those attributes.",
+      "A primary index can only be on numeric columns, while a secondary index can be on any data type."
+    ],
+    "correctAnswer": "A primary index is based on the table's primary key, enforcing uniqueness and providing fast access via that key, while a secondary index is built on other non-primary key attributes to optimize queries based on those attributes."
+  },
+  {
+    "question": "Consider a `Customers` table and an `Orders` table, where `Orders.CustomerID` is a foreign key referencing `Customers.CustomerID`. The foreign key constraint is defined with the `ON DELETE RESTRICT` action. What is the expected outcome if a user attempts to delete a customer record from the `Customers` table that has one or more associated orders in the `Orders` table?",
+    "options": [
+      "The deletion will proceed, but a warning will be issued.",
+      "The customer record will be deleted, and all associated orders will also be deleted (cascading delete).",
+      "The deletion attempt on the `Customers` record will be blocked by the database system, and an error will be generated.",
+      "The customer record will be deleted, and the `CustomerID` in associated orders will be set to `NULL`."
+    ],
+    "correctAnswer": "The deletion attempt on the `Customers` record will be blocked by the database system, and an error will be generated."
+  },
+  {
+    "question": "Which of the following statements accurately distinguishes between authentication and authorization in database security?",
+    "options": [
+      "Authentication and authorization are synonyms for database access control.",
+      "Authentication verifies a user's identity (\"Who are you?\"), while authorization determines what an authenticated user is permitted to do (\"What are you allowed to do?\").",
+      "Authentication is granting permissions, while authorization is revoking permissions.",
+      "Authentication determines what a user can do, while authorization verifies who the user is."
+    ],
+    "correctAnswer": "Authentication verifies a user's identity (\"Who are you?\"), while authorization determines what an authenticated user is permitted to do (\"What are you allowed to do?\")."
+  },
+  {
+    "question": "What is the primary objective of database normalization in relational database design?",
+    "options": [
+      "To encrypt sensitive data within the database.",
+      "To ensure all data is stored in a single, large table for simplicity.",
+      "To minimize data redundancy and improve data integrity by structuring data to reduce anomalies.",
+      "To maximize data redundancy to improve query performance through denormalization."
+    ],
+    "correctAnswer": "To minimize data redundancy and improve data integrity by structuring data to reduce anomalies."
+  },
+  {
+    "question": "Consider the following PostgreSQL CREATE TABLE statement:\nCREATE TABLE products (\n product_id SERIAL PRIMARY KEY,\n product_name VARCHAR(255) NOT NULL,\n category_id INTEGER REFERENCES categories(category_id),\n price NUMERIC(10, 2) CHECK (price > 0),\n last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\nWhat is the primary purpose of the SERIAL keyword used for the product_id column?",
+    "options": [
+      "It creates an auto-incrementing integer sequence, typically used for generating unique primary key values.",
+      "It ensures that `product_id` is encrypted before storage.",
+      "It specifies that `product_id` will store serialized object data.",
+      "It indicates that `product_id` must be manually provided in a specific sequence."
+    ],
+    "correctAnswer": "It creates an auto-incrementing integer sequence, typically used for generating unique primary key values."
+  },
+  {
+    "question": "Given the tables `employees` (emp_id, name, department_id) and `departments` (dept_id, dept_name), what will the following PostgreSQL query return?\nSELECT e.name, d.dept_name\nFROM employees e\nLEFT JOIN departments d ON e.department_id = d.dept_id\nWHERE d.dept_name IS NULL;",
+    "options": [
+      "Departments that have no employees assigned to them.",
+      "All employees and their department names, including those without a department.",
+      "Employees who are not assigned to any department (i.e., their `department_id` is NULL or does not match any `dept_id` in `departments`).",
+      "Only employees who are assigned to a department that has a NULL `dept_name`."
+    ],
+    "correctAnswer": "Employees who are not assigned to any department (i.e., their `department_id` is NULL or does not match any `dept_id` in `departments`)."
+  },
+  {
+    "question": "Consider the following PostgreSQL query on a table `orders` (order_id, customer_id, order_total):\nSELECT customer_id, SUM(order_total) AS total_spent\nFROM orders\nWHERE order_total > 10.00\nGROUP BY customer_id\nHAVING COUNT(order_id) >= 2;\nWhat does this query retrieve?",
+    "options": [
+      "The total amount spent by customers who have made at least two orders, considering only orders with a total greater than $10.00.",
+      "The total amount spent by each customer on orders greater than $10.00.",
+      "All customers who have made at least two orders, regardless of order total.",
+      "Customers who have made exactly two orders with a total greater than $10.00 each."
+    ],
+    "correctAnswer": "The total amount spent by customers who have made at least two orders, considering only orders with a total greater than $10.00."
+  },
+  {
+    "question": "Which PostgreSQL command is used to retrieve all columns and all rows from a table named `students`?",
+    "options": [
+      "SHOW ALL FROM students;",
+      "SELECT * FROM students;",
+      "RETRIEVE * FROM students;",
+      "GET * FROM students;"
+    ],
+    "correctAnswer": "SELECT * FROM students;"
+  },
+  {
+    "question": "In PostgreSQL, if you want to store a person's full name, which is a sequence of characters of varying length (e.g., \"Alice Wonderland\"), which data type would be most appropriate for the column?",
+    "options": [
+      "VARCHAR(255)",
+      "NAME",
+      "CHAR(255)",
+      "TEXT"
+    ],
+    "correctAnswer": "VARCHAR(255)"
+  },
+  {
+    "question": "Consider the following PostgreSQL statement:\nINSERT INTO employees (first_name, last_name, department) VALUES ('John', 'Doe', 'Sales');\nWhat does this statement do?",
+    "options": [
+      "It adds a new row (a new employee) to the `employees` table with the specified details.",
+      "It creates a new table named `employees` with columns for name and department.",
+      "It selects employees named John Doe from the Sales department.",
+      "It updates an existing employee named John Doe to the Sales department."
+    ],
+    "correctAnswer": "It adds a new row (a new employee) to the `employees` table with the specified details."
+  },
+  {
+    "question": "You have a table named `products` with columns `product_id`, `product_name`, and `price`. Which PostgreSQL query would change the `price` of the product with `product_id = 101` to `25.99`?",
+    "options": [
+      "ALTER products SET price = 25.99 WHERE product_id = 101;",
+      "UPDATE products SET price = 25.99 WHERE product_id = 101;",
+      "INSERT INTO products (price) VALUES (25.99) WHERE product_id = 101;",
+      "MODIFY products SET price = 25.99 WHERE product_id = 101;"
+    ],
+    "correctAnswer": "UPDATE products SET price = 25.99 WHERE product_id = 101;"
+  },
+  {
+    "question": "If you want to remove all books published before the year 2000 from a table named `books` (which has a `publication_year` column), which PostgreSQL command would you use?",
+    "options": [
+      "TRUNCATE books WHERE publication_year < 2000;",
+      "DELETE FROM books WHERE publication_year < 2000;",
+      "REMOVE FROM books WHERE publication_year < 2000;",
+      "DROP FROM books WHERE publication_year < 2000;"
+    ],
+    "correctAnswer": "DELETE FROM books WHERE publication_year < 2000;"
+  },
+  {
+    "question": "You have a table named `departments` with columns `dept_id` (integer, primary key) and `dept_name` (varchar). You want to add a new department called \"Human Resources\" with a `dept_id` of 5. Which PostgreSQL statement achieves this?",
+    "options": [
+      "ADD INTO departments VALUES (5, 'Human Resources');",
+      "UPDATE departments ADD ROW (5, 'Human Resources');",
+      "INSERT INTO departments (dept_id, dept_name) VALUES (5, 'Human Resources');",
+      "CREATE DEPARTMENT (5, 'Human Resources') IN departments;"
+    ],
+    "correctAnswer": "INSERT INTO departments (dept_id, dept_name) VALUES (5, 'Human Resources');"
+  },
+  {
+    "question": "Consider the `products` table with columns `product_name` (varchar) and `stock_quantity` (integer). You need to decrease the `stock_quantity` by 5 for the product named 'Laptop'. Which PostgreSQL query is correct?",
+    "options": [
+      "UPDATE products (stock_quantity) VALUES (stock_quantity - 5) WHERE product_name = 'Laptop';",
+      "UPDATE products SET stock_quantity = stock_quantity - 5 WHERE product_name = 'Laptop';",
+      "ALTER products SET stock_quantity = stock_quantity - 5 WHERE product_name = 'Laptop';",
+      "UPDATE products DECREMENT stock_quantity BY 5 WHERE product_name = 'Laptop';"
+    ],
+    "correctAnswer": "UPDATE products SET stock_quantity = stock_quantity - 5 WHERE product_name = 'Laptop';"
+  },
+  {
+    "question": "What is the primary consequence of executing the following PostgreSQL statement, assuming the `orders` table exists and has data?\nDELETE FROM orders;",
+    "options": [
+      "It removes all rows from the `orders` table, but the table structure remains.",
+      "It archives all rows from the `orders` table into a backup file.",
+      "It removes the `orders` table from the database.",
+      "It removes all rows from the `orders` table and resets any auto-increment counters (like TRUNCATE)."
+    ],
+    "correctAnswer": "It removes all rows from the `orders` table, but the table structure remains."
+  },
+  {
+    "question": "You have an `employees` table with columns `employee_id`, `name`, and `manager_id`. You want to change the `manager_id` for the employee with `employee_id = 7` to `NULL` (indicating they have no manager). Which PostgreSQL statement is most appropriate?",
+    "options": [
+      "DELETE FROM employees.manager_id WHERE employee_id = 7;",
+      "UPDATE employees SET manager_id = 'NULL' WHERE employee_id = 7;",
+      "UPDATE employees SET manager_id = NULL WHERE employee_id = 7;",
+      "ALTER employees MODIFY manager_id = NULL WHERE employee_id = 7;"
+    ],
+    "correctAnswer": "UPDATE employees SET manager_id = NULL WHERE employee_id = 7;"
+  },
+  {
+    "question": "A table named `tasks` has columns `task_id` (integer), `description` (text), and `is_completed` (boolean). You want to add a new task with `task_id = 101`, `description = 'Review documentation'`, and mark it as not completed. Which statement correctly inserts this data?",
+    "options": [
+      "INSERT INTO tasks (task_id, description, is_completed) VALUES (101, 'Review documentation', FALSE);",
+      "INSERT tasks (task_id, description, is_completed) SET (101, 'Review documentation', FALSE);",
+      "ADD TASK (101, 'Review documentation', 0) TO tasks;",
+      "INSERT INTO tasks VALUES (101, 'Review documentation', 'N');"
+    ],
+    "correctAnswer": "INSERT INTO tasks (task_id, description, is_completed) VALUES (101, 'Review documentation', FALSE);"
+  },
+  {
+    "question": "You have a table named `employees` with columns `employee_id`, `first_name`, `last_name`, and `department`. Which PostgreSQL query will retrieve only the `first_name` and `last_name` of employees who work in the 'Marketing' department?",
+    "options": [
+      "SELECT first_name, last_name FROM employees WHERE department = 'Marketing';",
+      "RETRIEVE first_name, last_name FROM employees WHERE department = 'Marketing';",
+      "SELECT * FROM employees WHERE department = 'Marketing' AND COLUMNS (first_name, last_name);",
+      "SELECT first_name, last_name FROM employees HAVING department = 'Marketing';"
+    ],
+    "correctAnswer": "SELECT first_name, last_name FROM employees WHERE department = 'Marketing';"
+  },
+  {
+    "question": "You have an existing table named `products` with columns `product_id` and `product_name`. You want to add a new column named `category` which can store text up to 50 characters. Which PostgreSQL command achieves this?",
+    "options": [
+      "ALTER TABLE products ADD category VARCHAR(50);",
+      "UPDATE TABLE products ADD category VARCHAR(50);",
+      "CREATE COLUMN category VARCHAR(50) ON products;",
+      "MODIFY TABLE products ADD COLUMN category VARCHAR(50);"
+    ],
+    "correctAnswer": "ALTER TABLE products ADD category VARCHAR(50);"
+  },
+  {
+    "question": "Consider a table `event_log` with columns `log_id` (integer), `event_time` (timestamp), and `message` (text). You want to delete all log entries that occurred before January 1st, 2023. Which PostgreSQL statement is correct?",
+    "options": [
+      "TRUNCATE event_log WHERE event_time < '2023-01-01 00:00:00';",
+      "REMOVE FROM event_log WHERE event_time < TIMESTAMP '2023-01-01';",
+      "DELETE FROM event_log WHERE event_time < '2023-01-01';",
+      "DELETE FROM event_log HAVING event_time < '2023-01-01';"
+    ],
+    "correctAnswer": "DELETE FROM event_log WHERE event_time < '2023-01-01';"
+  },
+  {
+    "question": "You have a `students` table with columns `student_id`, `name`, `email`, and `major`. You need to update the record for the student with `student_id = 150` to change their `email` to 'new.email@example.com' and their `major` to 'Computer Science'. Which PostgreSQL query is correct?",
+    "options": [
+      "UPDATE students SET email = 'new.email@example.com', major = 'Computer Science' WHERE student_id = 150;",
+      "ALTER students (email, major) VALUES ('new.email@example.com', 'Computer Science') WHERE student_id = 150;",
+      "MODIFY students SET email = 'new.email@example.com', major = 'Computer Science' FOR student_id = 150;",
+      "UPDATE students SET email = 'new.email@example.com' AND major = 'Computer Science' WHERE student_id = 150;"
+    ],
+    "correctAnswer": "UPDATE students SET email = 'new.email@example.com', major = 'Computer Science' WHERE student_id = 150;"
+  },
+  {
+    "question": "You have an `orders` table with columns `order_id`, `customer_id`, `order_date`, and `shipping_city`. You want to get a list of all unique cities to which orders have been shipped, without any city appearing multiple times. Which PostgreSQL query should you use?",
+    "options": [
+      "SELECT DISTINCT shipping_city FROM orders;",
+      "SELECT UNIQUE shipping_city FROM orders;",
+      "SELECT shipping_city FROM orders GROUP BY shipping_city;",
+      "SELECT ALL shipping_city FROM orders WHERE COUNT(shipping_city) = 1;"
+    ],
+    "correctAnswer": "SELECT DISTINCT shipping_city FROM orders;"
+  },
+  {
+    "question": "Which PostgreSQL statement correctly creates a new table named `courses` with the following columns:\n* `course_id`: an integer that cannot be null and must be unique (primary key).\n* `course_name`: a variable-length string up to 100 characters.\n* `credits`: an integer.",
+    "options": [
+      "CREATE TABLE courses (\n course_id INTEGER PRIMARY KEY,\n course_name VARCHAR(100),\n credits INTEGER\n);",
+      "TABLE courses (\n course_id INTEGER PRIMARY,\n course_name STRING(100),\n credits INT\n);",
+      "DEFINE TABLE courses (\n course_id INT PRIMARY KEY,\n course_name CHAR(100),\n credits NUMBER\n);",
+      "CREATE NEW TABLE courses (\n course_id INTEGER UNIQUE NOT NULL,\n course_name VARCHAR(100),\n credits INTEGER,\n PRIMARY KEY (course_id)\n);"
+    ],
+    "correctAnswer": "CREATE TABLE courses (\n course_id INTEGER PRIMARY KEY,\n course_name VARCHAR(100),\n credits INTEGER\n);"
+  },
+  {
+  "question": "Which SQL statement correctly deletes the authors table from the database, ensuring no error is raised if the table is already absent?",
+  "options": [
+    "DELETE TABLE IF EXISTS authors;",
+    "DROP TABLE authors IF NOT EXISTS;",
+    "DROP TABLE IF EXISTS authors;",
+    "REMOVE TABLE IF EXISTS authors;"
+  ],
+  "correctAnswer": "DROP TABLE IF EXISTS authors;"
+},
+{
+  "question": "Which SQL query correctly selects books that are in the 'Classic' OR 'Dystopian' categories AND priced greater than $12.00?",
+  "options": [
+    "SELECT * FROM books WHERE category = 'Classic' OR category = 'Dystopian' OR price > 12.00;",
+    "SELECT * FROM books WHERE (category = 'Classic' OR category = 'Dystopian') AND price > 12.00;",
+    "SELECT * FROM books WHERE category = 'Classic' AND category = 'Dystopian' AND price > 12.00;",
+    "SELECT * FROM books WHERE category = 'Classic' OR category = 'Dystopian' AND price > 12.00;"
+  ],
+  "correctAnswer": "SELECT * FROM books WHERE (category = 'Classic' OR category = 'Dystopian') AND price > 12.00;"
+},
+{
+  "question": "Which SQL query correctly selects books published before 1960 AND priced greater than $14.00?",
+  "options": [
+    "SELECT * FROM books WHERE publication_year < 1960 OR price > 14.00;",
+    "SELECT * FROM books WHERE publication_year > 1960 AND price < 14.00;",
+    "SELECT * FROM books WHERE NOT (publication_year < 1960 AND price > 14.00);",
+    "SELECT * FROM books WHERE publication_year < 1960 AND price > 14.00;"
+  ],
+  "correctAnswer": "SELECT * FROM books WHERE publication_year < 1960 AND price > 14.00;"
+},
+{
+  "question": "To sort the book titles in reverse alphabetical order (Z to A), which ORDER BY syntax is correct?",
+  "options": [
+    "ORDER BY book_title ASC;",
+    "ORDER BY book_title REVERSE;",
+    "ORDER BY book_title DESC;",
+    "SORT BY book_title DESC;"
+  ],
+  "correctAnswer": "ORDER BY book_title DESC;"
+},
+{
+  "question": "Which SQL query correctly selects books written by 'Jane Austen' OR published after the year 1970?",
+  "options": [
+    "SELECT * FROM books WHERE author_name = 'Jane Austen' AND publication_year > 1970;",
+    "SELECT * FROM books WHERE author_name = 'Jane Austen' OR publication_year > 1970;",
+    "SELECT * FROM books WHERE NOT (author_name = 'Jane Austen' OR publication_year > 1970);",
+    "SELECT * FROM books WHERE author_name = 'Jane Austen' AND publication_year < 1970;"
+  ],
+  "correctAnswer": "SELECT * FROM books WHERE author_name = 'Jane Austen' OR publication_year > 1970;"
+},
+{
+  "question": "To find book titles that are in genre_books_set1 but not in genre_books_set2, which operator correctly completes the following: SELECT book_title FROM genre_books_set1 and SELECT book_title FROM genre_books_set2?",
+  "options": [
+    "INTERSECT;",
+    "COMBINE;",
+    "EXCEPT;",
+    "UNION;"
+  ],
+  "correctAnswer": "EXCEPT;"
+},
+{
+  "question": "Filter rows before grouping so that only orders where the book_title contains 'of' are considered.",
+  "options": [
+    "HAVING book_title LIKE '%of%';",
+    "GROUP BY book_title LIKE '%of%';",
+    "WHERE book_title LIKE '%of%';",
+    "ORDER BY book_title LIKE '%of%';"
+  ],
+  "correctAnswer": "WHERE book_title LIKE '%of%';"
+},
+{
+  "question": "When creating the books table, how do you correctly define the book_id column as a unique identifier that auto-increments and serves as the primary key, according to the tutorial's examples?",
+  "options": [
+    "book_id INT AUTO_INCREMENT PRIMARY KEY;",
+    "book_id INTEGER PRIMARY KEY AUTOINCREMENT;",
+    "book_id IDENTITY PRIMARY KEY;",
+    "book_id SERIAL PRIMARY KEY;"
+  ],
+  "correctAnswer": "book_id SERIAL PRIMARY KEY;"
+},
+{
+  "question": "To find all unique combinations of (genre, book_title) from both tables using the UNION operator, what should be selected in the first SELECT statement: SELECT _________ FROM genre_books_set1 UNION ...?",
+  "options": [
+    "book_id, genre;",
+    "book_title;",
+    "genre;",
+    "genre, book_title;"
+  ],
+  "correctAnswer": "genre, book_title;"
+},
+{
+  "question": "The FULL OUTER JOIN is used to combine categories and products: SELECT c.category_name, p.product_name FROM categories AS c FULL OUTER JOIN products AS p ON c.category_id = p.category_id; Which part of this query ensures that if a category has no products, it still appears in the result, and if a product has no category, it also appears?",
+  "options": [
+    "FROM categories AS c;",
+    "ON c.category_id = p.category_id;",
+    "FULL OUTER JOIN products AS p;",
+    "SELECT c.category_name, p.product_name;"
+  ],
+  "correctAnswer": "FULL OUTER JOIN products AS p;"
+},
+{
+  "question": "Consider the LEFT JOIN query: SELECT c.category_name, p.product_name FROM categories AS c LEFT JOIN products AS p ON c.category_id = p.category_id; Which statement accurately describes the rows that will be included from the categories table?",
+  "options": [
+    "Only categories that have at least one matching product in the products table;",
+    "Only categories that do not have any matching products;",
+    "Categories will be included only if p.product_name is not NULL;",
+    "All categories will be included, regardless of whether they have matching products;"
+  ],
+  "correctAnswer": "All categories will be included, regardless of whether they have matching products;"
+},
+{
+  "question": "To drop the birth_date column from the authors table, and you want to prevent an error if the column doesn't exist, what is the correct clause to use with DROP COLUMN?",
+  "options": [
+    "WHEN EXISTS;",
+    "IF PRESENT;",
+    "CHECK EXISTS;",
+    "IF EXISTS;"
+  ],
+  "correctAnswer": "IF EXISTS;"
+},
+{
+  "question": "Which SQL query correctly selects books that are priced less than $15.00 AND belong to the 'Classic' category?",
+  "options": [
+    "SELECT * FROM books WHERE price > 15.00 AND category = 'Classic';",
+    "SELECT * FROM books WHERE price < 15.00 OR category = 'Classic';",
+    "SELECT * FROM books WHERE category = 'Classic';",
+    "SELECT * FROM books WHERE price < 15.00 AND category = 'Classic';"
+  ],
+  "correctAnswer": "SELECT * FROM books WHERE price < 15.00 AND category = 'Classic';"
+},
+{
+  "question": "Which SQL query correctly selects books that are NOT ('Fantasy' OR 'Dystopian') AND priced less than $15.00?",
+  "options": [
+    "SELECT * FROM books WHERE (category = 'Fantasy' OR category = 'Dystopian') AND price < 15.00;",
+    "SELECT * FROM books WHERE NOT (category = 'Fantasy' OR category = 'Dystopian') AND price < 15.00;",
+    "SELECT * FROM books WHERE (NOT category = 'Fantasy' OR NOT category = 'Dystopian') AND price < 15.00;",
+    "SELECT * FROM books WHERE NOT (category = 'Fantasy' AND category = 'Dystopian') AND price < 15.00;"
+  ],
+  "correctAnswer": "SELECT * FROM books WHERE NOT (category = 'Fantasy' OR category = 'Dystopian') AND price < 15.00;"
+},
+{
+  "question": "Which LIKE pattern correctly identifies genres that end with the letter 'e'?",
+  "options": [
+    "genre LIKE 'e%';",
+    "genre LIKE '%e%';",
+    "genre LIKE '%e';",
+    "genre LIKE '_e';"
+  ],
+  "correctAnswer": "genre LIKE '%e';"
+},
+{
+  "question": "Which SQL query correctly selects books that are either 'Science Fiction' books priced under $20.00 OR 'Classic' books published before 1900?",
+  "options": [
+    "SELECT * FROM books WHERE (category = 'Science Fiction' AND price < 20.00) AND (category = 'Classic' AND publication_year < 1900);",
+    "SELECT * FROM books WHERE category = 'Science Fiction' OR price < 20.00 OR category = 'Classic' OR publication_year < 1900;",
+    "SELECT * FROM books WHERE (category = 'Science Fiction' AND price < 20.00) OR (category = 'Classic' AND publication_year < 1900);",
+    "SELECT * FROM books WHERE category = 'Science Fiction' AND price < 20.00 AND publication_year < 1900 OR category = 'Classic';"
+  ],
+  "correctAnswer": "SELECT * FROM books WHERE (category = 'Science Fiction' AND price < 20.00) OR (category = 'Classic' AND publication_year < 1900);"
+},
+{
+  "question": "Consider the query: SELECT c.category_name, p.product_name FROM categories AS c LEFT JOIN products AS p ON c.category_id = p.category_id WHERE p.price > 50.00; What happens if a category (e.g., 'Books') only contains products priced $50.00 or less?",
+  "options": [
+    "An error will be raised because no products match the WHERE condition for that category;",
+    "The category name will appear with NULL for p.product_name;",
+    "The category will not appear in the results at all;",
+    "The category name will appear, and all its products will be listed, ignoring the WHERE clause for that category;"
+  ],
+  "correctAnswer": "The category will not appear in the results at all;"
+},
+{
+  "question": "To check if a book_title contains the digit '3' using the LIKE operator, what is the correct pattern?",
+  "options": [
+    "book_title LIKE '%3';",
+    "book_title LIKE '3%';",
+    "book_title LIKE '3';",
+    "book_title LIKE '%3%';"
+  ],
+  "correctAnswer": "book_title LIKE '%3%';"
+},
+{
+  "question": "To change the data type of the genre column in the books table to VARCHAR(75), which specific ALTER TABLE clause should be used?",
+  "options": [
+    "ALTER COLUMN genre SET DATA TYPE VARCHAR(75);",
+    "MODIFY COLUMN genre TYPE VARCHAR(75);",
+    "CHANGE COLUMN genre TO VARCHAR(75);",
+    "ALTER COLUMN genre TYPE VARCHAR(75);"
+  ],
+  "correctAnswer": "ALTER COLUMN genre TYPE VARCHAR(75);"
+},
+{
+  "question": "In the query: SELECT genre FROM genre_books_set1 INTERSECT SELECT genre FROM genre_books_set2; The INTERSECT operator is used to:",
+  "options": [
+    "List all unique genres from both tables combined;",
+    "List genres from genre_books_set1 that are not in genre_books_set2;",
+    "List all genres from genre_books_set1 only;",
+    "List only the genres that are present in both genre_books_set1 and genre_books_set2;"
+  ],
+  "correctAnswer": "List only the genres that are present in both genre_books_set1 and genre_books_set2;"
+},
+{
+  "question": "In the query: SELECT p.product_name, COALESCE(c.category_name, 'Uncategorized') AS category_name FROM categories AS c RIGHT JOIN products AS p ON c.category_id = p.category_id; What is the primary function of COALESCE(c.category_name, 'Uncategorized')?",
+  "options": [
+    "To assign 'Uncategorized' to c.category_name if p.product_name is NULL;",
+    "To combine c.category_name with the string 'Uncategorized';",
+    "To return 'Uncategorized' if c.category_name is NULL for a product, otherwise return c.category_name;",
+    "To filter out products that are uncategorized;"
+  ],
+  "correctAnswer": "To return 'Uncategorized' if c.category_name is NULL for a product, otherwise return c.category_name;"
+},
+{
+  "question": "To find all unique book titles present in either genre_books_set1 or genre_books_set2, which set operator should be used to combine the results of SELECT book_title FROM genre_books_set1 and SELECT book_title FROM genre_books_set2?",
+  "options": [
+    "INTERSECT;",
+    "UNION ALL;",
+    "EXCEPT;",
+    "UNION;"
+  ],
+  "correctAnswer": "UNION;"
+},
+{
+  "question": "To find book titles that are of the 'Fantasy' genre AND are present in both genre_books_set1 and genre_books_set2, which set operator is used between the two SELECT ... WHERE genre = 'Fantasy' clauses?",
+  "options": [
+    "UNION;",
+    "EXCEPT;",
+    "UNION ALL;",
+    "INTERSECT;"
+  ],
+  "correctAnswer": "INTERSECT;"
+},
+{
+  "question": "Assuming a function LENGTH(column_name) exists that returns the character length of a string, how would you order book titles from shortest to longest?",
+  "options": [
+    "ORDER BY book_title LENGTH ASC;",
+    "SORT BY LENGTH(book_title) ASC;",
+    "ORDER BY LENGTH(book_title) DESC;",
+    "ORDER BY LENGTH(book_title) ASC;"
+  ],
+  "correctAnswer": "ORDER BY LENGTH(book_title) ASC;"
+},
+{
+  "question": "In the query to list product names and their corresponding category names using an INNER JOIN: SELECT p.product_name, c.category_name FROM products AS p INNER JOIN categories AS c ON p.category_id = c.category_id; What is the purpose of the ON p.category_id = c.category_id clause?",
+  "options": [
+    "To filter products based on their price;",
+    "To rename the products table to p and categories table to c;",
+    "To define the condition for matching rows between the products and categories tables;",
+    "To specify which columns to display in the result;"
+  ],
+  "correctAnswer": "To define the condition for matching rows between the products and categories tables;"
+},
+{
+  "question": "To retrieve unique genres from the orders table, which clause is essential?",
+  "options": [
+    "HAVING genre;",
+    "DISTINCT genre;",
+    "ORDER BY genre;",
+    "GROUP BY genre;"
+  ],
+  "correctAnswer": "DISTINCT genre;"
+},
+{
+  "question": "To list genres present in genre_books_set1 but not in genre_books_set2, the query structure is SELECT genre FROM table_A EXCEPT SELECT genre FROM table_B. Which table name should replace table_A?",
+  "options": [
+    "It does not matter which table is table_A;",
+    "genre_books_set2;",
+    "genre_books_set1;",
+    "genre_books_set1 UNION genre_books_set2;"
+  ],
+  "correctAnswer": "genre_books_set1;"
+},
+{
+  "question": "To ensure that the selected book titles contain both the letter 'a' AND the letter 's' when filtering groups, which logical operator is used between the two LIKE conditions in the HAVING clause?",
+  "options": [
+    "BOTH;",
+    "OR;",
+    "AND;",
+    "XOR;"
+  ],
+  "correctAnswer": "AND;"
+},
+{
+  "question": "In the query SELECT book_title FROM genre_books_set1 and SELECT book_title FROM genre_books_set2, which operator correctly fills the blank to find book titles that appear in both genre_books_set1 and genre_books_set2?",
+  "options": [
+    "EXCEPT;",
+    "UNION;",
+    "INTERSECT;",
+    "JOIN;"
+  ],
+  "correctAnswer": "INTERSECT;"
+},
+{
+  "question": "To find book titles containing 'The' (case-sensitive) as a substring, which LIKE pattern would you use in a WHERE clause?",
+  "options": [
+    "book_title LIKE 'The';",
+    "book_title LIKE '%The';",
+    "book_title LIKE '%The%';",
+    "book_title LIKE 'The%';"
+  ],
+  "correctAnswer": "book_title LIKE '%The%';"
+},
+{
+  "question": "In the query to find product names and prices for products in the 'Electronics' category: SELECT p.product_name, p.price FROM products AS p INNER JOIN categories AS c ON p.category_id = c.category_id WHERE c.category_name = 'Electronics'; Which clause is responsible for filtering the results to include only 'Electronics' products?",
+  "options": [
+    "FROM products AS p;",
+    "SELECT p.product_name, p.price;",
+    "INNER JOIN categories AS c ON p.category_id = c.category_id;",
+    "WHERE c.category_name = 'Electronics';"
+  ],
+  "correctAnswer": "WHERE c.category_name = 'Electronics';"
+},
+{
+  "question": "To filter the groups of genres to include only those containing the letter 'e', which clause and condition are used after GROUP BY genre?",
+  "options": [
+    "HAVING genre = 'e';",
+    "WHERE genre LIKE '%e%';",
+    "FILTER genre LIKE '%e%';",
+    "HAVING genre LIKE '%e%';"
+  ],
+  "correctAnswer": "HAVING genre LIKE '%e%';"
+},
+{
+  "question": "For the query that counts products in each category: SELECT c.category_name, COUNT(p.product_id) AS product_count FROM categories AS c LEFT JOIN products AS p ON c.category_id = p.category_id GROUP BY c.category_name; Which part of the query is essential for COUNT(p.product_id) to provide a per-category count rather than a total count?",
+  "options": [
+    "ON c.category_id = p.category_id;",
+    "LEFT JOIN products AS p;",
+    "GROUP BY c.category_name;",
+    "COUNT(p.product_id) AS product_count;"
+  ],
+  "correctAnswer": "GROUP BY c.category_name;"
+},
+{
+  "question": "To add a new column named price with the data type DECIMAL to the existing books table, which SQL command structure should be used?",
+  "options": [
+    "UPDATE TABLE books ADD COLUMN price DECIMAL;",
+    "INSERT INTO books COLUMN price DECIMAL;",
+    "MODIFY TABLE books ADD price DECIMAL;",
+    "ALTER TABLE books ADD COLUMN price DECIMAL;"
+  ],
+  "correctAnswer": "ALTER TABLE books ADD COLUMN price DECIMAL;"
+},
+{
+  "question": "In the RIGHT JOIN query: SELECT p.product_name, c.category_name FROM categories AS c RIGHT JOIN products AS p ON c.category_id = p.category_id; If a product in the products table has a category_id that does not exist in the categories table (or is NULL), what will be the value of c.category_name for that product in the result?",
+  "options": [
+    "The product_name;",
+    "An error will occur;",
+    "NULL;",
+    "The string 'Uncategorized';"
+  ],
+  "correctAnswer": "NULL;"
+},
+{
+  "question": "In the query that joins products and categories and orders by price: SELECT p.product_name, c.category_name FROM products AS p INNER JOIN categories AS c ON p.category_id = c.category_id ORDER BY p.price DESC; What does DESC in the ORDER BY p.price DESC clause signify?",
+  "options": [
+    "Order by product price in default (ascending) order;",
+    "Select distinct prices only;",
+    "Describe the p.price column's data type;",
+    "Order by product price in descending order;"
+  ],
+  "correctAnswer": "Order by product price in descending order;"
+},
+{
+  "question": "The CROSS JOIN query is: SELECT c.category_name, p.product_name FROM categories AS c CROSS JOIN products AS p; If there are 4 categories and 9 products, how many rows will this query produce?",
+  "options": [
+    "9 rows (the number of products);",
+    "13 rows (4 + 9);",
+    "36 rows (4 * 9);",
+    "4 rows (the number of categories);"
+  ],
+  "correctAnswer": "36 rows (4 * 9);"
+},
+{
+  "question": "If the goal is to list all unique genres present in either genre_books_set1 or genre_books_set2 using a UNION operation, what column should be selected from genre_books_set1 in its SELECT statement: SELECT __________ FROM genre_books_set1 UNION SELECT genre FROM genre_books_set2?",
+  "options": [
+    "* (all columns);",
+    "book_id;",
+    "genre;",
+    "book_title;"
+  ],
+  "correctAnswer": "genre;"
+},
+{
+  "question": "Add a stock_quantity column (integer) to the books table with a default value of 0.",
+  "options": [
+    "ADD COLUMN stock_quantity INTEGER WITH DEFAULT 0;",
+    "ADD COLUMN stock_quantity INTEGER, DEFAULT IS 0;",
+    "ADD COLUMN stock_quantity INTEGER HAS DEFAULT 0;",
+    "ADD COLUMN stock_quantity INTEGER DEFAULT 0;"
+  ],
+  "correctAnswer": "ADD COLUMN stock_quantity INTEGER DEFAULT 0;"
+},
+{
+  "question": "To filter for book titles that start with 'The', which WHERE clause condition is correct?",
+  "options": [
+    "WHERE book_title LIKE '%The';",
+    "WHERE book_title = 'The';",
+    "WHERE book_title LIKE 'The_';",
+    "WHERE book_title LIKE 'The%';"
+  ],
+  "correctAnswer": "WHERE book_title LIKE 'The%';"
+},
+{
+  "question": "Which SQL query correctly selects books that are NOT in the 'Science Fiction' category?",
+  "options": [
+    "SELECT * FROM books WHERE category = 'Science Fiction';",
+    "SELECT * FROM books WHERE NOT category <> 'Science Fiction';",
+    "SELECT * FROM books WHERE category = 'Science Fiction' AND NOT category = 'Science Fiction';",
+    "SELECT * FROM books WHERE NOT category = 'Science Fiction';"
+  ],
+  "correctAnswer": "SELECT * FROM books WHERE NOT category = 'Science Fiction';"
+},
+{
+  "question": "When using the EXCEPT operator to find book titles that are in genre_books_set2 but not in genre_books_set1, which table's SELECT statement should come first? SELECT book_title FROM table_A EXCEPT SELECT book_title FROM table_B?",
+  "options": [
+    "The order does not matter for EXCEPT;",
+    "Both should be genre_books_set1;",
+    "table_A should be genre_books_set1;",
+    "table_A should be genre_books_set2;"
+  ],
+  "correctAnswer": "table_A should be genre_books_set2;"
+},
+{
+  "question": "For the books table, the title column needs to be text, cannot be null, and have a maximum length of 100 characters. Which SQL definition snippet is correct?",
+  "options": [
+    "title TEXT(100) NOT NULL;",
+    "title CHAR(100) MANDATORY;",
+    "title STRING(100) REQUIRED;",
+    "title VARCHAR(100) NOT NULL;"
+  ],
+  "correctAnswer": "title VARCHAR(100) NOT NULL;"
+},
+{
+  "question": "Rename the author_name column in the authors table to name.",
+  "options": [
+    "ALTER COLUMN author_name TO name;",
+    "RENAME author_name TO name;",
+    "CHANGE COLUMN author_name TO name;",
+    "RENAME COLUMN author_name TO name;"
+  ],
+  "correctAnswer": "RENAME COLUMN author_name TO name;"
+},
+{
+  "question": "In the CREATE TABLE statement for the authors table, how would you define the birth_date column to store date values?",
+  "options": [
+    "birth_date DATE_TYPE;",
+    "birth_date DATETIME;",
+    "birth_date DATE;",
+    "birth_date TIMESTAMP;"
+  ],
+  "correctAnswer": "birth_date DATE;"
+}
+  ]
+}
